@@ -1,0 +1,7 @@
+Cambios esteticos.
+
+Buscar forma de cambiar de formulario sin usar hide y show.
+
+No mostrar contraseña de usuario en la grilla.
+
+Que la grilla en vez de mostrar sexo=1 o rol=2 muestre el texto correspondiente.
