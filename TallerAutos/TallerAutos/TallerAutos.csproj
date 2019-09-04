@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Clases\BaseDeDatos.cs" />
     <Compile Include="Clases\Empleado.cs" />
+    <Compile Include="Clases\OrdenTrabajo.cs" />
     <Compile Include="Clases\Rol.cs" />
     <Compile Include="Clases\Sexo.cs" />
     <Compile Include="Formularios\frmConsultaOrden.cs">

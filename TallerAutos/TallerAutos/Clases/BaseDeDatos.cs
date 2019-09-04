@@ -10,9 +10,12 @@ namespace TallerAutos.Clases
 {
     class BaseDeDatos
     {
-
+        // mauri:
         //string cadenaConexion = @"Data Source=localhost;Initial Catalog=Taller;Integrated Security=True";
-        string cadenaConexion = @"Data Source=(local)\SQLEXPRESS;Initial Catalog = 'Taller PAV'; Integrated Security = True";
+        //isa:
+        //string cadenaConexion = @"Data Source=(local)\SQLEXPRESS;Initial Catalog = 'Taller PAV'; Integrated Security = True";
+        //francisco:
+        string cadenaConexion = @"Data Source=LAPTOP-WINDOWS1\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
         SqlConnection conexion = new SqlConnection();
         SqlCommand comando = new SqlCommand();
 

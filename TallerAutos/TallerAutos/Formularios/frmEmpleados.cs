@@ -66,11 +66,11 @@ namespace TallerAutos
         private void FrmEmpleados_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'taller_PAVDataSet4.Empleados' Puede moverla o quitarla según sea necesario.
-            this.empleadosTableAdapter.Fill(this.taller_PAVDataSet4.Empleados);
+            //this.empleadosTableAdapter.Fill(this.taller_PAVDataSet4.Empleados);
             // TODO: esta línea de código carga datos en la tabla 'taller_PAVDataSet3.Roles' Puede moverla o quitarla según sea necesario.
-            this.rolesTableAdapter.Fill(this.taller_PAVDataSet3.Roles);
+            //this.rolesTableAdapter.Fill(this.taller_PAVDataSet3.Roles);
             // TODO: esta línea de código carga datos en la tabla 'taller_PAVDataSet2.Sexos' Puede moverla o quitarla según sea necesario.
-            this.sexosTableAdapter.Fill(this.taller_PAVDataSet2.Sexos);
+            //this.sexosTableAdapter.Fill(this.taller_PAVDataSet2.Sexos);
             this.habilitar(false);
             this.cargarGrilla();
             txtLegajo.Enabled = false;
