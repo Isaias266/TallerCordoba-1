@@ -18,30 +18,21 @@ namespace TallerAutos.Formularios
             InitializeComponent();
         }
 
-        private void LblFechDesde_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblPrior_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnQuery_Click(object sender, EventArgs e)
         {
+            OrdenTrabajo ot = new OrdenTrabajo();
             string strSql = "SELECT TOP 20 * FROM Ordenes WHERE 1=1 ";
 
             Dictionary<string, object> parametros = new Dictionary<string, object>();
 
             DateTime fechaDesde = dtpDesde.Value;
             DateTime fechaHasta = dtpHasta.Value;
+
             
-            {
-                strSql += " AND (fechaAlta>=@fechaDesde AND fechaAlta<=@fechaHasta) ";
-                parametros.Add("fechaDesde", dtpDesde.Value);
-                parametros.Add("fechaHasta", dtpHasta.Value);
-            }
+            strSql += " AND (fechaAlta>=@fechaDesde AND fechaAlta<=@fechaHasta) ";
+            parametros.Add("fechaDesde", dtpDesde.Value);
+            parametros.Add("fechaHasta", dtpHasta.Value);
+            
 
 
             if (!string.IsNullOrEmpty(cboEstados.Text))
@@ -52,7 +43,7 @@ namespace TallerAutos.Formularios
             }
 
             if (!string.IsNullOrEmpty(txtIdOrden.Text))
-            {                   
+            {
                 var nCod = txtIdOrden.Text;
                 strSql += "AND (codOrden = @nCod) ";
                 parametros.Add("nCod", nCod);
@@ -60,7 +51,6 @@ namespace TallerAutos.Formularios
 
             if (!string.IsNullOrEmpty(txtPatente.Text))
             {
-             
                 var patente = txtPatente.Text;
                 strSql += "AND (patente = @patente) ";
                 parametros.Add("patente", patente);
@@ -68,20 +58,17 @@ namespace TallerAutos.Formularios
 
             if (!string.IsNullOrEmpty(txtDNI.Text))
             {
-
-                var dni = txtPatente.Text;
+                var dni = txtDNI.Text;
                 strSql += "AND (dniCliente = @dniCliente) ";
                 parametros.Add("dniCliente", dni);
             }
-
-
             strSql += " ORDER BY fechaAlta DESC";
-            dgvOrdenes.DataSource = oBD.ConsultaSQLConParametros(strSql, parametros);
+            dgvOrdenes.DataSource = ot.consultarOT(strSql, parametros);
+            
             if (dgvOrdenes.Rows.Count == 0)
             {
                 MessageBox.Show("No se encontraron órdenes para los filtros ingresados", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         private void cargarComboEstados()
@@ -103,6 +90,7 @@ namespace TallerAutos.Formularios
         {   
             this.Close();
         }
+
     }
     
 }
