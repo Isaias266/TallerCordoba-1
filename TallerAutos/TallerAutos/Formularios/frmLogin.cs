@@ -41,8 +41,10 @@ namespace TallerAutos.Formularios
             if (idUser != 0)
             {
                 //empleadoLogin.obtenerDatos();
-                frmEmpleados fE = new frmEmpleados();
-                fE.Visible = true;
+                //frmEmpleados fE = new frmEmpleados();
+                //fE.Visible = true;
+                frmMenuPrincipal frmMP = new frmMenuPrincipal();
+                frmMP.Visible = true;
                 this.Visible = false;
             }
             else

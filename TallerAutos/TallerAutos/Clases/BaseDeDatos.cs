@@ -12,7 +12,7 @@ namespace TallerAutos.Clases
     {
 
         //string cadenaConexion = @"Data Source=localhost;Initial Catalog=Taller;Integrated Security=True";
-        string cadenaConexion = @"Data Source = LAPTOP-WINDOWS1\SQLEXPRESS;Initial Catalog=Taller; Integrated Security = True";
+        string cadenaConexion = @"Data Source=(local)\SQLEXPRESS;Initial Catalog = 'Taller PAV'; Integrated Security = True";
         SqlConnection conexion = new SqlConnection();
         SqlCommand comando = new SqlCommand();
 
@@ -62,8 +62,45 @@ namespace TallerAutos.Clases
             tabla.Load(comando.ExecuteReader());
             this.desconectar();
             return tabla;
-
-
         }
+
+            public DataTable ConsultaSQLConParametros(string sqlStr, Dictionary<string, object> prs)
+            {
+                SqlConnection cnn = new SqlConnection();
+                SqlCommand cmd = new SqlCommand();
+                DataTable tabla = new DataTable();
+
+                try
+                {
+                    cnn.ConnectionString = cadenaConexion;
+                    cnn.Open();
+                    cmd.Connection = cnn;
+
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = sqlStr;
+
+                    //Agregamos a la colección de parámetros del comando los filtros recibidos
+                    foreach (var item in prs)
+                    {
+                        cmd.Parameters.AddWithValue(item.Key, item.Value);
+                    }
+
+                    tabla.Load(cmd.ExecuteReader());
+                    return tabla;
+                }
+                catch (Exception ex)
+                {
+                    throw (ex);
+                }
+                finally
+                {
+                    this.desconectar();
+                }
+            }
+
+
+
+
+        
     }
 }

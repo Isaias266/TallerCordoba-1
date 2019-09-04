@@ -56,6 +56,7 @@
             this.btnMenuOrdenes.Text = "Órdenes de Trabajo";
             this.btnMenuOrdenes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuOrdenes.UseVisualStyleBackColor = true;
+            this.btnMenuOrdenes.Click += new System.EventHandler(this.BtnMenuOrdenes_Click);
             // 
             // btnVehiculos
             // 
@@ -98,6 +99,7 @@
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleados.UseVisualStyleBackColor = true;
+            this.btnEmpleados.Click += new System.EventHandler(this.BtnEmpleados_Click);
             // 
             // btnSalir
             // 

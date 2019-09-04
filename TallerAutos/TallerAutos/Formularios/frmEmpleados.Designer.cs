@@ -63,7 +63,34 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.taller_PAVDataSet2 = new TallerAutos.Taller_PAVDataSet2();
+            this.sexosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sexosTableAdapter = new TallerAutos.Taller_PAVDataSet2TableAdapters.SexosTableAdapter();
+            this.taller_PAVDataSet3 = new TallerAutos.Taller_PAVDataSet3();
+            this.rolesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rolesTableAdapter = new TallerAutos.Taller_PAVDataSet3TableAdapters.RolesTableAdapter();
+            this.taller_PAVDataSet4 = new TallerAutos.Taller_PAVDataSet4();
+            this.empleadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.empleadosTableAdapter = new TallerAutos.Taller_PAVDataSet4TableAdapters.EmpleadosTableAdapter();
+            this.legajoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.celularDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaNacimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaAltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codSexoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.usuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmpleados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sexosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblLegajo
@@ -180,19 +207,25 @@
             // 
             // cboSexo
             // 
+            this.cboSexo.DataSource = this.sexosBindingSource;
+            this.cboSexo.DisplayMember = "nombre";
             this.cboSexo.FormattingEnabled = true;
             this.cboSexo.Location = new System.Drawing.Point(463, 233);
             this.cboSexo.Name = "cboSexo";
             this.cboSexo.Size = new System.Drawing.Size(146, 21);
             this.cboSexo.TabIndex = 9;
+            this.cboSexo.ValueMember = "codSexo";
             // 
             // cboRol
             // 
+            this.cboRol.DataSource = this.rolesBindingSource;
+            this.cboRol.DisplayMember = "nombre";
             this.cboRol.FormattingEnabled = true;
             this.cboRol.Location = new System.Drawing.Point(464, 112);
             this.cboRol.Name = "cboRol";
             this.cboRol.Size = new System.Drawing.Size(146, 21);
             this.cboRol.TabIndex = 3;
+            this.cboRol.ValueMember = "codRol";
             // 
             // txtTelefono
             // 
@@ -231,8 +264,23 @@
             // 
             // dataGridEmpleados
             // 
+            this.dataGridEmpleados.AutoGenerateColumns = false;
             this.dataGridEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridEmpleados.Location = new System.Drawing.Point(63, 324);
+            this.dataGridEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.legajoDataGridViewTextBoxColumn,
+            this.rolDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.apellidoDataGridViewTextBoxColumn,
+            this.domicilioDataGridViewTextBoxColumn,
+            this.telefonoDataGridViewTextBoxColumn,
+            this.celularDataGridViewTextBoxColumn,
+            this.fechaNacimDataGridViewTextBoxColumn,
+            this.fechaAltaDataGridViewTextBoxColumn,
+            this.codSexoDataGridViewTextBoxColumn,
+            this.usuarioDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn});
+            this.dataGridEmpleados.DataSource = this.empleadosBindingSource;
+            this.dataGridEmpleados.Location = new System.Drawing.Point(67, 303);
             this.dataGridEmpleados.MultiSelect = false;
             this.dataGridEmpleados.Name = "dataGridEmpleados";
             this.dataGridEmpleados.ReadOnly = true;
@@ -363,6 +411,133 @@
             this.lblPassword.TabIndex = 34;
             this.lblPassword.Text = "Contraseña";
             // 
+            // taller_PAVDataSet2
+            // 
+            this.taller_PAVDataSet2.DataSetName = "Taller_PAVDataSet2";
+            this.taller_PAVDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // sexosBindingSource
+            // 
+            this.sexosBindingSource.DataMember = "Sexos";
+            this.sexosBindingSource.DataSource = this.taller_PAVDataSet2;
+            // 
+            // sexosTableAdapter
+            // 
+            this.sexosTableAdapter.ClearBeforeFill = true;
+            // 
+            // taller_PAVDataSet3
+            // 
+            this.taller_PAVDataSet3.DataSetName = "Taller_PAVDataSet3";
+            this.taller_PAVDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // rolesBindingSource
+            // 
+            this.rolesBindingSource.DataMember = "Roles";
+            this.rolesBindingSource.DataSource = this.taller_PAVDataSet3;
+            // 
+            // rolesTableAdapter
+            // 
+            this.rolesTableAdapter.ClearBeforeFill = true;
+            // 
+            // taller_PAVDataSet4
+            // 
+            this.taller_PAVDataSet4.DataSetName = "Taller_PAVDataSet4";
+            this.taller_PAVDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // empleadosBindingSource
+            // 
+            this.empleadosBindingSource.DataMember = "Empleados";
+            this.empleadosBindingSource.DataSource = this.taller_PAVDataSet4;
+            // 
+            // empleadosTableAdapter
+            // 
+            this.empleadosTableAdapter.ClearBeforeFill = true;
+            // 
+            // legajoDataGridViewTextBoxColumn
+            // 
+            this.legajoDataGridViewTextBoxColumn.DataPropertyName = "legajo";
+            this.legajoDataGridViewTextBoxColumn.HeaderText = "Legajo";
+            this.legajoDataGridViewTextBoxColumn.Name = "legajoDataGridViewTextBoxColumn";
+            this.legajoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // rolDataGridViewTextBoxColumn
+            // 
+            this.rolDataGridViewTextBoxColumn.DataPropertyName = "rol";
+            this.rolDataGridViewTextBoxColumn.HeaderText = "Rol";
+            this.rolDataGridViewTextBoxColumn.Name = "rolDataGridViewTextBoxColumn";
+            this.rolDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // domicilioDataGridViewTextBoxColumn
+            // 
+            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "domicilio";
+            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
+            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // celularDataGridViewTextBoxColumn
+            // 
+            this.celularDataGridViewTextBoxColumn.DataPropertyName = "celular";
+            this.celularDataGridViewTextBoxColumn.HeaderText = "Celular";
+            this.celularDataGridViewTextBoxColumn.Name = "celularDataGridViewTextBoxColumn";
+            this.celularDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaNacimDataGridViewTextBoxColumn
+            // 
+            this.fechaNacimDataGridViewTextBoxColumn.DataPropertyName = "fechaNacim";
+            this.fechaNacimDataGridViewTextBoxColumn.HeaderText = "FechaNacim";
+            this.fechaNacimDataGridViewTextBoxColumn.Name = "fechaNacimDataGridViewTextBoxColumn";
+            this.fechaNacimDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaAltaDataGridViewTextBoxColumn
+            // 
+            this.fechaAltaDataGridViewTextBoxColumn.DataPropertyName = "fechaAlta";
+            this.fechaAltaDataGridViewTextBoxColumn.HeaderText = "FechaAlta";
+            this.fechaAltaDataGridViewTextBoxColumn.Name = "fechaAltaDataGridViewTextBoxColumn";
+            this.fechaAltaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codSexoDataGridViewTextBoxColumn
+            // 
+            this.codSexoDataGridViewTextBoxColumn.DataPropertyName = "codSexo";
+            this.codSexoDataGridViewTextBoxColumn.HeaderText = "CodSexo";
+            this.codSexoDataGridViewTextBoxColumn.Name = "codSexoDataGridViewTextBoxColumn";
+            this.codSexoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // usuarioDataGridViewTextBoxColumn
+            // 
+            this.usuarioDataGridViewTextBoxColumn.DataPropertyName = "usuario";
+            this.usuarioDataGridViewTextBoxColumn.HeaderText = "Usuario";
+            this.usuarioDataGridViewTextBoxColumn.Name = "usuarioDataGridViewTextBoxColumn";
+            this.usuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            this.passwordDataGridViewTextBoxColumn.Visible = false;
+            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,6 +580,12 @@
             this.Text = "Empleados";
             this.Load += new System.EventHandler(this.FrmEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sexosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rolesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.empleadosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,6 +627,27 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPassword;
+        private Taller_PAVDataSet2 taller_PAVDataSet2;
+        private System.Windows.Forms.BindingSource sexosBindingSource;
+        private Taller_PAVDataSet2TableAdapters.SexosTableAdapter sexosTableAdapter;
+        private Taller_PAVDataSet3 taller_PAVDataSet3;
+        private System.Windows.Forms.BindingSource rolesBindingSource;
+        private Taller_PAVDataSet3TableAdapters.RolesTableAdapter rolesTableAdapter;
+        private Taller_PAVDataSet4 taller_PAVDataSet4;
+        private System.Windows.Forms.BindingSource empleadosBindingSource;
+        private Taller_PAVDataSet4TableAdapters.EmpleadosTableAdapter empleadosTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn legajoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rolDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn celularDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacimDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaAltaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codSexoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn usuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
     }
 }
 

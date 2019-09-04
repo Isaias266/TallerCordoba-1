@@ -50,6 +50,12 @@
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\Rol.cs" />
     <Compile Include="Clases\Sexo.cs" />
+    <Compile Include="Formularios\frmConsultaOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmConsultaOrden.Designer.cs">
+      <DependentUpon>frmConsultaOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,34 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Taller_PAVDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Taller_PAVDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Taller_PAVDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Taller_PAVDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Taller_PAVDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Taller_PAVDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Taller_PAVDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Taller_PAVDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Taller_PAVDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Taller_PAVDataSet4.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Formularios\frmConsultaOrden.resx">
+      <DependentUpon>frmConsultaOrden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +131,61 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Taller_PAVDataSet.xsc">
+      <DependentUpon>Taller_PAVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Taller_PAVDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Taller_PAVDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Taller_PAVDataSet.xss">
+      <DependentUpon>Taller_PAVDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Taller_PAVDataSet1.xsc">
+      <DependentUpon>Taller_PAVDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Taller_PAVDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Taller_PAVDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Taller_PAVDataSet1.xss">
+      <DependentUpon>Taller_PAVDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Taller_PAVDataSet2.xsc">
+      <DependentUpon>Taller_PAVDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Taller_PAVDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Taller_PAVDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Taller_PAVDataSet2.xss">
+      <DependentUpon>Taller_PAVDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Taller_PAVDataSet3.xsc">
+      <DependentUpon>Taller_PAVDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Taller_PAVDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Taller_PAVDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Taller_PAVDataSet3.xss">
+      <DependentUpon>Taller_PAVDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Taller_PAVDataSet4.xsc">
+      <DependentUpon>Taller_PAVDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="Taller_PAVDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Taller_PAVDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Taller_PAVDataSet4.xss">
+      <DependentUpon>Taller_PAVDataSet4.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
