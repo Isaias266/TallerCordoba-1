@@ -51,6 +51,12 @@
     <Compile Include="Clases\OrdenTrabajo.cs" />
     <Compile Include="Clases\Rol.cs" />
     <Compile Include="Clases\Sexo.cs" />
+    <Compile Include="Formularios\frmDetalleCOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmDetalleCOrdenes.Designer.cs">
+      <DependentUpon>frmDetalleCOrdenes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frmConsultaOrden.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Taller_PAVDataSet4.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Formularios\frmDetalleCOrdenes.resx">
+      <DependentUpon>frmDetalleCOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmConsultaOrden.resx">
       <DependentUpon>frmConsultaOrden.cs</DependentUpon>
     </EmbeddedResource>

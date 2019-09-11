@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnSalir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblDNI = new System.Windows.Forms.Label();
@@ -37,22 +36,6 @@
             this.txtPatente = new System.Windows.Forms.TextBox();
             this.btnQuery = new System.Windows.Forms.Button();
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
-            this.codOrdenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codEstadoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.patenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dniClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaAltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaCierreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horaAltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.horaCierreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.formaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaPagoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kilometrajeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadCombustibleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionFallaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ordenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.taller_PAVDataSet1 = new TallerAutos.Taller_PAVDataSet1();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.lblEstado = new System.Windows.Forms.Label();
             this.lblPatente = new System.Windows.Forms.Label();
@@ -61,16 +44,9 @@
             this.lblFechaHasta = new System.Windows.Forms.Label();
             this.lblFechDesde = new System.Windows.Forms.Label();
             this.cboEstados = new System.Windows.Forms.ComboBox();
-            this.estadosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.taller_PAVDataSet = new TallerAutos.Taller_PAVDataSet();
-            this.estadosTableAdapter = new TallerAutos.Taller_PAVDataSetTableAdapters.EstadosTableAdapter();
-            this.ordenesTableAdapter = new TallerAutos.Taller_PAVDataSet1TableAdapters.OrdenesTableAdapter();
+            this.btnDetalle = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordenesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -105,6 +81,7 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // lblDNI
             // 
@@ -150,137 +127,14 @@
             // 
             this.dgvOrdenes.AllowUserToAddRows = false;
             this.dgvOrdenes.AllowUserToDeleteRows = false;
-            this.dgvOrdenes.AutoGenerateColumns = false;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrdenes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codOrdenDataGridViewTextBoxColumn,
-            this.codEstadoDataGridViewTextBoxColumn,
-            this.patenteDataGridViewTextBoxColumn,
-            this.dniClienteDataGridViewTextBoxColumn,
-            this.fechaAltaDataGridViewTextBoxColumn,
-            this.fechaCierreDataGridViewTextBoxColumn,
-            this.horaAltaDataGridViewTextBoxColumn,
-            this.horaCierreDataGridViewTextBoxColumn,
-            this.montoTotalDataGridViewTextBoxColumn,
-            this.formaPagoDataGridViewTextBoxColumn,
-            this.fechaPagoDataGridViewTextBoxColumn,
-            this.kilometrajeDataGridViewTextBoxColumn,
-            this.cantidadCombustibleDataGridViewTextBoxColumn,
-            this.descripcionFallaDataGridViewTextBoxColumn});
-            this.dgvOrdenes.DataSource = this.ordenesBindingSource;
             this.dgvOrdenes.Location = new System.Drawing.Point(13, 180);
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.ReadOnly = true;
             this.dgvOrdenes.Size = new System.Drawing.Size(747, 184);
             this.dgvOrdenes.TabIndex = 14;
-            // 
-            // codOrdenDataGridViewTextBoxColumn
-            // 
-            this.codOrdenDataGridViewTextBoxColumn.DataPropertyName = "codOrden";
-            this.codOrdenDataGridViewTextBoxColumn.HeaderText = "codOrden";
-            this.codOrdenDataGridViewTextBoxColumn.Name = "codOrdenDataGridViewTextBoxColumn";
-            this.codOrdenDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codEstadoDataGridViewTextBoxColumn
-            // 
-            this.codEstadoDataGridViewTextBoxColumn.DataPropertyName = "codEstado";
-            this.codEstadoDataGridViewTextBoxColumn.HeaderText = "codEstado";
-            this.codEstadoDataGridViewTextBoxColumn.Name = "codEstadoDataGridViewTextBoxColumn";
-            this.codEstadoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // patenteDataGridViewTextBoxColumn
-            // 
-            this.patenteDataGridViewTextBoxColumn.DataPropertyName = "patente";
-            this.patenteDataGridViewTextBoxColumn.HeaderText = "patente";
-            this.patenteDataGridViewTextBoxColumn.Name = "patenteDataGridViewTextBoxColumn";
-            this.patenteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dniClienteDataGridViewTextBoxColumn
-            // 
-            this.dniClienteDataGridViewTextBoxColumn.DataPropertyName = "dniCliente";
-            this.dniClienteDataGridViewTextBoxColumn.HeaderText = "dniCliente";
-            this.dniClienteDataGridViewTextBoxColumn.Name = "dniClienteDataGridViewTextBoxColumn";
-            this.dniClienteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaAltaDataGridViewTextBoxColumn
-            // 
-            this.fechaAltaDataGridViewTextBoxColumn.DataPropertyName = "fechaAlta";
-            this.fechaAltaDataGridViewTextBoxColumn.HeaderText = "fechaAlta";
-            this.fechaAltaDataGridViewTextBoxColumn.Name = "fechaAltaDataGridViewTextBoxColumn";
-            this.fechaAltaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaCierreDataGridViewTextBoxColumn
-            // 
-            this.fechaCierreDataGridViewTextBoxColumn.DataPropertyName = "fechaCierre";
-            this.fechaCierreDataGridViewTextBoxColumn.HeaderText = "fechaCierre";
-            this.fechaCierreDataGridViewTextBoxColumn.Name = "fechaCierreDataGridViewTextBoxColumn";
-            this.fechaCierreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // horaAltaDataGridViewTextBoxColumn
-            // 
-            this.horaAltaDataGridViewTextBoxColumn.DataPropertyName = "HoraAlta";
-            this.horaAltaDataGridViewTextBoxColumn.HeaderText = "HoraAlta";
-            this.horaAltaDataGridViewTextBoxColumn.Name = "horaAltaDataGridViewTextBoxColumn";
-            this.horaAltaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // horaCierreDataGridViewTextBoxColumn
-            // 
-            this.horaCierreDataGridViewTextBoxColumn.DataPropertyName = "HoraCierre";
-            this.horaCierreDataGridViewTextBoxColumn.HeaderText = "HoraCierre";
-            this.horaCierreDataGridViewTextBoxColumn.Name = "horaCierreDataGridViewTextBoxColumn";
-            this.horaCierreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // montoTotalDataGridViewTextBoxColumn
-            // 
-            this.montoTotalDataGridViewTextBoxColumn.DataPropertyName = "montoTotal";
-            this.montoTotalDataGridViewTextBoxColumn.HeaderText = "montoTotal";
-            this.montoTotalDataGridViewTextBoxColumn.Name = "montoTotalDataGridViewTextBoxColumn";
-            this.montoTotalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // formaPagoDataGridViewTextBoxColumn
-            // 
-            this.formaPagoDataGridViewTextBoxColumn.DataPropertyName = "formaPago";
-            this.formaPagoDataGridViewTextBoxColumn.HeaderText = "formaPago";
-            this.formaPagoDataGridViewTextBoxColumn.Name = "formaPagoDataGridViewTextBoxColumn";
-            this.formaPagoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaPagoDataGridViewTextBoxColumn
-            // 
-            this.fechaPagoDataGridViewTextBoxColumn.DataPropertyName = "fechaPago";
-            this.fechaPagoDataGridViewTextBoxColumn.HeaderText = "fechaPago";
-            this.fechaPagoDataGridViewTextBoxColumn.Name = "fechaPagoDataGridViewTextBoxColumn";
-            this.fechaPagoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // kilometrajeDataGridViewTextBoxColumn
-            // 
-            this.kilometrajeDataGridViewTextBoxColumn.DataPropertyName = "kilometraje";
-            this.kilometrajeDataGridViewTextBoxColumn.HeaderText = "kilometraje";
-            this.kilometrajeDataGridViewTextBoxColumn.Name = "kilometrajeDataGridViewTextBoxColumn";
-            this.kilometrajeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cantidadCombustibleDataGridViewTextBoxColumn
-            // 
-            this.cantidadCombustibleDataGridViewTextBoxColumn.DataPropertyName = "cantidadCombustible";
-            this.cantidadCombustibleDataGridViewTextBoxColumn.HeaderText = "cantidadCombustible";
-            this.cantidadCombustibleDataGridViewTextBoxColumn.Name = "cantidadCombustibleDataGridViewTextBoxColumn";
-            this.cantidadCombustibleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descripcionFallaDataGridViewTextBoxColumn
-            // 
-            this.descripcionFallaDataGridViewTextBoxColumn.DataPropertyName = "descripcionFalla";
-            this.descripcionFallaDataGridViewTextBoxColumn.HeaderText = "descripcionFalla";
-            this.descripcionFallaDataGridViewTextBoxColumn.Name = "descripcionFallaDataGridViewTextBoxColumn";
-            this.descripcionFallaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ordenesBindingSource
-            // 
-            this.ordenesBindingSource.DataMember = "Ordenes";
-            this.ordenesBindingSource.DataSource = this.taller_PAVDataSet1;
-            // 
-            // taller_PAVDataSet1
-            // 
-            this.taller_PAVDataSet1.DataSetName = "Taller_PAVDataSet1";
-            this.taller_PAVDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dgvOrdenes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrdenes_CellClick);
+            this.dgvOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrdenes_CellContentClick);
             // 
             // dtpHasta
             // 
@@ -353,29 +207,22 @@
             this.cboEstados.Size = new System.Drawing.Size(121, 21);
             this.cboEstados.TabIndex = 4;
             // 
-            // estadosBindingSource
+            // btnDetalle
             // 
-            this.estadosBindingSource.DataMember = "Estados";
-            this.estadosBindingSource.DataSource = this.taller_PAVDataSet;
-            // 
-            // taller_PAVDataSet
-            // 
-            this.taller_PAVDataSet.DataSetName = "Taller_PAVDataSet";
-            this.taller_PAVDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // estadosTableAdapter
-            // 
-            this.estadosTableAdapter.ClearBeforeFill = true;
-            // 
-            // ordenesTableAdapter
-            // 
-            this.ordenesTableAdapter.ClearBeforeFill = true;
+            this.btnDetalle.Location = new System.Drawing.Point(343, 401);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(91, 35);
+            this.btnDetalle.TabIndex = 10;
+            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.BtnDetalle_Click);
             // 
             // frmConsultaOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmConsultaOrden";
@@ -384,10 +231,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ordenesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.estadosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -407,27 +250,8 @@
         private System.Windows.Forms.ComboBox cboEstados;
         private System.Windows.Forms.TextBox txtPatente;
         private System.Windows.Forms.TextBox txtIdOrden;
-        private Taller_PAVDataSet taller_PAVDataSet;
-        private System.Windows.Forms.BindingSource estadosBindingSource;
-        private Taller_PAVDataSetTableAdapters.EstadosTableAdapter estadosTableAdapter;
-        private Taller_PAVDataSet1 taller_PAVDataSet1;
-        private System.Windows.Forms.BindingSource ordenesBindingSource;
-        private Taller_PAVDataSet1TableAdapters.OrdenesTableAdapter ordenesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codOrdenDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codEstadoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn patenteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dniClienteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaAltaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaCierreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn horaAltaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn horaCierreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn montoTotalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn formaPagoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaPagoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kilometrajeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadCombustibleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionFallaDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblDNI;
         private System.Windows.Forms.TextBox txtDNI;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }
