@@ -142,7 +142,6 @@
             this.lblFechaAlta.Size = new System.Drawing.Size(73, 13);
             this.lblFechaAlta.TabIndex = 8;
             this.lblFechaAlta.Text = "Fecha de Alta";
-            
             // 
             // lblFechaCierre
             // 
@@ -326,8 +325,9 @@
             this.btnVolver.TabIndex = 32;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = true;
+            this.btnVolver.Click += new System.EventHandler(this.BtnVolver_Click);
             // 
-            // DetalleCOrdenes
+            // frmDetalleCOrdenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -364,7 +364,7 @@
             this.Controls.Add(this.lblModelo);
             this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblPatente);
-            this.Name = "DetalleCOrdenes";
+            this.Name = "frmDetalleCOrdenes";
             this.Text = "Detalle Consulta Orden";
             this.Load += new System.EventHandler(this.DetalleCOrdenes_Load);
             this.ResumeLayout(false);
