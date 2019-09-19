@@ -1,4 +1,4 @@
-﻿namespace TallerAutos.Formularios
+﻿namespace TallerAutos.GUILayer
 {
     partial class frmConsultaOrden
     {
@@ -81,7 +81,6 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
-            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // lblDNI
             // 
@@ -134,7 +133,6 @@
             this.dgvOrdenes.Size = new System.Drawing.Size(747, 184);
             this.dgvOrdenes.TabIndex = 14;
             this.dgvOrdenes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrdenes_CellClick);
-            this.dgvOrdenes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvOrdenes_CellContentClick);
             // 
             // dtpHasta
             // 

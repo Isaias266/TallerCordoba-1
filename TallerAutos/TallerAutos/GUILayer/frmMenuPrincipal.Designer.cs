@@ -1,4 +1,4 @@
-﻿namespace TallerAutos.Formularios
+﻿namespace TallerAutos.GUILayer
 {
     partial class frmMenuPrincipal
     {
@@ -126,7 +126,6 @@
             this.Controls.Add(this.btnMenuClientes);
             this.Name = "frmMenuPrincipal";
             this.Text = "frmMenuPrincipal";
-            this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

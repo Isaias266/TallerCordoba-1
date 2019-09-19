@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TallerAutos.Clases;
-namespace TallerAutos.Formularios
+using TallerAutos.BusinessLayer;
+using TallerAutos.DataAccessLayer;
+
+namespace TallerAutos.GUILayer
 {
     public partial class frmConsultaOrden : Form
     {
@@ -17,70 +15,65 @@ namespace TallerAutos.Formularios
         {
             InitializeComponent();
             InitializeDataGridView();
-            
         }
 
         private void BtnQuery_Click(object sender, EventArgs e)
         {
-            OrdenTrabajo ot = new OrdenTrabajo();
-            string strSql = "SELECT O.codOrden, E.nombre, O.patente, O.dniCliente, FP.nombre, O.fechaAlta, O.fechaCierre, O.descripcionFalla, O.fechaPago, O.montoTotal " +
-                            "FROM Ordenes O JOIN Estados E ON (O.codEstado = E.codEstado) " +
-                            "               FULL JOIN FormasPago FP ON (O.formaPago = FP.codFormaPago) " +
-                            "WHERE 1=1 ";
-
+            OrdenTrabajoService ot = new OrdenTrabajoService();
+            String sqlCondiciones = "";
             Dictionary<string, object> parametros = new Dictionary<string, object>();
 
-            DateTime fechaDesde = dtpDesde.Value;
-            DateTime fechaHasta = dtpHasta.Value;
+            DateTime fechaDesde;
+            DateTime fechaHasta;
 
-
-            strSql += " AND (O.fechaAlta>=@fechaDesde AND O.fechaAlta<=@fechaHasta) ";
-            parametros.Add("fechaDesde", dtpDesde.Value);
-            parametros.Add("fechaHasta", dtpHasta.Value);
-
-
+            if (DateTime.TryParse(dtpDesde.Text, out fechaDesde) &&
+                DateTime.TryParse(dtpHasta.Text, out fechaHasta))
+            {
+                sqlCondiciones += " AND (O.fechaAlta>='" + fechaDesde.ToString("dd/MM/yyyy") + "' AND O.fechaAlta<='" + fechaHasta.ToString("dd/MM/yyyy") + "')";
+                //parametros.Add("fechaDesde", dtpDesde.Value);
+                //parametros.Add("fechaHasta", dtpHasta.Value);
+            }
 
             if (!string.IsNullOrEmpty(cboEstados.Text))
             {
                 var idEstado = cboEstados.SelectedValue.ToString();
-                strSql += "AND (O.codEstado=@idEstado) ";
-                parametros.Add("idEstado", idEstado);
+                sqlCondiciones += " AND (O.codEstado=" + idEstado + ")";
+                //parametros.Add("idEstado", idEstado);
             }
 
             if (!string.IsNullOrEmpty(txtIdOrden.Text))
             {
                 var nCod = txtIdOrden.Text;
-                strSql += "AND (O.codOrden = @nCod) ";
-                parametros.Add("nCod", nCod);
+                sqlCondiciones += " AND (O.codOrden = " + nCod + ")";
+                //parametros.Add("nCod", nCod);
             }
 
             if (!string.IsNullOrEmpty(txtPatente.Text))
             {
                 var patente = txtPatente.Text;
-                strSql += "AND (O.patente = @patente) ";
-                parametros.Add("patente", patente);
+                sqlCondiciones += " AND (O.patente = '" + patente + "')";
+                //parametros.Add("patente", patente);
             }
 
             if (!string.IsNullOrEmpty(txtDNI.Text))
             {
-                var dni = txtDNI.Text;
-                strSql += "AND (O.dniCliente = @dniCliente) ";
-                parametros.Add("dniCliente", dni);
+                var dniCliente = txtDNI.Text;
+                sqlCondiciones += " AND (O.dniCliente = " + dniCliente + ")";
+                //parametros.Add("dniCliente", dni);
             }
-            strSql += " ORDER BY O.fechaAlta DESC";
-            dgvOrdenes.DataSource = ot.consultarOT(strSql, parametros);
+
+            IList<OrdenTrabajo> listaOT = ot.consultarOT(sqlCondiciones);
+
+            dgvOrdenes.DataSource = listaOT;
+
             if (dgvOrdenes.Rows.Count == 0)
             {
                 MessageBox.Show("No se encontraron órdenes para los filtros ingresados", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         private void InitializeDataGridView()
         {
-            //Propiedades del dgvOrdenes
-
-
             //Cantidad columnas y las hago visibles.
             dgvOrdenes.ColumnCount = 10;
             dgvOrdenes.ColumnHeadersVisible = true;
@@ -101,16 +94,16 @@ namespace TallerAutos.Formularios
             dgvOrdenes.Columns[0].DataPropertyName = "codOrden";
 
             dgvOrdenes.Columns[1].Name = "Estado";
-            dgvOrdenes.Columns[1].DataPropertyName = "nombre";
+            dgvOrdenes.Columns[1].DataPropertyName = "Estado";
 
             dgvOrdenes.Columns[2].Name = "Patente";
             dgvOrdenes.Columns[2].DataPropertyName = "patente";
 
             dgvOrdenes.Columns[3].Name = "DNI";
             dgvOrdenes.Columns[3].DataPropertyName = "dniCliente";
-
+            
             dgvOrdenes.Columns[4].Name = "Forma Pago";
-            dgvOrdenes.Columns[4].DataPropertyName = "nombre1";
+            dgvOrdenes.Columns[4].DataPropertyName = "FormaPago";
 
             dgvOrdenes.Columns[5].Name = "Fecha Alta";
             dgvOrdenes.Columns[5].DataPropertyName = "fechaAlta";
@@ -163,20 +156,13 @@ namespace TallerAutos.Formularios
             this.Close();
         }
 
-        private void DgvOrdenes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
 
         private void BtnDetalle_Click(object sender, EventArgs e)
         {
-            if(dgvOrdenes.SelectedRows != null)
+            if (dgvOrdenes.SelectedRows != null)
             {
-
                 string idOrden = dgvOrdenes.Rows[dgvOrdenes.CurrentRow.Index].Cells["Codigo"].Value.ToString();
-                
+
                 frmDetalleCOrdenes fDCO = new frmDetalleCOrdenes(idOrden);
                 fDCO.ShowDialog();
             }
@@ -186,11 +172,6 @@ namespace TallerAutos.Formularios
         {
             //Activo el boton de ver detalle
             btnDetalle.Enabled = true;
-        }
-
-        private void GroupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
     

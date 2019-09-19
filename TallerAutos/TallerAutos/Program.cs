@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TallerAutos.Formularios;
+using TallerAutos.GUILayer;
 
 namespace TallerAutos
 {
@@ -15,10 +15,17 @@ namespace TallerAutos
         [STAThread]
         static void Main()
         {
+            // VARIABLE DEBUG PARA SALTEAR LOGIN AL EJECUTAR Y FACILITAR PRUEBAS
+            bool DEBUG = false;
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmEmpleados());
-            Application.Run(new frmLogin());
+            if(DEBUG)
+                Application.Run(new frmMenuPrincipal());
+            else
+                Application.Run(new frmLogin());
         }
     }
 }

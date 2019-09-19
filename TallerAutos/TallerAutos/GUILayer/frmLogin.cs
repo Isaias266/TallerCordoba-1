@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TallerAutos.Clases;
+using TallerAutos.BusinessLayer;
 
-namespace TallerAutos.Formularios
+namespace TallerAutos.GUILayer
 {
     public partial class frmLogin : Form
     {
-        Empleado empleadoLogin = new Empleado();
+        private EmpleadoService empleadoService = new EmpleadoService();
 
         public frmLogin()
         {
@@ -33,16 +26,10 @@ namespace TallerAutos.Formularios
                 return;
             }
 
+            var oEmpleado = empleadoService.validarEmpleado(txtUser.Text, txtPass.Text);
 
-            empleadoLogin.Usuario = this.txtUser.Text;
-            empleadoLogin.Password = this.txtPass.Text;
-
-            int idUser = empleadoLogin.validarUsuario(empleadoLogin.Usuario, empleadoLogin.Password);
-            if (idUser != 0)
+            if (oEmpleado != null)
             {
-                //empleadoLogin.obtenerDatos();
-                //frmEmpleados fE = new frmEmpleados();
-                //fE.Visible = true;
                 frmMenuPrincipal frmMP = new frmMenuPrincipal();
                 frmMP.Visible = true;
                 this.Visible = false;

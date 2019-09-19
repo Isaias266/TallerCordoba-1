@@ -1,4 +1,4 @@
-﻿namespace TallerAutos.Formularios
+﻿namespace TallerAutos.GUILayer
 {
     partial class frmLogin
     {
