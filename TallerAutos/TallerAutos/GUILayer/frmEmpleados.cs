@@ -118,6 +118,9 @@ namespace TallerAutos.GUILayer
             cboRol.Text = empleado.Rol.Nombre.ToString();
             cboSexo.Text = empleado.Sexo.Nombre.ToString();
             txtUsuario.Text = empleado.Usuario.ToString();
+            if (!nuevo_editar)
+                txtPassword.Text = empleado.Password.ToString();
+                        
         }
         
 
