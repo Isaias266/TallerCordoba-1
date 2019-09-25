@@ -11,6 +11,7 @@ namespace TallerAutos.GUILayer
         public frmLogin()
         {
             InitializeComponent();
+            lblLogin.Focus();
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
@@ -46,6 +47,48 @@ namespace TallerAutos.GUILayer
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+       
+        private void TxtUser_Leave(object sender, EventArgs e)
+        {
+            if (txtUser.Text == "")
+            {
+                txtUser.Text = "Usuario";
+            }
+        }
+
+        
+
+        private void TxtPass_Leave(object sender, EventArgs e)
+        {
+            if (txtPass.Text == "")
+            {
+                txtPass.PasswordChar = '\0';
+                txtPass.Text = "Password";
+            }
+        }
+
+        private void TxtPass_Enter(object sender, EventArgs e)
+        {
+            if (txtPass.Text == "Password")
+            {
+                txtPass.Text = "";
+                txtPass.PasswordChar = '*';
+            }
+        }
+
+        private void TxtUser_Enter(object sender, EventArgs e)
+        {
+            if (txtUser.Text == "Usuario")
+            {
+                txtUser.Text = "";
+            }
         }
     }
 }

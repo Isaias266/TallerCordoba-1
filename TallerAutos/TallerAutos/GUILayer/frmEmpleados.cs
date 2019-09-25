@@ -235,6 +235,7 @@ namespace TallerAutos.GUILayer
                 this.txtLegajo.Enabled = false;
                 this.txtNombre.Focus();
                 nuevo_editar = false;
+                dataGridEmpleados.Enabled = false;
                 this.habilitar(true);
             }
             else
