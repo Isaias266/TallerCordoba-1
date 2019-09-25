@@ -25,6 +25,7 @@ namespace TallerAutos.BusinessLayer
             return oEmpleadoDao.consultarEmpleados(condicionesSql);
         }
 
+
         public void cargarEmpleado(Empleado e)
         {
             oEmpleadoDao.cargarEmpleado(e);
@@ -38,6 +39,11 @@ namespace TallerAutos.BusinessLayer
         public void eliminarEmpleado(Empleado e)
         {
             oEmpleadoDao.eliminarEmpleado(e);
+        }
+
+        public bool validarUserEmpleado(string user)
+        {
+            return oEmpleadoDao.validarUserEmpleado(user);
         }
     }
 }

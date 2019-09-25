@@ -12,11 +12,7 @@ namespace TallerAutos.Entities
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
 
-        /*
-        public int CodFormaPago { get => codFormaPago; set => codFormaPago = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Descripcion { get => descripcion; set => descripcion = value; }
-        */
+        
         public override string ToString()
         {
             return Nombre;

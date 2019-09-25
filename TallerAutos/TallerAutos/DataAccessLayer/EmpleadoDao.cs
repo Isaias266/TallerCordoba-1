@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using TallerAutos.Entities;
+using System.Windows.Forms;
 
 namespace TallerAutos.DataAccessLayer
 {
@@ -27,7 +28,7 @@ namespace TallerAutos.DataAccessLayer
                                    "E.password " +
                                    "FROM Empleados E JOIN Roles R ON (E.rol = R.codRol) " +
                                    "FULL JOIN Sexos S ON (E.codSexo = S.codSexo) " +
-                                   "WHERE usuario='" + us + "' AND password='" + pa + "'";
+                                   "WHERE borrado = 0 AND usuario='" + us + "' AND password='" + pa + "'";
 
             DataTable tabla = eBD.consultar(strSql);
             if (tabla.Rows.Count > 0)
@@ -86,7 +87,7 @@ namespace TallerAutos.DataAccessLayer
                                    "E.password " +
                                    "FROM Empleados E JOIN Roles R ON (E.rol = R.codRol) " +
                                    "FULL JOIN Sexos S ON (E.codSexo = S.codSexo) " +
-                                   "WHERE 1=1 ";
+                                   "WHERE borrado = 0 ";
 
             strSql += condicionesSql;
             strSql += " ORDER BY E.fechaAlta DESC";
@@ -104,10 +105,32 @@ namespace TallerAutos.DataAccessLayer
 
         public void eliminarEmpleado(Empleado e)
         {
-            string eliminacionSQL = "DELETE FROM Empleados WHERE legajo = " + e.Legajo;
+            string eliminacionSQL = "UPDATE Empleados SET borrado = 1 WHERE legajo = " + e.Legajo;
             eBD.insertar(eliminacionSQL);
         }
-        
+
+        public bool validarUserEmpleado(string nombreUsuario)
+        {
+
+            String strSql = string.Concat(" SELECT legajo, ",
+                                          "        rol, ",
+                                          "        nombre ",
+                                          "FROM Empleados WHERE borrado = 0");
+
+
+            strSql += " AND usuario=" + "'" + nombreUsuario + "'";
+            
+            var resultado = eBD.consultar(strSql);
+
+            if (resultado.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         private Empleado mappingEmpleado(DataRow row)
         {

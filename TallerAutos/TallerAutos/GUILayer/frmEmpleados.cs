@@ -10,14 +10,19 @@ namespace TallerAutos.GUILayer
 {
     public partial class frmEmpleados : Form
     {
+
         private bool nuevo_editar;
-        RolService rol = new RolService();
-        SexoService sexo = new SexoService();
+        private EmpleadoService empleado;
+        private RolService rol;
+        private SexoService sexo;
 
         public frmEmpleados()
         {
             InitializeComponent();
             InitializeDataGridView();
+            empleado = new EmpleadoService();
+            rol = new RolService();
+            sexo = new SexoService();
         }
 
         private void limpiar()
@@ -67,16 +72,17 @@ namespace TallerAutos.GUILayer
             // TODO: esta línea de código carga datos en la tabla 'taller_PAVDataSet2.Sexos' Puede moverla o quitarla según sea necesario.
             //this.sexosTableAdapter.Fill(this.taller_PAVDataSet2.Sexos);
             txtLegajo.Enabled = false;
-            cboRol.DataSource = rol.recuperarRoles();
-            cboRol.DisplayMember = "nombre";
-            cboRol.ValueMember = "codRol";
-            cboSexo.DataSource = sexo.recuperarSexos();
-            cboSexo.DisplayMember = "nombre";
-            cboSexo.ValueMember = "codSexo";
-            cboRol.SelectedIndex = -1;
-            cboSexo.SelectedIndex = -1;
+            cargarCombo(cboRol, rol.recuperarRoles(), "nombre", "codRol");
+            cargarCombo(cboSexo, sexo.recuperarSexos(), "nombre", "codSexo");
             this.habilitar(false);
             this.cargarGrilla();
+        }
+
+        private void cargarCombo(ComboBox cbo, Object source, string display, string value) {
+            cbo.DataSource = source;
+            cbo.DisplayMember = display;
+            cbo.ValueMember = value;
+            cbo.SelectedIndex = -1;
         }
 
         private void cargarGrilla()
@@ -109,8 +115,8 @@ namespace TallerAutos.GUILayer
             if (!(empleado.FechaNacim == default(DateTime)))
                 dateNac.Text = empleado.FechaNacim.ToString();
             dateAlta.Text = empleado.FechaAlta.ToString();
-            cboRol.SelectedValue = empleado.Rol.ToString();
-            cboSexo.SelectedValue = empleado.Sexo.ToString();
+            cboRol.Text = empleado.Rol.Nombre.ToString();
+            cboSexo.Text = empleado.Sexo.Nombre.ToString();
             txtUsuario.Text = empleado.Usuario.ToString();
         }
         
@@ -119,36 +125,46 @@ namespace TallerAutos.GUILayer
         {
             dataGridEmpleados.Enabled = true;
 
-            if (validarDatos())
+            if (validarDatos(this.txtUsuario.Text))
             {
                 Empleado oEmpleado = new Empleado();
                 oEmpleado.Rol = new Rol();
                 oEmpleado.Sexo = new Sexo();
                 EmpleadoService oEmpleadoService = new EmpleadoService();
 
+
                 if (nuevo_editar)
                 {
-                    //empleado.Legajo = Convert.ToInt32(this.txtLegajo.Text);
-                    oEmpleado.Rol.CodRol = Convert.ToInt32(this.cboRol.SelectedValue);
-                    oEmpleado.Nombre = this.txtNombre.Text;
-                    oEmpleado.Apellido = this.txtApellido.Text;
-                    oEmpleado.Domicilio = this.txtDomicilio.Text;
-                    oEmpleado.Telefono = this.txtTelefono.Text;
-                    oEmpleado.Celular = this.txtCelular.Text;
-                    oEmpleado.FechaNacim = this.dateNac.Value;
-                    oEmpleado.FechaAlta = this.dateAlta.Value;
-                    oEmpleado.Sexo.CodSexo = Convert.ToInt32(this.cboSexo.SelectedValue);
-                    oEmpleado.Usuario = this.txtUsuario.Text;
-                    oEmpleado.Password = this.txtPassword.Text;
+                    if (validarUsuario() == false)
+                    {
+                        //empleado.Legajo = Convert.ToInt32(this.txtLegajo.Text);
+                        oEmpleado.Rol.CodRol = Convert.ToInt32(this.cboRol.SelectedValue);
+                        oEmpleado.Nombre = this.txtNombre.Text;
+                        oEmpleado.Apellido = this.txtApellido.Text;
+                        oEmpleado.Domicilio = this.txtDomicilio.Text;
+                        oEmpleado.Telefono = this.txtTelefono.Text;
+                        oEmpleado.Celular = this.txtCelular.Text;
+                        oEmpleado.FechaNacim = this.dateNac.Value;
+                        oEmpleado.FechaAlta = this.dateAlta.Value;
+                        oEmpleado.Sexo.CodSexo = Convert.ToInt32(this.cboSexo.SelectedValue);
+                        oEmpleado.Usuario = this.txtUsuario.Text;
+                        oEmpleado.Password = this.txtPassword.Text;
 
-                    oEmpleadoService.cargarEmpleado(oEmpleado);
+                        oEmpleadoService.cargarEmpleado(oEmpleado);
 
-                    this.habilitar(false);
-                    this.limpiar();
-                    lblError.ForeColor = Color.FromArgb(33, 151, 10);
-                    lblError.Text = "Nuevo empleado creado con exito";
-                    timerError.Enabled = true;
-                    this.cargarGrilla();
+                        this.habilitar(false);
+                        this.limpiar();
+                        lblError.ForeColor = Color.FromArgb(33, 151, 10);
+                        lblError.Text = "Nuevo empleado creado con exito";
+                        timerError.Enabled = true;
+                        this.cargarGrilla();
+                    }
+                    else
+                    {
+                        lblError.Text = "Error: El nombre de usuario ya existe";
+                        lblError.ForeColor = Color.DarkRed;
+                        timerError.Enabled = true;
+                    }
                 }
                 else
                 {
@@ -177,19 +193,25 @@ namespace TallerAutos.GUILayer
             }
             else
             {
-                lblError.Text = "Error: Datos incorrectos o incompletos";
+                lblError.Text = "Error: Datos incompletos o incorrectos";
                 lblError.ForeColor = Color.DarkRed;
                 timerError.Enabled = true;
             }
         }
 
-        private bool validarDatos()
+        private bool validarDatos(string user)
         {
-            if (cboRol.SelectedIndex == -1 || txtNombre.Text.Length == 0 || txtApellido.Text.Length == 0 
-                || cboSexo.SelectedIndex == -1 || txtUsuario.Text == "" || txtPassword.Text == "")
+            if (cboRol.SelectedIndex == -1 || txtNombre.Text.Length == 0 || txtApellido.Text.Length == 0
+                || cboSexo.SelectedIndex == -1 || txtUsuario.Text == "" || txtPassword.Text == "") 
                 return false;
             else
                 return true;
+        }
+
+        //Devuelve true si existe un usuario con ese nombre, false en caso contrario
+        private bool validarUsuario()
+        {
+            return empleado.validarUserEmpleado(txtUsuario.Text); 
         }
 
         private void TimerError_Tick(object sender, EventArgs e)
