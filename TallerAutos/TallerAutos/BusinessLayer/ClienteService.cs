@@ -17,5 +17,19 @@ namespace TallerAutos.BusinessLayer
             return clienteDao.consultarClientes(strConsulta);
         }
 
+        public void CargarCliente(Cliente c)
+        {
+            clienteDao.cargarCliente(c);
+        }
+
+        public void ActualizarCliente(Cliente c)
+        {
+            clienteDao.actualizarCliente(c); 
+        }
+
+        public void EliminarCliente(Cliente c)
+        {
+            clienteDao.eliminarCliente(c);
+        }
     }
 }

@@ -42,6 +42,7 @@
             this.chkTodos = new System.Windows.Forms.CheckBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
+            this.btnDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -95,8 +96,10 @@
             this.dataGridClientes.MultiSelect = false;
             this.dataGridClientes.Name = "dataGridClientes";
             this.dataGridClientes.ReadOnly = true;
+            this.dataGridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridClientes.Size = new System.Drawing.Size(329, 156);
             this.dataGridClientes.TabIndex = 26;
+            this.dataGridClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridClientes_CellContentClick);
             // 
             // btnConsultar
             // 
@@ -110,36 +113,39 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(113, 319);
+            this.btnNuevo.Location = new System.Drawing.Point(94, 319);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(48, 23);
             this.btnNuevo.TabIndex = 28;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(172, 319);
+            this.btnEditar.Location = new System.Drawing.Point(148, 319);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(47, 23);
             this.btnEditar.TabIndex = 29;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(230, 319);
+            this.btnEliminar.Location = new System.Drawing.Point(263, 319);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(52, 23);
             this.btnEliminar.TabIndex = 30;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(351, 319);
+            this.btnSalir.Location = new System.Drawing.Point(359, 319);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(72, 23);
+            this.btnSalir.Size = new System.Drawing.Size(64, 23);
             this.btnSalir.TabIndex = 31;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -171,11 +177,22 @@
             this.lblApellido.TabIndex = 34;
             this.lblApellido.Text = "Apellido";
             // 
+            // btnDetalle
+            // 
+            this.btnDetalle.Location = new System.Drawing.Point(201, 319);
+            this.btnDetalle.Name = "btnDetalle";
+            this.btnDetalle.Size = new System.Drawing.Size(56, 23);
+            this.btnDetalle.TabIndex = 35;
+            this.btnDetalle.Text = "Detalle";
+            this.btnDetalle.UseVisualStyleBackColor = true;
+            this.btnDetalle.Click += new System.EventHandler(this.BtnDetalle_Click);
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 354);
+            this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.lblApellido);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.chkTodos);
@@ -192,6 +209,7 @@
             this.Controls.Add(this.lblClientes);
             this.Name = "frmClientes";
             this.Text = "Consultar Clientes";
+            this.Load += new System.EventHandler(this.FrmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -214,5 +232,6 @@
         private System.Windows.Forms.CheckBox chkTodos;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Button btnDetalle;
     }
 }

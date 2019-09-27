@@ -12,32 +12,29 @@ namespace TallerAutos.DataAccessLayer
     {
         BaseDeDatos eBD = new BaseDeDatos();
 
-        public void cargarEmpleado(Empleado e)
+        public void cargarCliente(Cliente c)
         {
-            string insercionSQL = "INSERT INTO Empleados (rol, nombre, apellido, domicilio, " +
-                                  "telefono, celular, fechaNacim, fechaAlta, codSexo, usuario, password) " +
-                                  "VALUES ('" + e.Rol.CodRol + "','" + e.Nombre + "','" + e.Apellido +
-                                  "','" + e.Domicilio + "','" + e.Telefono + "','" + e.Celular +
-                                  "','" + e.FechaNacim + "','" + e.FechaAlta + "','" + e.Sexo.CodSexo +
-                                  "','" + e.Usuario + "','" + e.Password + "')";
+            string insercionSQL = "INSERT INTO Clientes (dni, apellido, nombre, domicilio, " +
+                                  "email, telefono, celular, fechaNacimiento, codSexo, borrado) " +
+                                  "VALUES ('" + c.Dni + "','" + c.Apellido + "','" + c.Nombre +
+                                  "','" + c.Domicilio + "','" + c.Email + "','" + c.Telefono + "','" + c.Celular +
+                                  "','" + c.FechaNacimiento + "','" + c.Sexo.CodSexo + "', 0)";
             eBD.insertar(insercionSQL);
         }
 
-        public void actualizarEmpleado(Empleado e)
+        public void actualizarCliente(Cliente c)
         {
-            string actualizacionSQL = "UPDATE Empleados " +
-                                         "SET rol=" + e.Rol.CodRol + ", " +
-                                         "nombre='" + e.Nombre + "', " +
-                                         "apellido='" + e.Apellido + "', " +
-                                         "domicilio='" + e.Domicilio + "', " +
-                                         "telefono='" + e.Telefono + "', " +
-                                         "celular='" + e.Celular + "', " +
-                                         "fechaNacim='" + e.FechaNacim + "', " +
-                                         "fechaAlta='" + e.FechaAlta + "', " +
-                                         "codSexo=" + e.Sexo.CodSexo + ", " +
-                                         "usuario='" + e.Usuario + "', " +
-                                         "password='" + e.Password + "' " +
-                                         "WHERE legajo=" + e.Legajo;
+            string actualizacionSQL = "UPDATE Clientes " +
+                                         "SET " +
+                                         "nombre='" + c.Nombre + "', " +
+                                         "apellido='" + c.Apellido + "', " +
+                                         "domicilio='" + c.Domicilio + "', " +
+                                         "email='" + c.Email + "', " +
+                                         "telefono='" + c.Telefono + "', " +
+                                         "celular='" + c.Celular + "', " +
+                                         "fechaNacimiento='" + c.FechaNacimiento + "', " +                                        
+                                         "codSexo=" + c.Sexo.CodSexo +                                        
+                                         "WHERE dni=" + c.Dni;
             eBD.insertar(actualizacionSQL);
         }
 
@@ -72,33 +69,10 @@ namespace TallerAutos.DataAccessLayer
             return listaClientes;
         }
 
-        public void eliminarEmpleado(Empleado e)
+        public void eliminarCliente(Cliente c)
         {
-            string eliminacionSQL = "UPDATE Empleados SET borrado = 1 WHERE legajo = " + e.Legajo;
+            string eliminacionSQL = "UPDATE Clientes SET borrado = 1 WHERE dni = " + c.Dni;
             eBD.insertar(eliminacionSQL);
-        }
-
-        public bool validarUserEmpleado(string nombreUsuario)
-        {
-
-            String strSql = string.Concat(" SELECT legajo, ",
-                                          "        rol, ",
-                                          "        nombre ",
-                                          "FROM Empleados WHERE borrado = 0");
-
-
-            strSql += " AND usuario=" + "'" + nombreUsuario + "'";
-
-            var resultado = eBD.consultar(strSql);
-
-            if (resultado.Rows.Count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
 
         private Cliente mappingCliente(DataRow row)

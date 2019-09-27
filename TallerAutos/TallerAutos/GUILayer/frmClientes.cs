@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TallerAutos.GUILayer;
 using TallerAutos.BusinessLayer;
 using TallerAutos.Entities;
 namespace TallerAutos.GUILayer
@@ -51,11 +52,15 @@ namespace TallerAutos.GUILayer
                 }
 
 
-                if (nomOk || apOk || dniOk) { 
-                   
-                    this.dataGridClientes.DataSource = clienteService.ConsultarClientes(strCondiciones);
-                }
+                if (nomOk || apOk || dniOk) {
 
+                    IList<Cliente> listaC = clienteService.ConsultarClientes(strCondiciones);
+                    if (listaC.Count > 0)
+                        this.dataGridClientes.DataSource = listaC;
+                    else
+                        MessageBox.Show("No se encontró ningún cliente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
                 else
                 {
                     MessageBox.Show("No se ingresó ningún criterio de búsqueda", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -67,10 +72,11 @@ namespace TallerAutos.GUILayer
                 IList<Cliente> listaClientes = clienteService.ConsultarClientes(strCondiciones);
                 if(listaClientes.Count() >= 1)
                     this.dataGridClientes.DataSource = listaClientes;
-                else MessageBox.Show("No se encontró ningún cliente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else MessageBox.Show("No se encontraron clientes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
         }
+
         private void InitializeDataGridView()
         {
 
@@ -109,6 +115,54 @@ namespace TallerAutos.GUILayer
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            frmABMClientes ABMCl = new frmABMClientes();
+            ABMCl.ShowDialog();
+        }
+
+        private void DataGridClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.btnNuevo.Enabled= false;
+            this.btnEditar.Enabled = true;
+            this.btnEliminar.Enabled = true;
+            this.btnDetalle.Enabled = true;
+
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            Cliente selected = (Cliente)dataGridClientes.CurrentRow.DataBoundItem;
+           
+            frmABMClientes frABMCl = new frmABMClientes();
+            frABMCl.SeleccionarCliente(frmABMClientes.FormMode.update, selected);
+            frABMCl.ShowDialog();            
+
+        }
+
+        private void FrmClientes_Load(object sender, EventArgs e)
+        {
+            this.btnEditar.Enabled = false;
+            this.btnEliminar.Enabled = false;
+            this.btnDetalle.Enabled = false;
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            Cliente selected = (Cliente)this.dataGridClientes.CurrentRow.DataBoundItem;
+            frmABMClientes frABMCl = new frmABMClientes();
+            frABMCl.SeleccionarCliente(frmABMClientes.FormMode.delete, selected);
+            frABMCl.ShowDialog();
+        }
+
+        private void BtnDetalle_Click(object sender, EventArgs e)
+        {
+            Cliente selected = (Cliente) this.dataGridClientes.CurrentRow.DataBoundItem;
+            frmABMClientes frABMCl = new frmABMClientes();
+            frABMCl.SeleccionarCliente(frmABMClientes.FormMode.details, selected);
+            frABMCl.ShowDialog();
         }
     }
 }
