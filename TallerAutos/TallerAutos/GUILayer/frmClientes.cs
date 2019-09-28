@@ -124,8 +124,7 @@ namespace TallerAutos.GUILayer
         }
 
         private void DataGridClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this.btnNuevo.Enabled= false;
+        {            
             this.btnEditar.Enabled = true;
             this.btnEliminar.Enabled = true;
             this.btnDetalle.Enabled = true;
