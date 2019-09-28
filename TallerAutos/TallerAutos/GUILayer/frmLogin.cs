@@ -31,7 +31,7 @@ namespace TallerAutos.GUILayer
 
             if (oEmpleado != null)
             {
-                frmMenuPrincipal frmMP = new frmMenuPrincipal(oEmpleado);
+                frmMenuPrincipal frmMP = new frmMenuPrincipal();
                 frmMP.Visible = true;
                 this.Visible = false;
             }
@@ -89,11 +89,6 @@ namespace TallerAutos.GUILayer
             {
                 txtUser.Text = "";
             }
-        }
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

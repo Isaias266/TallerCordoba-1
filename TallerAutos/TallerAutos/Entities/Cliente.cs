@@ -17,7 +17,7 @@ namespace TallerAutos.Entities
         private string email;
         private string celular;
         private DateTime fechaNacimiento;
-        private Sexo sexo;
+        public Sexo sexo;
 
         public int Dni { get => dni; set => dni = value; }
         public string Apellido { get => apellido; set => apellido = value; }
@@ -27,7 +27,7 @@ namespace TallerAutos.Entities
         public string Email { get => email; set => email = value; }
         public string Celular { get => celular; set => celular = value; }
         public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
-        internal Sexo Sexo { get; set; }
+        public Sexo Sexo { get; set; }
 
 
         /*

@@ -16,17 +16,16 @@ namespace TallerAutos
         static void Main()
         {
             // VARIABLE DEBUG PARA SALTEAR LOGIN AL EJECUTAR Y FACILITAR PRUEBAS
-            //No se utiliza por el momento.
             bool DEBUG = false;
 
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmEmpleados());
-            //if(DEBUG)
-                //Application.Run(new frmMenuPrincipal());
-            //else
-            Application.Run(new frmLogin());
+            if(DEBUG)
+                Application.Run(new frmMenuPrincipal());
+            else
+                Application.Run(new frmLogin());
         }
     }
 }

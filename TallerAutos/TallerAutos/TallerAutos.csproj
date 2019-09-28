@@ -22,7 +22,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,36 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
     <Compile Include="BusinessLayer\OrdenTrabajoService.cs" />
     <Compile Include="BusinessLayer\RolService.cs" />
     <Compile Include="BusinessLayer\SexoService.cs" />
     <Compile Include="DataAccessLayer\BaseDeDatos.cs" />
-    <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="DataAccessLayer\EmpleadoDao.cs" />
     <Compile Include="DataAccessLayer\OrdenTrabajoDao.cs" />
     <Compile Include="DataAccessLayer\RolDao.cs" />
     <Compile Include="DataAccessLayer\SexoDao.cs" />
-    <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\FormaPago.cs" />
     <Compile Include="Entities\OrdenTrabajo.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Sexo.cs" />
-    <Compile Include="GUILayer\frmABMClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\frmABMClientes.Designer.cs">
-      <DependentUpon>frmABMClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUILayer\frmClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUILayer\frmClientes.Designer.cs">
-      <DependentUpon>frmClientes.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUILayer\frmDetalleCOrdenes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,12 +118,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Taller_PAVDataSet4.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="GUILayer\frmABMClientes.resx">
-      <DependentUpon>frmABMClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUILayer\frmClientes.resx">
-      <DependentUpon>frmClientes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmDetalleCOrdenes.resx">
       <DependentUpon>frmDetalleCOrdenes.cs</DependentUpon>
     </EmbeddedResource>

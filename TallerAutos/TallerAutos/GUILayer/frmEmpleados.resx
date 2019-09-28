@@ -126,25 +126,4 @@
   <metadata name="rolesTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>907, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7pAAAO6QEOM0IcAAAAB3RJ
-        TUUH4wkZFQchZcBe6gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABwSURBVDhP
-        pZNBCsAgDATz2V6KfY3vLZgVFizGmNSBQD3MUBVFqTo3PpLAgSuXzqvzYBGETukrJROZZBKJLGXiRbYy
-        sSJhmYyRtExwTRAxf675LDD+tnUmLtaewxHvwLYRTybLSEQmUyQjk0/k4DlLbTeDNO2p90qKAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
-  <data name="btnCerrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7pAAAO6QEOM0IcAAAAB3RJ
-        TUUH4wkZFQchZcBe6gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABwSURBVDhP
-        pZNBCsAgDATz2V6KfY3vLZgVFizGmNSBQD3MUBVFqTo3PpLAgSuXzqvzYBGETukrJROZZBKJLGXiRbYy
-        sSJhmYyRtExwTRAxf675LDD+tnUmLtaewxHvwLYRTybLSEQmUyQjk0/k4DlLbTeDNO2p90qKAAAAAElF
-        TkSuQmCC
-</value>
-  </data>
 </root>
