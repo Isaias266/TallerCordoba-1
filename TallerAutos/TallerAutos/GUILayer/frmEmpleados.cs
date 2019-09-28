@@ -23,6 +23,7 @@ namespace TallerAutos.GUILayer
             empleado = new EmpleadoService();
             rol = new RolService();
             sexo = new SexoService();
+            
         }
 
         private void limpiar()
@@ -43,6 +44,8 @@ namespace TallerAutos.GUILayer
 
         private void habilitar(bool x)
         {
+            this.cboRol.BackColor = Color.FromArgb(56, 61, 62);
+            this.cboSexo.BackColor = Color.FromArgb(56, 61, 62);
             btnGuardar.Enabled = x;
             btnCancelar.Enabled = x;
 
@@ -58,7 +61,7 @@ namespace TallerAutos.GUILayer
             btnNuevo.Enabled = !x;
             btnEliminar.Enabled = !x;
             btnEditar.Enabled = !x;
-            btnSalir.Enabled = !x;
+            btnVolver.Enabled = !x;
             txtUsuario.Enabled = x;
             txtPassword.Enabled = x;
         }
@@ -250,6 +253,7 @@ namespace TallerAutos.GUILayer
         {
             //Application.Exit();
             this.Close();
+            
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -286,13 +290,7 @@ namespace TallerAutos.GUILayer
             // Configurp la AutoGenerateColumns en false para que no se autogeneren las columnas
             dataGridEmpleados.AutoGenerateColumns = false;
 
-            // Cambia el estilo de la cabecera de la grilla.
-            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
-
-            columnHeaderStyle.BackColor = Color.Beige;
-            columnHeaderStyle.Font = new Font("Verdana", 8, FontStyle.Bold);
-            dataGridEmpleados.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
-
+          
 
             // Definimos el nombre de la columnas y el DataPropertyName que se asocia a DataSource
             dataGridEmpleados.Columns[0].Name = "Legajo";
@@ -329,17 +327,65 @@ namespace TallerAutos.GUILayer
             dataGridEmpleados.Columns[10].DataPropertyName = "fechaAlta";
 
             // Cambia el tamaño de la altura de los encabezados de columna.
-            dataGridEmpleados.AutoResizeColumnHeadersHeight();
+           /* dataGridEmpleados.AutoResizeColumnHeadersHeight();
 
             // Cambia el tamaño de todas las alturas de fila para ajustar el contenido de todas las celdas que no sean de encabezado.
             dataGridEmpleados.AutoResizeRows(
-                DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders);
+            DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders);*/
 
             // Propiedades data grid view
             dataGridEmpleados.ReadOnly = true;
             this.dataGridEmpleados.MultiSelect = false;
             this.dataGridEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dataGridEmpleados.AllowUserToAddRows = false;
+            //No permito cambiar el tamaño de las celdas para que la seleccion quede mas limpia.
+            this.dataGridEmpleados.AllowUserToResizeRows = false;
+            
+        }
+
+        private void TxtDomicilio_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtLegajo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtCelular_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CboRol_EnabledChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void FrmEmpleados_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }
