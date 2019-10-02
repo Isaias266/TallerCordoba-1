@@ -85,11 +85,11 @@ namespace TallerAutos.GUILayer
 
             dataGridClientes.AutoGenerateColumns = false;
 
-            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
+            /*DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
 
             columnHeaderStyle.BackColor = Color.Beige;
             columnHeaderStyle.Font = new Font("Verdana", 8, FontStyle.Bold);
-            dataGridClientes.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
+            dataGridClientes.ColumnHeadersDefaultCellStyle = columnHeaderStyle;*/
 
             dataGridClientes.Columns[0].Name = "DNI";
             dataGridClientes.Columns[0].DataPropertyName = "dni";
@@ -100,10 +100,10 @@ namespace TallerAutos.GUILayer
             dataGridClientes.Columns[2].Name = "Apellido";
             dataGridClientes.Columns[2].DataPropertyName = "apellido";
 
-            dataGridClientes.AutoResizeColumnHeadersHeight();
+            /*dataGridClientes.AutoResizeColumnHeadersHeight();
 
             dataGridClientes.AutoResizeRows(
-                DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders);
+                DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders);*/
 
             // Propiedades data grid view
             dataGridClientes.ReadOnly = true;
@@ -162,6 +162,11 @@ namespace TallerAutos.GUILayer
             frmABMClientes frABMCl = new frmABMClientes();
             frABMCl.SeleccionarCliente(frmABMClientes.FormMode.details, selected);
             frABMCl.ShowDialog();
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

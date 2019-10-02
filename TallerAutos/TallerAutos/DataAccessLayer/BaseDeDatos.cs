@@ -11,9 +11,9 @@ namespace TallerAutos.DataAccessLayer
     class BaseDeDatos
     {
         // mauri:
-        //string cadenaConexion = @"Data Source=localhost;Initial Catalog=Taller;Integrated Security=True";
+        string cadenaConexion = @"Data Source=localhost;Initial Catalog=Taller;Integrated Security=True";
         //isa:
-        string cadenaConexion = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
+        //string cadenaConexion = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
         //francisco:
         //string cadenaConexion = @"Data Source=LAPTOP-WINDOWS1\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
 

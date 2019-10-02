@@ -49,22 +49,31 @@
   <ItemGroup>
     <Compile Include="BusinessLayer\ClienteService.cs" />
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
+    <Compile Include="BusinessLayer\MarcaService.cs" />
+    <Compile Include="BusinessLayer\ModeloService.cs" />
     <Compile Include="BusinessLayer\OrdenTrabajoService.cs" />
     <Compile Include="BusinessLayer\RolService.cs" />
     <Compile Include="BusinessLayer\SexoService.cs" />
+    <Compile Include="BusinessLayer\VehiculoService.cs" />
     <Compile Include="DataAccessLayer\BaseDeDatos.cs" />
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
     <Compile Include="DataAccessLayer\EmpleadoDao.cs" />
+    <Compile Include="DataAccessLayer\MarcaDao.cs" />
+    <Compile Include="DataAccessLayer\ModeloDao.cs" />
     <Compile Include="DataAccessLayer\OrdenTrabajoDao.cs" />
     <Compile Include="DataAccessLayer\RolDao.cs" />
     <Compile Include="DataAccessLayer\SexoDao.cs" />
+    <Compile Include="DataAccessLayer\VehiculoDao.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\FormaPago.cs" />
+    <Compile Include="Entities\Marca.cs" />
+    <Compile Include="Entities\Modelo.cs" />
     <Compile Include="Entities\OrdenTrabajo.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Sexo.cs" />
+    <Compile Include="Entities\Vehiculo.cs" />
     <Compile Include="GUILayer\frmABMClientes.cs">
       <SubType>Form</SubType>
     </Compile>
