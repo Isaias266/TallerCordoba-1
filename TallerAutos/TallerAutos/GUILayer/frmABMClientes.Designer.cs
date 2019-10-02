@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmABMClientes));
             this.tabFrmCliente = new System.Windows.Forms.TabControl();
             this.tabCliente = new System.Windows.Forms.TabPage();
+            this.btnAceptarInfo = new System.Windows.Forms.Button();
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCel = new System.Windows.Forms.TextBox();
@@ -50,34 +51,37 @@
             this.lblDNI = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.tabVehiculos = new System.Windows.Forms.TabPage();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.cboModelo = new System.Windows.Forms.ComboBox();
+            this.cboMarca = new System.Windows.Forms.ComboBox();
+            this.txtPatente = new System.Windows.Forms.TextBox();
+            this.lblModelo = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.lblPatente = new System.Windows.Forms.Label();
+            this.dgvVehiculos = new System.Windows.Forms.DataGridView();
+            this.btnAceptarVeh = new System.Windows.Forms.Button();
             this.ordenesTableAdapter1 = new TallerAutos.Taller_PAVDataSet1TableAdapters.OrdenesTableAdapter();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTop = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAceptarInfo = new System.Windows.Forms.Button();
+            this.lblProfile = new System.Windows.Forms.Label();
+            this.pictureProfile = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnVehiculos = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
-            this.btnAceptarVeh = new System.Windows.Forms.Button();
-            this.pictureProfile = new System.Windows.Forms.PictureBox();
-            this.lblProfile = new System.Windows.Forms.Label();
-            this.dgvVehiculos = new System.Windows.Forms.DataGridView();
-            this.lblPatente = new System.Windows.Forms.Label();
-            this.lblMarca = new System.Windows.Forms.Label();
-            this.lblModelo = new System.Windows.Forms.Label();
-            this.txtPatente = new System.Windows.Forms.TextBox();
-            this.cboMarca = new System.Windows.Forms.ComboBox();
-            this.cboModelo = new System.Windows.Forms.ComboBox();
+            this.btnCancelarVeh = new System.Windows.Forms.Button();
             this.tabFrmCliente.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.tabVehiculos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelTop.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).BeginInit();
             this.SuspendLayout();
             // 
             // tabFrmCliente
@@ -120,6 +124,22 @@
             this.tabCliente.Size = new System.Drawing.Size(699, 360);
             this.tabCliente.TabIndex = 0;
             this.tabCliente.Text = "tabPage1";
+            // 
+            // btnAceptarInfo
+            // 
+            this.btnAceptarInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnAceptarInfo.FlatAppearance.BorderSize = 0;
+            this.btnAceptarInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.btnAceptarInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptarInfo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptarInfo.ForeColor = System.Drawing.Color.White;
+            this.btnAceptarInfo.Location = new System.Drawing.Point(55, 252);
+            this.btnAceptarInfo.Name = "btnAceptarInfo";
+            this.btnAceptarInfo.Size = new System.Drawing.Size(93, 34);
+            this.btnAceptarInfo.TabIndex = 73;
+            this.btnAceptarInfo.Text = "Aceptar";
+            this.btnAceptarInfo.UseVisualStyleBackColor = false;
+            this.btnAceptarInfo.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // dtpFechaNac
             // 
@@ -287,6 +307,10 @@
             // tabVehiculos
             // 
             this.tabVehiculos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.tabVehiculos.Controls.Add(this.btnCancelarVeh);
+            this.tabVehiculos.Controls.Add(this.btnEliminar);
+            this.tabVehiculos.Controls.Add(this.btnEditar);
+            this.tabVehiculos.Controls.Add(this.btnNuevo);
             this.tabVehiculos.Controls.Add(this.cboModelo);
             this.tabVehiculos.Controls.Add(this.cboMarca);
             this.tabVehiculos.Controls.Add(this.txtPatente);
@@ -301,6 +325,136 @@
             this.tabVehiculos.Size = new System.Drawing.Size(699, 360);
             this.tabVehiculos.TabIndex = 1;
             this.tabVehiculos.Text = "tabPage2";
+            this.tabVehiculos.Click += new System.EventHandler(this.TabVehiculos_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(540, 306);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(93, 34);
+            this.btnEliminar.TabIndex = 84;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(428, 306);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(93, 34);
+            this.btnEditar.TabIndex = 83;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Location = new System.Drawing.Point(315, 306);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(93, 34);
+            this.btnNuevo.TabIndex = 82;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
+            // 
+            // cboModelo
+            // 
+            this.cboModelo.FormattingEnabled = true;
+            this.cboModelo.Location = new System.Drawing.Point(498, 226);
+            this.cboModelo.Name = "cboModelo";
+            this.cboModelo.Size = new System.Drawing.Size(135, 21);
+            this.cboModelo.TabIndex = 81;
+            // 
+            // cboMarca
+            // 
+            this.cboMarca.FormattingEnabled = true;
+            this.cboMarca.Location = new System.Drawing.Point(298, 227);
+            this.cboMarca.Name = "cboMarca";
+            this.cboMarca.Size = new System.Drawing.Size(121, 21);
+            this.cboMarca.TabIndex = 80;
+            // 
+            // txtPatente
+            // 
+            this.txtPatente.Location = new System.Drawing.Point(117, 228);
+            this.txtPatente.Name = "txtPatente";
+            this.txtPatente.Size = new System.Drawing.Size(111, 20);
+            this.txtPatente.TabIndex = 79;
+            // 
+            // lblModelo
+            // 
+            this.lblModelo.AutoSize = true;
+            this.lblModelo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblModelo.ForeColor = System.Drawing.Color.White;
+            this.lblModelo.Location = new System.Drawing.Point(435, 230);
+            this.lblModelo.Name = "lblModelo";
+            this.lblModelo.Size = new System.Drawing.Size(57, 17);
+            this.lblModelo.TabIndex = 78;
+            this.lblModelo.Text = "Modelo";
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.ForeColor = System.Drawing.Color.White;
+            this.lblMarca.Location = new System.Drawing.Point(243, 230);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(49, 17);
+            this.lblMarca.TabIndex = 77;
+            this.lblMarca.Text = "Marca";
+            // 
+            // lblPatente
+            // 
+            this.lblPatente.AutoSize = true;
+            this.lblPatente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatente.ForeColor = System.Drawing.Color.White;
+            this.lblPatente.Location = new System.Drawing.Point(52, 229);
+            this.lblPatente.Name = "lblPatente";
+            this.lblPatente.Size = new System.Drawing.Size(59, 17);
+            this.lblPatente.TabIndex = 76;
+            this.lblPatente.Text = "Patente";
+            // 
+            // dgvVehiculos
+            // 
+            this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVehiculos.Location = new System.Drawing.Point(174, 47);
+            this.dgvVehiculos.Name = "dgvVehiculos";
+            this.dgvVehiculos.Size = new System.Drawing.Size(347, 128);
+            this.dgvVehiculos.TabIndex = 75;
+            this.dgvVehiculos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVehiculos_CellContentClick);
+            // 
+            // btnAceptarVeh
+            // 
+            this.btnAceptarVeh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnAceptarVeh.FlatAppearance.BorderSize = 0;
+            this.btnAceptarVeh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnAceptarVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAceptarVeh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptarVeh.ForeColor = System.Drawing.Color.White;
+            this.btnAceptarVeh.Location = new System.Drawing.Point(55, 306);
+            this.btnAceptarVeh.Name = "btnAceptarVeh";
+            this.btnAceptarVeh.Size = new System.Drawing.Size(93, 34);
+            this.btnAceptarVeh.TabIndex = 74;
+            this.btnAceptarVeh.Text = "Guardar";
+            this.btnAceptarVeh.UseVisualStyleBackColor = false;
+            this.btnAceptarVeh.Click += new System.EventHandler(this.BtnAceptarVeh_Click);
             // 
             // ordenesTableAdapter1
             // 
@@ -326,6 +480,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // panelTop
             // 
@@ -352,21 +507,25 @@
             this.panel1.Size = new System.Drawing.Size(236, 348);
             this.panel1.TabIndex = 38;
             // 
-            // btnAceptarInfo
+            // lblProfile
             // 
-            this.btnAceptarInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
-            this.btnAceptarInfo.FlatAppearance.BorderSize = 0;
-            this.btnAceptarInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
-            this.btnAceptarInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptarInfo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptarInfo.ForeColor = System.Drawing.Color.White;
-            this.btnAceptarInfo.Location = new System.Drawing.Point(55, 252);
-            this.btnAceptarInfo.Name = "btnAceptarInfo";
-            this.btnAceptarInfo.Size = new System.Drawing.Size(93, 34);
-            this.btnAceptarInfo.TabIndex = 73;
-            this.btnAceptarInfo.Text = "Aceptar";
-            this.btnAceptarInfo.UseVisualStyleBackColor = false;
-            this.btnAceptarInfo.Click += new System.EventHandler(this.BtnAceptar_Click);
+            this.lblProfile.AutoSize = true;
+            this.lblProfile.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfile.ForeColor = System.Drawing.Color.White;
+            this.lblProfile.Location = new System.Drawing.Point(56, 102);
+            this.lblProfile.Name = "lblProfile";
+            this.lblProfile.Size = new System.Drawing.Size(62, 17);
+            this.lblProfile.TabIndex = 74;
+            this.lblProfile.Text = "lblProfile";
+            // 
+            // pictureProfile
+            // 
+            this.pictureProfile.Image = ((System.Drawing.Image)(resources.GetObject("pictureProfile.Image")));
+            this.pictureProfile.Location = new System.Drawing.Point(82, 23);
+            this.pictureProfile.Name = "pictureProfile";
+            this.pictureProfile.Size = new System.Drawing.Size(68, 76);
+            this.pictureProfile.TabIndex = 73;
+            this.pictureProfile.TabStop = false;
             // 
             // btnCancelar
             // 
@@ -422,107 +581,21 @@
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.BtnInfo_Click);
             // 
-            // btnAceptarVeh
+            // btnCancelarVeh
             // 
-            this.btnAceptarVeh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
-            this.btnAceptarVeh.FlatAppearance.BorderSize = 0;
-            this.btnAceptarVeh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
-            this.btnAceptarVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAceptarVeh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptarVeh.ForeColor = System.Drawing.Color.White;
-            this.btnAceptarVeh.Location = new System.Drawing.Point(64, 306);
-            this.btnAceptarVeh.Name = "btnAceptarVeh";
-            this.btnAceptarVeh.Size = new System.Drawing.Size(93, 34);
-            this.btnAceptarVeh.TabIndex = 74;
-            this.btnAceptarVeh.Text = "Aceptar";
-            this.btnAceptarVeh.UseVisualStyleBackColor = false;
-            this.btnAceptarVeh.Click += new System.EventHandler(this.BtnAceptarVeh_Click);
-
-            // 
-            // pictureProfile
-            // 
-            this.pictureProfile.Image = ((System.Drawing.Image)(resources.GetObject("pictureProfile.Image")));
-            this.pictureProfile.Location = new System.Drawing.Point(82, 23);
-            this.pictureProfile.Name = "pictureProfile";
-            this.pictureProfile.Size = new System.Drawing.Size(68, 76);
-            this.pictureProfile.TabIndex = 73;
-            this.pictureProfile.TabStop = false;
-            // 
-            // lblProfile
-            // 
-            this.lblProfile.AutoSize = true;
-            this.lblProfile.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfile.ForeColor = System.Drawing.Color.White;
-            this.lblProfile.Location = new System.Drawing.Point(56, 102);
-            this.lblProfile.Name = "lblProfile";
-            this.lblProfile.Size = new System.Drawing.Size(62, 17);
-            this.lblProfile.TabIndex = 74;
-            this.lblProfile.Text = "lblProfile";
-            // 
-            // dgvVehiculos
-            // 
-            this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehiculos.Location = new System.Drawing.Point(92, 47);
-            this.dgvVehiculos.Name = "dgvVehiculos";
-            this.dgvVehiculos.Size = new System.Drawing.Size(523, 128);
-            this.dgvVehiculos.TabIndex = 75;
-            this.dgvVehiculos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVehiculos_CellContentClick);
-            // 
-            // lblPatente
-            // 
-            this.lblPatente.AutoSize = true;
-            this.lblPatente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatente.ForeColor = System.Drawing.Color.White;
-            this.lblPatente.Location = new System.Drawing.Point(52, 229);
-            this.lblPatente.Name = "lblPatente";
-            this.lblPatente.Size = new System.Drawing.Size(59, 17);
-            this.lblPatente.TabIndex = 76;
-            this.lblPatente.Text = "Patente";
-            // 
-            // lblMarca
-            // 
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.ForeColor = System.Drawing.Color.White;
-            this.lblMarca.Location = new System.Drawing.Point(243, 230);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(49, 17);
-            this.lblMarca.TabIndex = 77;
-            this.lblMarca.Text = "Marca";
-            // 
-            // lblModelo
-            // 
-            this.lblModelo.AutoSize = true;
-            this.lblModelo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelo.ForeColor = System.Drawing.Color.White;
-            this.lblModelo.Location = new System.Drawing.Point(435, 230);
-            this.lblModelo.Name = "lblModelo";
-            this.lblModelo.Size = new System.Drawing.Size(57, 17);
-            this.lblModelo.TabIndex = 78;
-            this.lblModelo.Text = "Modelo";
-            // 
-            // txtPatente
-            // 
-            this.txtPatente.Location = new System.Drawing.Point(117, 228);
-            this.txtPatente.Name = "txtPatente";
-            this.txtPatente.Size = new System.Drawing.Size(111, 20);
-            this.txtPatente.TabIndex = 79;
-            // 
-            // cboMarca
-            // 
-            this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(298, 227);
-            this.cboMarca.Name = "cboMarca";
-            this.cboMarca.Size = new System.Drawing.Size(121, 21);
-            this.cboMarca.TabIndex = 80;
-            // 
-            // cboModelo
-            // 
-            this.cboModelo.FormattingEnabled = true;
-            this.cboModelo.Location = new System.Drawing.Point(498, 226);
-            this.cboModelo.Name = "cboModelo";
-            this.cboModelo.Size = new System.Drawing.Size(135, 21);
-            this.cboModelo.TabIndex = 81;
+            this.btnCancelarVeh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnCancelarVeh.FlatAppearance.BorderSize = 0;
+            this.btnCancelarVeh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnCancelarVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarVeh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarVeh.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarVeh.Location = new System.Drawing.Point(163, 306);
+            this.btnCancelarVeh.Name = "btnCancelarVeh";
+            this.btnCancelarVeh.Size = new System.Drawing.Size(93, 34);
+            this.btnCancelarVeh.TabIndex = 85;
+            this.btnCancelarVeh.Text = "Cancelar";
+            this.btnCancelarVeh.UseVisualStyleBackColor = false;
+            this.btnCancelarVeh.Click += new System.EventHandler(this.BtnCancelarVeh_Click);
             // 
             // frmABMClientes
             // 
@@ -535,6 +608,7 @@
             this.Controls.Add(this.tabFrmCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmABMClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmABMClientes";
             this.Load += new System.EventHandler(this.FrmABMClientes_Load);
             this.tabFrmCliente.ResumeLayout(false);
@@ -542,6 +616,7 @@
             this.tabCliente.PerformLayout();
             this.tabVehiculos.ResumeLayout(false);
             this.tabVehiculos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelTop.ResumeLayout(false);
@@ -549,7 +624,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProfile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVehiculos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -596,5 +670,9 @@
         private System.Windows.Forms.DataGridView dgvVehiculos;
         private System.Windows.Forms.ComboBox cboModelo;
         private System.Windows.Forms.ComboBox cboMarca;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnCancelarVeh;
     }
 }

@@ -11,10 +11,11 @@ namespace TallerAutos.GUILayer
     {
         private FormMode formMode = FormMode.insert;
 
+        private bool nuevoVeh;
         private SexoService oSexService;
         private ModeloService oModeloService;
         private MarcaService oMarcaService;
-        private Cliente clienteSeleccionado;
+        private Cliente clienteSeleccionado;       
         private ClienteService clienteService;
         private VehiculoService vehiculoService;
         
@@ -34,8 +35,7 @@ namespace TallerAutos.GUILayer
         public enum FormMode
         {
             insert,
-            update,
-            delete,
+            update,         
             details
         }
 
@@ -50,13 +50,14 @@ namespace TallerAutos.GUILayer
             LlenarCombo(cboModelo, oModeloService.recuperarModelos(), "nombre", "codModelo");
             LlenarCombo(cboSexo, oSexService.recuperarSexos(), "nombre", "codSexo");
             //Cargo el DGV de los vehiculos
-            this.dgvVehiculos.DataSource = vehiculoService.consultarVehiculos(" AND C.dni = " + clienteSeleccionado.Dni);
+            cargarDGVehiculos();
             switch (formMode)
             {
                 case FormMode.insert:
                     {
                         this.Text = "Cargar cliente";
                         HabilitarTxtCliente(true);
+                        this.btnVehiculos.Enabled = false;
                         HabilitarTxtVeh(false);
                         break;
                     }
@@ -66,26 +67,25 @@ namespace TallerAutos.GUILayer
                         this.Text = "Editar cliente";
                         this.MostrarDatos(clienteSeleccionado);
                         HabilitarTxtCliente(true);
-                        HabilitarTxtVeh(true);
+                        HabilitarTxtVeh(false);
+                        this.btnAceptarVeh.Enabled = false;
+                        this.btnCancelarVeh.Enabled = false;
 
                         break;
                     }
 
-                case FormMode.delete:
-                    {
-                        this.Text = "Eliminar cliente";
-                        this.MostrarDatos(clienteSeleccionado);
-                        HabilitarTxtCliente(false);
-                       
-
-                        break;
-                    }
                 case FormMode.details:
                     {
                         this.Text = "Detalle de cliente";
                         this.MostrarDatos(clienteSeleccionado);
                         HabilitarTxtCliente(false);
                         HabilitarTxtVeh(false);
+                        this.btnAceptarVeh.Enabled = false;
+                        this.btnCancelarVeh.Enabled = false;
+                        this.btnEliminar.Enabled = false;
+                        this.btnEditar.Enabled = false;
+                        this.btnNuevo.Enabled = false;
+
                         break;
                     }
 
@@ -186,7 +186,6 @@ namespace TallerAutos.GUILayer
             return true;
         }
 
-
         private bool ValidarDNICliente()
         {
             string strSql = "AND C.dni = " + this.txtDNI.Text;
@@ -209,8 +208,6 @@ namespace TallerAutos.GUILayer
             return true;
         }
 
-
-
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
             switch (formMode)
@@ -228,7 +225,16 @@ namespace TallerAutos.GUILayer
 
                                 MessageBox.Show("Usuario cargado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 //this.Close(); Deshabilitado temporalmente
-                                HabilitarTxtVeh(true);
+
+                                this.clienteSeleccionado = oCliente;
+                                tabFrmCliente.SelectedTab = tabVehiculos;
+                                this.HabilitarTxtVeh(true);
+                                this.btnInfo.Enabled = false;                             
+                                this.btnEliminar.Visible = false;
+                                this.btnEditar.Visible = false;
+                                this.btnNuevo.Visible = false;
+                                this.btnAceptarVeh.Enabled = true;
+                                this.btnCancelarVeh.Visible = false;
                             }
                             else
                                 MessageBox.Show("Ya existe un cliente con el número de DNI ingresado. Por favor, ingrese un DNI diferente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -253,18 +259,6 @@ namespace TallerAutos.GUILayer
                         }
                         else
                             MessageBox.Show("No se han completado uno o más campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                        break;
-                    }
-
-                case FormMode.delete:
-                    {
-                        if (MessageBox.Show("Seguro que desea eiminar el cliente seleccionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            clienteService.EliminarCliente(clienteSeleccionado);
-                            MessageBox.Show("Cliente eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
 
                         break;
                     }
@@ -347,12 +341,14 @@ namespace TallerAutos.GUILayer
                                 LlenarDatosVehiculo(oVehiculo);
 
                                 vehiculoService.cargarVehiculo(oVehiculo);
+                                this.cargarDGVehiculos();
 
                                 MessageBox.Show("Vehiculo cargado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                               
                                 //this.Close();
                             }
                             else
-                                MessageBox.Show("Ya existe un vehiculo con el número de Patente ingresado. Por favor, ingrese un DNI diferente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Ya existe un vehiculo con el número de Patente ingresado. Por favor, ingrese uno diferente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
                             MessageBox.Show("No se han completado uno o más campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -362,15 +358,38 @@ namespace TallerAutos.GUILayer
 
                 case FormMode.update:
                     {
-                        if (ValidarCamposObl())
+                        if (ValidarCamposVeh())
                         {
-                            LlenarDatosCliente(clienteSeleccionado);
+                            Vehiculo objVehiculo = new Vehiculo();
+                            LlenarDatosVehiculo(objVehiculo);
 
-                            clienteService.ActualizarCliente(clienteSeleccionado);
+                            if (!nuevoVeh) { 
+                                
+                                
 
-                            MessageBox.Show("Usuario actualizado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Dispose();
+                                vehiculoService.actualizarVehiculo(objVehiculo);
 
+                                
+                                MessageBox.Show("Vehículo actualizado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                //this.Dispose();
+                                
+                            }
+                            else {
+                                vehiculoService.cargarVehiculo(objVehiculo);
+                                MessageBox.Show("Vehículo añadido correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+
+                            this.cargarDGVehiculos();
+                            this.txtPatente.Clear();
+                            this.cboMarca.SelectedIndex = -1;
+                            this.cboModelo.SelectedIndex = -1;
+                            this.HabilitarTxtVeh(false);
+                            this.btnAceptarVeh.Enabled = false;
+                            this.btnCancelarVeh.Enabled = false;
+                            this.btnEliminar.Enabled = true;
+                            this.btnEditar.Enabled = true;
+                            this.btnNuevo.Enabled = true;
+                            this.dgvVehiculos.Enabled = true;
                         }
                         else
                             MessageBox.Show("No se han completado uno o más campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -427,5 +446,72 @@ namespace TallerAutos.GUILayer
             cboModelo.Text = vehiculo.Modelo.Nombre.ToString();
             
         }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            this.nuevoVeh = true;
+            dgvVehiculos.Enabled = false;
+            this.HabilitarTxtVeh(true);
+            this.btnEditar.Enabled = false;
+            this.btnEliminar.Enabled = false;
+            this.btnNuevo.Enabled = false;
+            this.btnAceptarVeh.Enabled = true;
+            this.btnCancelarVeh.Enabled = true;
+           
+        }
+
+        private void TabVehiculos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            this.nuevoVeh = false;
+            this.HabilitarTxtVeh(true);
+            this.btnEliminar.Enabled = false;
+            this.btnEditar.Enabled = false;
+            this.btnNuevo.Enabled = false;
+            this.btnAceptarVeh.Enabled = true;
+            this.btnCancelarVeh.Enabled = true;
+        }
+
+        private void cargarDGVehiculos()
+        {
+            this.dgvVehiculos.DataSource = vehiculoService.consultarVehiculos(" AND C.dni = " + clienteSeleccionado.Dni);
+        }
+
+        private void BtnCancelarVeh_Click(object sender, EventArgs e)
+        {
+            this.dgvVehiculos.Enabled = true;
+            this.txtPatente.Clear();
+            this.cboMarca.SelectedIndex = -1;
+            this.cboModelo.SelectedIndex = -1;
+            this.HabilitarTxtVeh(false);
+            this.btnAceptarVeh.Enabled = false;
+            this.btnCancelarVeh.Enabled = false;
+            this.btnEliminar.Enabled = true;
+            this.btnEditar.Enabled = true;
+            this.btnNuevo.Enabled = true;
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            Vehiculo objVeh = new Vehiculo();
+            LlenarDatosVehiculo(objVeh);
+            if (MessageBox.Show("Seguro que desea eiminar el vehículo seleccionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                vehiculoService.eliminarVehiculo(objVeh);
+                MessageBox.Show("Vehículo eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.cargarDGVehiculos();
+            }
+        }
     }
+
+
 }

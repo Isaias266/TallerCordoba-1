@@ -69,10 +69,7 @@ namespace TallerAutos.GUILayer
 
             else
             {
-                IList<Cliente> listaClientes = clienteService.ConsultarClientes(strCondiciones);
-                if(listaClientes.Count() >= 1)
-                    this.dataGridClientes.DataSource = listaClientes;
-                else MessageBox.Show("No se encontraron clientes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.cargarGrilla();
             }
             
         }
@@ -151,9 +148,18 @@ namespace TallerAutos.GUILayer
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             Cliente selected = (Cliente)this.dataGridClientes.CurrentRow.DataBoundItem;
-            frmABMClientes frABMCl = new frmABMClientes();
-            frABMCl.SeleccionarCliente(frmABMClientes.FormMode.delete, selected);
-            frABMCl.ShowDialog();
+          
+            if (MessageBox.Show("Seguro que desea eiminar el cliente seleccionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                clienteService.EliminarCliente(selected);
+
+                if (chkTodos.Checked)
+                {
+                    this.cargarGrilla();
+                }
+                MessageBox.Show("Cliente eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            }                        
         }
 
         private void BtnDetalle_Click(object sender, EventArgs e)
@@ -166,7 +172,15 @@ namespace TallerAutos.GUILayer
 
         private void PictureBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+        }
+
+        private void cargarGrilla()
+        {
+            IList<Cliente> listaClientes = clienteService.ConsultarClientes("");
+            if (listaClientes.Count() >= 1)
+                this.dataGridClientes.DataSource = listaClientes;
+            else MessageBox.Show("No se encontraron clientes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

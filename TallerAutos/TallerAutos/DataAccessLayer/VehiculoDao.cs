@@ -26,11 +26,11 @@ namespace TallerAutos.DataAccessLayer
         public void actualizarVehiculo(Vehiculo v)
         {
             string actualizacionSQL = "UPDATE Vehiculos " +
-                                         "SET patente=" + v.Patente + ", " +
-                                         "dni='" + v.Cliente.Dni + "', " +
-                                         "codMarca='" + v.Marca.CodMarca + "', " +
-                                         "codModelo='" + v.Modelo.CodModelo + "', " +                                  
-                                         "WHERE patente=" + v.Patente;
+                                         "SET patente=" + "'" + v.Patente + "', " +
+                                         "dni=" + v.Cliente.Dni + ", " +
+                                         "codMarca=" + v.Marca.CodMarca + ", " +
+                                         "codModelo=" + v.Modelo.CodModelo +                                  
+                                         "WHERE patente=" + "'" + v.Patente + "'";
             vDB.insertar(actualizacionSQL);
         }
 
@@ -64,9 +64,10 @@ namespace TallerAutos.DataAccessLayer
 
         public void eliminarVehiculo(Vehiculo v)
         {
-            string eliminacionSQL = "UPDATE Vehiculos SET borrado = 1 WHERE patente = " + v.Patente;
+            string eliminacionSQL = "UPDATE Vehiculos SET borrado = 1 WHERE patente = " + "'" + v.Patente + "'";
             vDB.insertar(eliminacionSQL);
         }
+
         private Vehiculo mappingVehiculos(DataRow row)
         {
             Vehiculo oVehiculo = new Vehiculo();
