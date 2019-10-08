@@ -10,9 +10,9 @@ namespace TallerAutos.BusinessLayer
     {
         EmpleadoDao oEmpleadoDao = new EmpleadoDao();
 
-        public Empleado validarEmpleado(string us, string pa)
+        public Empleado ValidarEmpleado(string us, string pa)
         {
-            var usr = oEmpleadoDao.validarEmpleado(us, pa);
+            var usr = oEmpleadoDao.ValidarEmpleado(us, pa);
             if (usr != null)
             {
                 return usr;
@@ -20,30 +20,30 @@ namespace TallerAutos.BusinessLayer
             return null;
         }
 
-        public IList<Empleado> consultarEmpleados(string condicionesSql)
+        public IList<Empleado> ConsultarEmpleados(string condicionesSql)
         {
-            return oEmpleadoDao.consultarEmpleados(condicionesSql);
+            return oEmpleadoDao.ConsultarEmpleados(condicionesSql);
         }
 
 
-        public void cargarEmpleado(Empleado e)
+        public void CargarEmpleado(Empleado e)
         {
-            oEmpleadoDao.cargarEmpleado(e);
+            oEmpleadoDao.CargarEmpleado(e);
         }
 
-        public void actualizarEmpleado(Empleado e)
+        public void ActualizarEmpleado(Empleado e)
         {
-            oEmpleadoDao.actualizarEmpleado(e);
+            oEmpleadoDao.ActualizarEmpleado(e);
         }
 
-        public void eliminarEmpleado(Empleado e)
+        public void EliminarEmpleado(Empleado e)
         {
-            oEmpleadoDao.eliminarEmpleado(e);
+            oEmpleadoDao.EliminarEmpleado(e);
         }
 
-        public bool validarUserEmpleado(string user)
+        public bool ValidarUserEmpleado(string user)
         {
-            return oEmpleadoDao.validarUserEmpleado(user);
+            return oEmpleadoDao.ValidarUserEmpleado(user);
         }
     }
 }

@@ -13,17 +13,17 @@ namespace TallerAutos.DataAccessLayer
     {
         BaseDeDatos vDB = new BaseDeDatos();
 
-        public void cargarVehiculo(Vehiculo v)
+        public void CargarVehiculo(Vehiculo v)
         {
             
             string insercionSQL = "INSERT INTO Vehiculos (patente, dni, codMarca, codModelo) " +
                                   "VALUES ('" + v.Patente + "'," + v.Cliente.Dni + "," + v.Marca.CodMarca +
                                   "," + v.Modelo.CodModelo + ")";
            
-            vDB.insertar(insercionSQL);
+            vDB.Insertar(insercionSQL);
         }
 
-        public void actualizarVehiculo(Vehiculo v)
+        public void ActualizarVehiculo(Vehiculo v)
         {
             string actualizacionSQL = "UPDATE Vehiculos " +
                                          "SET patente=" + "'" + v.Patente + "', " +
@@ -31,10 +31,10 @@ namespace TallerAutos.DataAccessLayer
                                          "codMarca=" + v.Marca.CodMarca + ", " +
                                          "codModelo=" + v.Modelo.CodModelo +                                  
                                          "WHERE patente=" + "'" + v.Patente + "'";
-            vDB.insertar(actualizacionSQL);
+            vDB.Insertar(actualizacionSQL);
         }
 
-        public IList<Vehiculo> consultarVehiculos(string condicionesSql)
+        public IList<Vehiculo> ConsultarVehiculos(string condicionesSql)
         {
             List<Vehiculo> listaVehiculos = new List<Vehiculo>();
 
@@ -51,24 +51,24 @@ namespace TallerAutos.DataAccessLayer
 
             strSql += condicionesSql;
             
-            var resultadoConsulta = (DataRowCollection)vDB.consultar(strSql).Rows;
+            var resultadoConsulta = (DataRowCollection)vDB.Consultar(strSql).Rows;
 
             foreach (DataRow row in resultadoConsulta)
             {
                 if (!string.IsNullOrEmpty(row["patente"].ToString()))
-                    listaVehiculos.Add(mappingVehiculos(row));
+                    listaVehiculos.Add(MappingVehiculos(row));
             }
 
             return listaVehiculos;
         }
 
-        public void eliminarVehiculo(Vehiculo v)
+        public void EliminarVehiculo(Vehiculo v)
         {
             string eliminacionSQL = "UPDATE Vehiculos SET borrado = 1 WHERE patente = " + "'" + v.Patente + "'";
-            vDB.insertar(eliminacionSQL);
+            vDB.Insertar(eliminacionSQL);
         }
 
-        private Vehiculo mappingVehiculos(DataRow row)
+        private Vehiculo MappingVehiculos(DataRow row)
         {
             Vehiculo oVehiculo = new Vehiculo();
 

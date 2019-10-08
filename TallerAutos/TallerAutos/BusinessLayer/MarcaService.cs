@@ -11,9 +11,9 @@ namespace TallerAutos.BusinessLayer
     class MarcaService
     {
         private MarcaDao oMarcaDao = new MarcaDao();
-        public IList<Marca> recuperarMarcas()
+        public IList<Marca> RecuperarMarcas()
         {
-            return oMarcaDao.recuperarMarcas();
+            return oMarcaDao.RecuperarMarcas();
         }
     }
 }

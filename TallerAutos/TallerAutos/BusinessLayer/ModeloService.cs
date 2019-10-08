@@ -11,9 +11,9 @@ namespace TallerAutos.BusinessLayer
     class ModeloService
     {
         private ModeloDao oModeloDao = new ModeloDao();
-        public IList<Modelo> recuperarModelos()
+        public IList<Modelo> RecuperarModelos()
         {
-            return oModeloDao.recuperarModelos();
+            return oModeloDao.RecuperarModelos();
         }
     }
 }

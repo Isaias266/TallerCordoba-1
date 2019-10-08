@@ -9,11 +9,11 @@ namespace TallerAutos.DataAccessLayer
 
         BaseDeDatos sDB = new BaseDeDatos();
 
-        public List<Sexo> recuperarSexos()
+        public List<Sexo> RecuperarSexos()
         {
             List<Sexo> listaSexos = new List<Sexo>();
             DataTable tabla = new DataTable();
-            tabla = sDB.consultarTabla("Sexos");
+            tabla = sDB.ConsultarTabla("Sexos");
             foreach (DataRow row in tabla.Rows)
             {
                 listaSexos.Add(MappingSexo(row));

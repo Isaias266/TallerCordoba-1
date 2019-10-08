@@ -10,7 +10,7 @@ namespace TallerAutos.DataAccessLayer
     {
         BaseDeDatos eBD = new BaseDeDatos();
 
-        public Empleado validarEmpleado(string us, string pa)
+        public Empleado ValidarEmpleado(string us, string pa)
         {
             string strSql = "SELECT E.legajo, " +
                                    "E.nombre as nombreEmpleado, " +
@@ -30,15 +30,15 @@ namespace TallerAutos.DataAccessLayer
                                    "FULL JOIN Sexos S ON (E.codSexo = S.codSexo) " +
                                    "WHERE borrado = 0 AND usuario='" + us + "' AND password='" + pa + "'";
 
-            DataTable tabla = eBD.consultar(strSql);
+            DataTable tabla = eBD.Consultar(strSql);
             if (tabla.Rows.Count > 0)
-                return mappingEmpleado(tabla.Rows[0]);
+                return MappingEmpleado(tabla.Rows[0]);
             else
                 return null;
         }
 
         
-        public void cargarEmpleado(Empleado e)
+        public void CargarEmpleado(Empleado e)
         {
             string insercionSQL = "INSERT INTO Empleados (rol, nombre, apellido, domicilio, " +
                                   "telefono, celular, fechaNacim, fechaAlta, codSexo, usuario, password) " +
@@ -46,10 +46,10 @@ namespace TallerAutos.DataAccessLayer
                                   "','" + e.Domicilio + "','" + e.Telefono + "','" + e.Celular + 
                                   "','" + e.FechaNacim + "','" + e.FechaAlta + "','" + e.Sexo.CodSexo + 
                                   "','" + e.Usuario + "','" + e.Password + "')";
-            eBD.insertar(insercionSQL);
+            eBD.Insertar(insercionSQL);
         }
 
-        public void actualizarEmpleado(Empleado e)
+        public void ActualizarEmpleado(Empleado e)
         {
             string actualizacionSQL = "UPDATE Empleados " +
                                          "SET rol=" + e.Rol.CodRol + ", " +
@@ -64,10 +64,10 @@ namespace TallerAutos.DataAccessLayer
                                          "usuario='" + e.Usuario + "', " + 
                                          "password='" + e.Password + "' " +
                                          "WHERE legajo=" + e.Legajo;
-            eBD.insertar(actualizacionSQL);
+            eBD.Insertar(actualizacionSQL);
         }
 
-        public IList<Empleado> consultarEmpleados(string condicionesSql)
+        public IList<Empleado> ConsultarEmpleados(string condicionesSql)
         {
             List<Empleado> listaEmpleados = new List<Empleado>();
 
@@ -92,24 +92,24 @@ namespace TallerAutos.DataAccessLayer
             strSql += condicionesSql;
             strSql += " ORDER BY E.fechaAlta DESC";
 
-            var resultadoConsulta = (DataRowCollection)eBD.consultar(strSql).Rows;
+            var resultadoConsulta = (DataRowCollection)eBD.Consultar(strSql).Rows;
 
             foreach(DataRow row in resultadoConsulta)
             {
                 if(!string.IsNullOrEmpty(row["legajo"].ToString()))
-                    listaEmpleados.Add(mappingEmpleado(row));
+                    listaEmpleados.Add(MappingEmpleado(row));
             }
 
             return listaEmpleados;
         }
 
-        public void eliminarEmpleado(Empleado e)
+        public void EliminarEmpleado(Empleado e)
         {
             string eliminacionSQL = "UPDATE Empleados SET borrado = 1 WHERE legajo = " + e.Legajo;
-            eBD.insertar(eliminacionSQL);
+            eBD.Insertar(eliminacionSQL);
         }
 
-        public bool validarUserEmpleado(string nombreUsuario)
+        public bool ValidarUserEmpleado(string nombreUsuario)
         {
 
             String strSql = string.Concat(" SELECT legajo, ",
@@ -120,7 +120,7 @@ namespace TallerAutos.DataAccessLayer
 
             strSql += " AND usuario=" + "'" + nombreUsuario + "'";
             
-            var resultado = eBD.consultar(strSql);
+            var resultado = eBD.Consultar(strSql);
 
             if (resultado.Rows.Count > 0)
             {
@@ -132,7 +132,7 @@ namespace TallerAutos.DataAccessLayer
             }
         }
 
-        private Empleado mappingEmpleado(DataRow row)
+        private Empleado MappingEmpleado(DataRow row)
         {
             Empleado oEmpleado = new Empleado();
 

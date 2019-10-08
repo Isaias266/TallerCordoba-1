@@ -9,11 +9,11 @@ namespace TallerAutos.DataAccessLayer
 
         BaseDeDatos sDB = new BaseDeDatos();
 
-        public List<Rol> recuperarRoles()
+        public List<Rol> RecuperarRoles()
         {
             List<Rol> listaRoles = new List<Rol>();
             DataTable tabla = new DataTable();
-            tabla = sDB.consultarTabla("Roles");
+            tabla = sDB.ConsultarTabla("Roles");
             foreach (DataRow row in tabla.Rows)
             {
                 listaRoles.Add(MappingRol(row));

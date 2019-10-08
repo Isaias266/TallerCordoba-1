@@ -7,9 +7,9 @@ namespace TallerAutos.BusinessLayer
     {
         private SexoDao oSexoDao = new SexoDao();
 
-        public IList<Sexo> recuperarSexos()
+        public IList<Sexo> RecuperarSexos()
         {
-            return oSexoDao.recuperarSexos();
+            return oSexoDao.RecuperarSexos();
         }
     }
 }

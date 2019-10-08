@@ -12,11 +12,11 @@ namespace TallerAutos.DataAccessLayer
     {
         BaseDeDatos mDB = new BaseDeDatos();
 
-        public List<Modelo> recuperarModelos()
+        public List<Modelo> RecuperarModelos()
         {
             List<Modelo> listaModelos = new List<Modelo>();
             DataTable tabla = new DataTable();
-            tabla = mDB.consultarTabla("Modelos");
+            tabla = mDB.ConsultarTabla("Modelos");
             foreach (DataRow row in tabla.Rows)
             {
                 listaModelos.Add(MappingModelos(row));

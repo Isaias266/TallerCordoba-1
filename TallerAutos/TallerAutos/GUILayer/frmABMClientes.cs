@@ -46,11 +46,11 @@ namespace TallerAutos.GUILayer
 
         private void FrmABMClientes_Load(object sender, EventArgs e)
         {
-            LlenarCombo(cboMarca, oMarcaService.recuperarMarcas(), "nombre", "codMarca");
-            LlenarCombo(cboModelo, oModeloService.recuperarModelos(), "nombre", "codModelo");
-            LlenarCombo(cboSexo, oSexService.recuperarSexos(), "nombre", "codSexo");
+            LlenarCombo(cboMarca, oMarcaService.RecuperarMarcas(), "nombre", "codMarca");
+            LlenarCombo(cboModelo, oModeloService.RecuperarModelos(), "nombre", "codModelo");
+            LlenarCombo(cboSexo, oSexService.RecuperarSexos(), "nombre", "codSexo");
             //Cargo el DGV de los vehiculos
-            cargarDGVehiculos();
+            CargarDGVehiculos();
             switch (formMode)
             {
                 case FormMode.insert:
@@ -200,7 +200,7 @@ namespace TallerAutos.GUILayer
         private bool ValidarPatente()
         {
             string strSql = "AND V.patente = " + "'" + this.txtPatente.Text + "'";
-            if (vehiculoService.consultarVehiculos(strSql).Count > 0)
+            if (vehiculoService.ConsultarVehiculos(strSql).Count > 0)
             {
                 return false;
             }
@@ -340,8 +340,8 @@ namespace TallerAutos.GUILayer
                                 Vehiculo oVehiculo = new Vehiculo();
                                 LlenarDatosVehiculo(oVehiculo);
 
-                                vehiculoService.cargarVehiculo(oVehiculo);
-                                this.cargarDGVehiculos();
+                                vehiculoService.CargarVehiculo(oVehiculo);
+                                this.CargarDGVehiculos();
 
                                 MessageBox.Show("Vehiculo cargado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                
@@ -367,7 +367,7 @@ namespace TallerAutos.GUILayer
                                 
                                 
 
-                                vehiculoService.actualizarVehiculo(objVehiculo);
+                                vehiculoService.ActualizarVehiculo(objVehiculo);
 
                                 
                                 MessageBox.Show("Vehículo actualizado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -375,11 +375,11 @@ namespace TallerAutos.GUILayer
                                 
                             }
                             else {
-                                vehiculoService.cargarVehiculo(objVehiculo);
+                                vehiculoService.CargarVehiculo(objVehiculo);
                                 MessageBox.Show("Vehículo añadido correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
 
-                            this.cargarDGVehiculos();
+                            this.CargarDGVehiculos();
                             this.txtPatente.Clear();
                             this.cboMarca.SelectedIndex = -1;
                             this.cboModelo.SelectedIndex = -1;
@@ -476,9 +476,9 @@ namespace TallerAutos.GUILayer
             this.btnCancelarVeh.Enabled = true;
         }
 
-        private void cargarDGVehiculos()
+        private void CargarDGVehiculos()
         {
-            this.dgvVehiculos.DataSource = vehiculoService.consultarVehiculos(" AND C.dni = " + clienteSeleccionado.Dni);
+            this.dgvVehiculos.DataSource = vehiculoService.ConsultarVehiculos(" AND C.dni = " + clienteSeleccionado.Dni);
         }
 
         private void BtnCancelarVeh_Click(object sender, EventArgs e)
@@ -506,9 +506,9 @@ namespace TallerAutos.GUILayer
             LlenarDatosVehiculo(objVeh);
             if (MessageBox.Show("Seguro que desea eiminar el vehículo seleccionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                vehiculoService.eliminarVehiculo(objVeh);
+                vehiculoService.EliminarVehiculo(objVeh);
                 MessageBox.Show("Vehículo eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.cargarDGVehiculos();
+                this.CargarDGVehiculos();
             }
         }
     }

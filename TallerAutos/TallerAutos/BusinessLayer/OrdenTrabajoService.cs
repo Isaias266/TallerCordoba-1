@@ -7,9 +7,9 @@ namespace TallerAutos.BusinessLayer
     {
         private OrdenTrabajoDao oOTDao = new OrdenTrabajoDao();
 
-        public IList<OrdenTrabajo> consultarOT(string condiciones)
+        public IList<OrdenTrabajo> ConsultarOT(string condiciones)
         {
-            return oOTDao.consultarOT(condiciones);
+            return oOTDao.ConsultarOT(condiciones);
         }
     } 
 }

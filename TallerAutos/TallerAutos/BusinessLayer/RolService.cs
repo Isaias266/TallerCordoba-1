@@ -7,9 +7,9 @@ namespace TallerAutos.BusinessLayer
     class RolService
     {
         private RolDao oRolDao = new RolDao();
-        public IList<Rol> recuperarRoles()
+        public IList<Rol> RecuperarRoles()
         {
-            return oRolDao.recuperarRoles();
+            return oRolDao.RecuperarRoles();
         }
     }
 }

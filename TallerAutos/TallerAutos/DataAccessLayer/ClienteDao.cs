@@ -12,17 +12,17 @@ namespace TallerAutos.DataAccessLayer
     {
         BaseDeDatos eBD = new BaseDeDatos();
 
-        public void cargarCliente(Cliente c)
+        public void CargarCliente(Cliente c)
         {
             string insercionSQL = "INSERT INTO Clientes (dni, apellido, nombre, domicilio, " +
                                   "email, telefono, celular, fechaNacimiento, codSexo, borrado) " +
                                   "VALUES ('" + c.Dni + "','" + c.Apellido + "','" + c.Nombre +
                                   "','" + c.Domicilio + "','" + c.Email + "','" + c.Telefono + "','" + c.Celular +
                                   "','" + c.FechaNacimiento + "','" + c.Sexo.CodSexo + "', 0)";
-            eBD.insertar(insercionSQL);
+            eBD.Insertar(insercionSQL);
         }
 
-        public void actualizarCliente(Cliente c)
+        public void ActualizarCliente(Cliente c)
         {
             string actualizacionSQL = "UPDATE Clientes " +
                                          "SET " +
@@ -35,10 +35,10 @@ namespace TallerAutos.DataAccessLayer
                                          "fechaNacimiento='" + c.FechaNacimiento + "', " +                                        
                                          "codSexo=" + c.Sexo.CodSexo +                                        
                                          "WHERE dni=" + c.Dni;
-            eBD.insertar(actualizacionSQL);
+            eBD.Insertar(actualizacionSQL);
         }
 
-        public IList<Cliente> consultarClientes(string condicionesSql)
+        public IList<Cliente> ConsultarClientes(string condicionesSql)
         {
             List<Cliente> listaClientes = new List<Cliente>();
 
@@ -58,24 +58,24 @@ namespace TallerAutos.DataAccessLayer
             strSql += condicionesSql;
             strSql += " ORDER BY C.dni DESC";
 
-            var resultadoConsulta = (DataRowCollection)eBD.consultar(strSql).Rows;
+            var resultadoConsulta = (DataRowCollection)eBD.Consultar(strSql).Rows;
 
             foreach (DataRow row in resultadoConsulta)
             {
                 if (!string.IsNullOrEmpty(row["dni"].ToString()))
-                    listaClientes.Add(mappingCliente(row));
+                    listaClientes.Add(MappingCliente(row));
             }
 
             return listaClientes;
         }
 
-        public void eliminarCliente(Cliente c)
+        public void EliminarCliente(Cliente c)
         {
             string eliminacionSQL = "UPDATE Clientes SET borrado = 1 WHERE dni = " + c.Dni;
-            eBD.insertar(eliminacionSQL);
+            eBD.Insertar(eliminacionSQL);
         }
 
-        private Cliente mappingCliente(DataRow row)
+        private Cliente MappingCliente(DataRow row)
         {
             Cliente oCliente = new Cliente();
 

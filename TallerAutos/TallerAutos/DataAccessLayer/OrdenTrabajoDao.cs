@@ -9,7 +9,7 @@ namespace TallerAutos.DataAccessLayer
     { 
         BaseDeDatos otDB = new BaseDeDatos();
 
-        public IList<OrdenTrabajo> consultarOT(string condicionesSql)
+        public IList<OrdenTrabajo> ConsultarOT(string condicionesSql)
         {
             List<OrdenTrabajo> listaOT = new List<OrdenTrabajo>();
 
@@ -34,7 +34,7 @@ namespace TallerAutos.DataAccessLayer
             strSql += condicionesSql;
             strSql += " ORDER BY O.fechaAlta DESC";
 
-            var resultadoConsulta = (DataRowCollection)otDB.consultar(strSql).Rows;
+            var resultadoConsulta = (DataRowCollection)otDB.Consultar(strSql).Rows;
 
             foreach (DataRow row in resultadoConsulta)
             {

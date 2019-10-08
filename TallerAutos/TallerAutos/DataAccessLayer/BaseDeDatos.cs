@@ -13,14 +13,15 @@ namespace TallerAutos.DataAccessLayer
         // mauri:
         //string cadenaConexion = @"Data Source=localhost;Initial Catalog=Taller;Integrated Security=True";
         //isa:
-        string cadenaConexion = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
+        //string cadenaConexion = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
         //francisco:
-        //string cadenaConexion = @"Data Source=LAPTOP-WINDOWS1\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
+        string cadenaConexion = @"Data Source=LAPTOP-WINDOWS1\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
 
-        SqlConnection conexion = new SqlConnection();
-        SqlCommand comando = new SqlCommand();
+        private SqlConnection conexion = new SqlConnection();
+        private SqlCommand comando = new SqlCommand();
+        private SqlTransaction transacionDb;
 
-        private void conectar()
+        private void Conectar()
         {
             conexion.ConnectionString = cadenaConexion;
             conexion.Open();
@@ -28,17 +29,34 @@ namespace TallerAutos.DataAccessLayer
             comando.CommandType = CommandType.Text;
         }
 
-        private void desconectar()
+        private void Desconectar()
         {
             conexion.Close();
         }
 
+        public void ComenzarTransaccion()
+        {
+            if (conexion.State == ConnectionState.Open)
+                transacionDb = conexion.BeginTransaction();
+        }
 
-        public DataTable consultar(string consultaSQL)
+        public void Commit()
+        {
+            if (transacionDb != null)
+                transacionDb.Commit();
+        }
+
+        public void Rollback()
+        {
+            if (transacionDb != null)
+                transacionDb.Rollback();
+        }
+
+        public DataTable Consultar(string consultaSQL)
         {
             try
             {
-                this.conectar();
+                this.Conectar();
                 comando.CommandText = consultaSQL;
                 DataTable tabla = new DataTable();
                 Console.WriteLine("\n\n\n" + consultaSQL + "\n\n\n");
@@ -51,15 +69,15 @@ namespace TallerAutos.DataAccessLayer
             }
             finally
             {
-                this.desconectar();
+                this.Desconectar();
             }
         }
 
-        public void insertar(string insercionSQL)
+        public void Insertar(string insercionSQL)
         {
             try
             {
-                this.conectar();
+                this.Conectar();
                 comando.CommandText = insercionSQL;
                 comando.ExecuteNonQuery();
             }
@@ -69,15 +87,15 @@ namespace TallerAutos.DataAccessLayer
             }
             finally
             {
-                this.desconectar();
+                this.Desconectar();
             }
         }
 
-            public DataTable consultarTabla(string nombreTabla)
+        public DataTable ConsultarTabla(string nombreTabla)
         {
             try
             {
-                this.conectar();
+                this.Conectar();
                 comando.CommandText = "SELECT * FROM " + nombreTabla;
                 DataTable tabla = new DataTable();
                 tabla.Load(comando.ExecuteReader());
@@ -89,7 +107,7 @@ namespace TallerAutos.DataAccessLayer
             }
             finally
             {
-                this.desconectar();
+                this.Desconectar();
             }
         }
 
@@ -99,7 +117,7 @@ namespace TallerAutos.DataAccessLayer
 
             try
             {
-                this.conectar();
+                this.Conectar();
                 comando.CommandText = sqlStr;
 
                 //Agregamos a la colección de parámetros del comando los filtros recibidos
@@ -117,7 +135,7 @@ namespace TallerAutos.DataAccessLayer
             }
             finally
             {
-                this.desconectar();
+                this.Desconectar();
             }
         }
     }

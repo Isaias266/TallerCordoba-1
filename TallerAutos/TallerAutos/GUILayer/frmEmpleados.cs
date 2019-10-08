@@ -26,7 +26,7 @@ namespace TallerAutos.GUILayer
             
         }
 
-        private void limpiar()
+        private void Limpiar()
         {
             txtLegajo.Text = "";
             txtNombre.Clear();
@@ -42,7 +42,7 @@ namespace TallerAutos.GUILayer
             txtPassword.Text = "";
         }
 
-        private void habilitar(bool x)
+        private void Habilitar(bool x)
         {
             this.cboRol.BackColor = Color.FromArgb(56, 61, 62);
             this.cboSexo.BackColor = Color.FromArgb(56, 61, 62);
@@ -75,29 +75,29 @@ namespace TallerAutos.GUILayer
             // TODO: esta línea de código carga datos en la tabla 'taller_PAVDataSet2.Sexos' Puede moverla o quitarla según sea necesario.
             //this.sexosTableAdapter.Fill(this.taller_PAVDataSet2.Sexos);
             txtLegajo.Enabled = false;
-            cargarCombo(cboRol, rol.recuperarRoles(), "nombre", "codRol");
-            cargarCombo(cboSexo, sexo.recuperarSexos(), "nombre", "codSexo");
-            this.habilitar(false);
-            this.cargarGrilla();
+            CargarCombo(cboRol, rol.RecuperarRoles(), "nombre", "codRol");
+            CargarCombo(cboSexo, sexo.RecuperarSexos(), "nombre", "codSexo");
+            this.Habilitar(false);
+            this.CargarGrilla();
         }
 
-        private void cargarCombo(ComboBox cbo, Object source, string display, string value) {
+        private void CargarCombo(ComboBox cbo, Object source, string display, string value) {
             cbo.DataSource = source;
             cbo.DisplayMember = display;
             cbo.ValueMember = value;
             cbo.SelectedIndex = -1;
         }
 
-        private void cargarGrilla()
+        private void CargarGrilla()
         {
             EmpleadoService oEmpleadoService = new EmpleadoService();
-            this.dataGridEmpleados.DataSource = oEmpleadoService.consultarEmpleados("");
+            this.dataGridEmpleados.DataSource = oEmpleadoService.ConsultarEmpleados("");
         }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            this.limpiar();
-            this.habilitar(true);
+            this.Limpiar();
+            this.Habilitar(true);
             this.txtNombre.Focus();
             nuevo_editar = true;
             dataGridEmpleados.Enabled = false;
@@ -131,7 +131,7 @@ namespace TallerAutos.GUILayer
         {
             dataGridEmpleados.Enabled = true;
 
-            if (validarDatos(this.txtUsuario.Text))
+            if (ValidarDatos(this.txtUsuario.Text))
             {
                 Empleado oEmpleado = new Empleado();
                 oEmpleado.Rol = new Rol();
@@ -141,7 +141,7 @@ namespace TallerAutos.GUILayer
 
                 if (nuevo_editar)
                 {
-                    if (validarUsuario() == false)
+                    if (ValidarUsuario() == false)
                     {
                         //empleado.Legajo = Convert.ToInt32(this.txtLegajo.Text);
                         oEmpleado.Rol.CodRol = Convert.ToInt32(this.cboRol.SelectedValue);
@@ -156,14 +156,14 @@ namespace TallerAutos.GUILayer
                         oEmpleado.Usuario = this.txtUsuario.Text;
                         oEmpleado.Password = this.txtPassword.Text;
 
-                        oEmpleadoService.cargarEmpleado(oEmpleado);
+                        oEmpleadoService.CargarEmpleado(oEmpleado);
 
-                        this.habilitar(false);
-                        this.limpiar();
+                        this.Habilitar(false);
+                        this.Limpiar();
                         lblError.ForeColor = Color.FromArgb(33, 151, 10);
                         lblError.Text = "Nuevo empleado creado con exito";
                         timerError.Enabled = true;
-                        this.cargarGrilla();
+                        this.CargarGrilla();
                     }
                     else
                     {
@@ -187,14 +187,14 @@ namespace TallerAutos.GUILayer
                     oEmpleado.Usuario = this.txtUsuario.Text;
                     oEmpleado.Password = this.txtPassword.Text;
 
-                    oEmpleadoService.actualizarEmpleado(oEmpleado);
+                    oEmpleadoService.ActualizarEmpleado(oEmpleado);
 
-                    this.habilitar(false);
-                    this.limpiar();
+                    this.Habilitar(false);
+                    this.Limpiar();
                     lblError.ForeColor = Color.FromArgb(33, 151, 10);
                     lblError.Text = "Empleado " + oEmpleado.Legajo + " actualizado con exito";
                     timerError.Enabled = true;
-                    this.cargarGrilla();
+                    this.CargarGrilla();
                 }
             }
             else
@@ -205,7 +205,7 @@ namespace TallerAutos.GUILayer
             }
         }
 
-        private bool validarDatos(string user)
+        private bool ValidarDatos(string user)
         {
             if (cboRol.SelectedIndex == -1 || txtNombre.Text.Length == 0 || txtApellido.Text.Length == 0
                 || cboSexo.SelectedIndex == -1 || txtUsuario.Text == "" || txtPassword.Text == "") 
@@ -215,9 +215,9 @@ namespace TallerAutos.GUILayer
         }
 
         //Devuelve true si existe un usuario con ese nombre, false en caso contrario
-        private bool validarUsuario()
+        private bool ValidarUsuario()
         {
-            return empleado.validarUserEmpleado(txtUsuario.Text); 
+            return empleado.ValidarUserEmpleado(txtUsuario.Text); 
         }
 
         private void TimerError_Tick(object sender, EventArgs e)
@@ -227,8 +227,8 @@ namespace TallerAutos.GUILayer
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            this.habilitar(false);
-            this.limpiar();
+            this.Habilitar(false);
+            this.Limpiar();
             this.dataGridEmpleados.Enabled = true;
         }
 
@@ -239,7 +239,7 @@ namespace TallerAutos.GUILayer
                 this.txtNombre.Focus();
                 nuevo_editar = false;
                 dataGridEmpleados.Enabled = false;
-                this.habilitar(true);
+                this.Habilitar(true);
             }
             else
             {
@@ -271,13 +271,13 @@ namespace TallerAutos.GUILayer
 
                 oEmpleado.Legajo = Convert.ToInt32(this.txtLegajo.Text);
 
-                oEmpleadoService.eliminarEmpleado(oEmpleado);
+                oEmpleadoService.EliminarEmpleado(oEmpleado);
 
                 lblError.ForeColor = Color.DarkRed;
                 lblError.Text = "Usuario " + oEmpleado.Legajo + " eliminado con exito";
                 timerError.Enabled = true;
-                this.limpiar();
-                this.cargarGrilla();
+                this.Limpiar();
+                this.CargarGrilla();
             }
         }
 

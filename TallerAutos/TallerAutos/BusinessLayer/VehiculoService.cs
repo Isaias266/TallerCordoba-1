@@ -11,25 +11,25 @@ namespace TallerAutos.BusinessLayer
     class VehiculoService
     {
         VehiculoDao oVehiculoDao = new VehiculoDao();
-        public IList<Vehiculo> consultarVehiculos(string condicionesSql)
+        public IList<Vehiculo> ConsultarVehiculos(string condicionesSql)
         {
-            return oVehiculoDao.consultarVehiculos(condicionesSql);
+            return oVehiculoDao.ConsultarVehiculos(condicionesSql);
         }
 
 
-        public void cargarVehiculo(Vehiculo v)
+        public void CargarVehiculo(Vehiculo v)
         {
-            oVehiculoDao.cargarVehiculo(v);
+            oVehiculoDao.CargarVehiculo(v);
         }
 
-        public void actualizarVehiculo(Vehiculo v)
+        public void ActualizarVehiculo(Vehiculo v)
         {
-            oVehiculoDao.actualizarVehiculo(v);
+            oVehiculoDao.ActualizarVehiculo(v);
         }
 
-        public void eliminarVehiculo(Vehiculo v)
+        public void EliminarVehiculo(Vehiculo v)
         {
-            oVehiculoDao.eliminarVehiculo(v);
+            oVehiculoDao.EliminarVehiculo(v);
         }
     }
 }

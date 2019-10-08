@@ -27,7 +27,7 @@ namespace TallerAutos.GUILayer
                 return;
             }
 
-            var oEmpleado = empleadoService.validarEmpleado(txtUser.Text, txtPass.Text);
+            var oEmpleado = empleadoService.ValidarEmpleado(txtUser.Text, txtPass.Text);
 
             if (oEmpleado != null)
             {

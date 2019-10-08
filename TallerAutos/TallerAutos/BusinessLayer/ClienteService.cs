@@ -14,22 +14,22 @@ namespace TallerAutos.BusinessLayer
 
         public IList<Cliente> ConsultarClientes(string strConsulta)
         {
-            return clienteDao.consultarClientes(strConsulta);
+            return clienteDao.ConsultarClientes(strConsulta);
         }
 
         public void CargarCliente(Cliente c)
         {
-            clienteDao.cargarCliente(c);
+            clienteDao.CargarCliente(c);
         }
 
         public void ActualizarCliente(Cliente c)
         {
-            clienteDao.actualizarCliente(c); 
+            clienteDao.ActualizarCliente(c); 
         }
 
         public void EliminarCliente(Cliente c)
         {
-            clienteDao.eliminarCliente(c);
+            clienteDao.EliminarCliente(c);
         }
     }
 }

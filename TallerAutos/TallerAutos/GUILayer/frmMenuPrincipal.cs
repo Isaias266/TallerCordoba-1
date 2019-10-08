@@ -39,7 +39,7 @@ namespace TallerAutos.GUILayer
         private void BtnMenuOrdenes_Click(object sender, EventArgs e)
         {
             
-            abrirSubMenu();
+            AbrirSubMenu();
             btnConsultaOt.Visible = true;
             btnAbmOt.Visible = true;
             
@@ -78,12 +78,12 @@ namespace TallerAutos.GUILayer
 
         private void BtnReportes_Click(object sender, EventArgs e)
         {
-            abrirSubMenu();
+            AbrirSubMenu();
             btnReporte2.Visible = true;
             btnReporte1.Visible = true;
         }
 
-        private void abrirSubMenu()
+        private void AbrirSubMenu()
         {
             panelSubMenu.Visible = true;
             btnConsultaOt.Visible = false;
@@ -102,7 +102,7 @@ namespace TallerAutos.GUILayer
             timerSubMenu.Start();
         }
 
-        private void cerrarSubMenu()
+        private void CerrarSubMenu()
         {
             panelSubMenu.Visible = false;
             btnConsultaOt.Visible = false;
@@ -122,7 +122,7 @@ namespace TallerAutos.GUILayer
 
         private void TimerSubMenu_Tick(object sender, EventArgs e)
         {
-            cerrarSubMenu();
+            CerrarSubMenu();
         }
 
         private void BtnConsultaOt_Click(object sender, EventArgs e)

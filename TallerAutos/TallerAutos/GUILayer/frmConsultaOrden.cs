@@ -62,7 +62,7 @@ namespace TallerAutos.GUILayer
                 //parametros.Add("dniCliente", dni);
             }
 
-            IList<OrdenTrabajo> listaOT = ot.consultarOT(sqlCondiciones);
+            IList<OrdenTrabajo> listaOT = ot.ConsultarOT(sqlCondiciones);
 
             dgvOrdenes.DataSource = listaOT;
 
@@ -135,11 +135,11 @@ namespace TallerAutos.GUILayer
             
  
 
-        private void cargarComboEstados()
+        private void CargarComboEstados()
         {
             DataTable tabla = new DataTable();
-            tabla = oBD.consultarTabla("Estados");
-            this.cboEstados.DataSource = oBD.consultarTabla("Estados");
+            tabla = oBD.ConsultarTabla("Estados");
+            this.cboEstados.DataSource = oBD.ConsultarTabla("Estados");
             this.cboEstados.DisplayMember = tabla.Columns[1].ColumnName;
             this.cboEstados.ValueMember = tabla.Columns[0].ColumnName;
             this.cboEstados.SelectedIndex = -1;
@@ -147,7 +147,7 @@ namespace TallerAutos.GUILayer
 
         private void Form1_Load(object sender, EventArgs e)
         {           
-            cargarComboEstados();
+            CargarComboEstados();
             btnDetalle.Enabled = false;
         }
 

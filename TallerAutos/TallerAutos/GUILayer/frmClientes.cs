@@ -69,7 +69,7 @@ namespace TallerAutos.GUILayer
 
             else
             {
-                this.cargarGrilla();
+                this.CargarGrilla();
             }
             
         }
@@ -155,7 +155,7 @@ namespace TallerAutos.GUILayer
 
                 if (chkTodos.Checked)
                 {
-                    this.cargarGrilla();
+                    this.CargarGrilla();
                 }
                 MessageBox.Show("Cliente eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
@@ -175,7 +175,7 @@ namespace TallerAutos.GUILayer
             this.Close();
         }
 
-        private void cargarGrilla()
+        private void CargarGrilla()
         {
             IList<Cliente> listaClientes = clienteService.ConsultarClientes("");
             if (listaClientes.Count() >= 1)

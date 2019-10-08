@@ -30,7 +30,7 @@ namespace TallerAutos.GUILayer
                             "               FULL JOIN Modelos Mo ON (V.codModelo = Mo.codModelo) " +
                             "WHERE O.codOrden = " + codOrden;
 
-            tabla = cDB.consultar(strSql);
+            tabla = cDB.Consultar(strSql);
 
             txtCO.Text = tabla.Rows[0][0].ToString();
             txtEstado.Text = tabla.Rows[0][1].ToString();
