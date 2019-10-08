@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TallerAutos.Entities
 {
-    class Estado
+    public class Estado
     {
         public int CodEstado { get; set; }
         public string Nombre { get; set; }

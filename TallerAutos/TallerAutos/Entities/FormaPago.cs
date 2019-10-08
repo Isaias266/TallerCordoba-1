@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TallerAutos.Entities
 {
-    class FormaPago
+    public class FormaPago
     {
         public int CodFormaPago { get; set; }
         public string Nombre { get; set; }

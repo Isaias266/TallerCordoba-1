@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Data;
 
-namespace TallerAutos.DataAccessLayer
+namespace TallerAutos.Entities
 {
-    class Rol
+    public class Rol
     {
         public int CodRol { get; set; }
         public string Nombre { get; set; }

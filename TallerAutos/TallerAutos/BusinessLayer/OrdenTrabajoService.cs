@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TallerAutos.DataAccessLayer;
+using TallerAutos.Entities;
 
 namespace TallerAutos.BusinessLayer
 {

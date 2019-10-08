@@ -3,8 +3,8 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using TallerAutos.BusinessLayer;
-using TallerAutos.DataAccessLayer;
 using TallerAutos.Entities;
+
 namespace TallerAutos.GUILayer
 {
     public partial class frmABMClientes : Form

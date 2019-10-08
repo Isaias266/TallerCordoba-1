@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using TallerAutos.BusinessLayer;
 using TallerAutos.DataAccessLayer;
+using TallerAutos.Entities;
 
 namespace TallerAutos.GUILayer
 {

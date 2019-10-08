@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-namespace TallerAutos.DataAccessLayer
+namespace TallerAutos.Entities
 {
-    class Sexo
+    public class Sexo
     {
         public int CodSexo { get; set; }
         public string Nombre { get; set; }

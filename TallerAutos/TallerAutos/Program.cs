@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TallerAutos.GUILayer;
+using TallerAutos.Entities;
 
 namespace TallerAutos
 {
@@ -23,10 +24,23 @@ namespace TallerAutos
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmEmpleados());
-            //if(DEBUG)
-                //Application.Run(new frmMenuPrincipal());
-            //else
-            Application.Run(new frmLogin());
+            if (DEBUG)
+            {
+                
+                Empleado oEmpleadoDebug = new Empleado();
+                oEmpleadoDebug.Nombre = "Test";
+                oEmpleadoDebug.Apellido = "Test";
+                Rol rol = new Rol();
+                rol.CodRol = 1;
+                oEmpleadoDebug.Rol = rol;
+                Sexo sexo = new Sexo();
+                sexo.CodSexo = 1;
+                oEmpleadoDebug.Sexo = sexo;
+                
+                Application.Run(new frmMenuPrincipal(oEmpleadoDebug));
+            }
+            else
+                Application.Run(new frmLogin());
         }
     }
 }

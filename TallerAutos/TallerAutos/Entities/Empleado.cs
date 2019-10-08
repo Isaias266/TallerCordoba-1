@@ -3,7 +3,7 @@ using TallerAutos.DataAccessLayer;
 
 namespace TallerAutos.Entities
 {
-    class Empleado
+    public class Empleado
     {
         public int Legajo { get; set; }
         public Rol Rol { get; set; }

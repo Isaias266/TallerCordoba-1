@@ -1,9 +1,9 @@
 ﻿using System;
 using TallerAutos.Entities;
 
-namespace TallerAutos.DataAccessLayer
+namespace TallerAutos.Entities
 {
-    class OrdenTrabajo
+    public class OrdenTrabajo
     {
         public int CodOrden { get; set; }
         public Estado Estado { get; set; }
