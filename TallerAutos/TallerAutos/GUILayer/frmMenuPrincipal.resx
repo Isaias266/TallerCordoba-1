@@ -228,6 +228,31 @@
         TkSuQmCC
 </value>
   </data>
+  <data name="btnRepuestos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAB3RJ
+        TUUH4woJADAkiPlGhQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAQKSURBVFhH
+        tZdHaFVBFIajRmPHGGzYEUssGzWCYMlCYzexQCS6EFFRI27s2GIQFSwgCIIFgggWLKCCYEUx1oUFjViI
+        vYJtY13E75935ul7uXkl6g8fd845M/fMm5k7My8lWhUVFR3hILwG6SOcgzlQ36r9P5GkLbyEpZAKLWAk
+        HIFy6G9VqyXa50AHM4NFhc7wDCabywk7D97AIHMlJdr1t/YvoIe5g0WFqjoxGl5BurkSFm00lVNgPKgT
+        PeXsBIHDit93ItdcTtg7YaGZCYn6c+EHuOHnuQIuqbAdvsBwVzNK+CfACTOdsPtBmZlxRd1CeADL4RHs
+        B/2wPAVvgFa4hjWiE9gZFp9trrDwfYI0M6sUdXzyNtAF3sFiqOcrPAWt/D4Q7gRPn7zIVYwS/ifQ1sxA
+        EY9Orl9dYOGQcNyCLCv7TsyHWMlrwgfIMFclEcuC2MklnLtgrpmye8AOmGquSiLWC56YWUnEWkINSIOq
+        k0sEhsAdqGmuuKKuvg6N1ERzhYVPw37DyrGTe1HhDKwyMyFRXyOldVBoLp88/rBHi0qt4TEsgWRGQov3
+        LqwBfefJJ/eisvZ8jcRFmAxugfFsCIMh01VElDXHB6AUtE/o234I1UvuRaNakAtHQafhT3gPSqQ57wnN
+        4R6shjGgvV1T8XfJg8SLUq2o8jh7uT7R0+aWvzeoc7NBp6g619TC/1a8eAZ8hvPmcsJWJ7QvbIRi0LqI
+        uUlVW7z4EGw2Myx86sRb0ILWaGhaYh+5iYiXaEvuDprjRfAcWlk4QvivQ7aVtTg1NQNcsDqisVa75vQ+
+        6MzYDe0srHhtyIZRsAEuy2dhxfX1qBN55kpcNPLJF5grQvj7gvYOXTKOwXFoYuGw8Gnb1uKdaa74onJE
+        cp5joZkLIsqNQFMxAhpDvoUCRbw96H0rzVW1qBSdXAtKG82fHSiAfVbWRqWzJHygBYm41pKmaBvUMnek
+        CEQn12enm3AH0La7x/zzYJPKEmUtUE3HJHMFinh90FQdhrrmDglHvOTaaudYbCuUqOyF3RW0EeWYK1DE
+        ddUvgZMQWrAUdMG4AsvMDkruhpjnOrgGQQtOlxBt4f3MFRY+rRtdy+uAtvyzEJo2CrpqqwPqiFa35lyJ
+        E07uRWwoaCS6mUs+Db0+5dtwwXzDoNRX0MFSbGXdZOpC0sm9qJMPWhNtzNbdQSOaDl9BHdLfgXLfQDvc
+        FmeYsHW+u2+XZ8LJvairy4nOBK1+jaz+b34Dt43z1OF2yldWD7VjVbpk4ks6uRdtikCfnmvL0112eDaA
+        Mvh9pcNYDzdB22c9yAT9gbgKSSf3oq1OSE3HLBgI00FrLGLEnXBOAy2U76DTbC2E/kD8hXiHLr57QLet
+        vTAiFElJ+QWSNgAilpAgmQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="picBoy.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAI

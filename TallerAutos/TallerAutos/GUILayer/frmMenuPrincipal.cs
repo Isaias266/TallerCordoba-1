@@ -149,5 +149,18 @@ namespace TallerAutos.GUILayer
         {
             this.Show();
         }
+
+        private void frmRepuestos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
+        }
+
+        private void BtnRepuestos_Click(object sender, EventArgs e)
+        {
+            frmConsultaRepuestos frR = new frmConsultaRepuestos();
+            frR.FormClosing += frmRepuestos_FormClosing;
+            frR.Show();
+            this.Hide();
+        }
     }
 }

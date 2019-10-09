@@ -38,6 +38,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnRepuestos = new System.Windows.Forms.Button();
             this.lblMenu = new System.Windows.Forms.Label();
             this.picBoy = new System.Windows.Forms.PictureBox();
             this.picGirl = new System.Windows.Forms.PictureBox();
@@ -148,7 +149,7 @@
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
             this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReportes.Location = new System.Drawing.Point(12, 365);
+            this.btnReportes.Location = new System.Drawing.Point(12, 440);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(274, 54);
             this.btnReportes.TabIndex = 24;
@@ -181,6 +182,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.panelMenu.Controls.Add(this.btnRepuestos);
             this.panelMenu.Controls.Add(this.lblMenu);
             this.panelMenu.Controls.Add(this.btnMenuOrdenes);
             this.panelMenu.Controls.Add(this.btnReportes);
@@ -191,6 +193,24 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(304, 574);
             this.panelMenu.TabIndex = 27;
+            // 
+            // btnRepuestos
+            // 
+            this.btnRepuestos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnRepuestos.FlatAppearance.BorderSize = 0;
+            this.btnRepuestos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.btnRepuestos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRepuestos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRepuestos.ForeColor = System.Drawing.Color.White;
+            this.btnRepuestos.Image = ((System.Drawing.Image)(resources.GetObject("btnRepuestos.Image")));
+            this.btnRepuestos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRepuestos.Location = new System.Drawing.Point(12, 365);
+            this.btnRepuestos.Name = "btnRepuestos";
+            this.btnRepuestos.Size = new System.Drawing.Size(274, 54);
+            this.btnRepuestos.TabIndex = 26;
+            this.btnRepuestos.Text = "Repuestos";
+            this.btnRepuestos.UseVisualStyleBackColor = false;
+            this.btnRepuestos.Click += new System.EventHandler(this.BtnRepuestos_Click);
             // 
             // lblMenu
             // 
@@ -469,5 +489,6 @@
         private System.Windows.Forms.Timer timerSubMenu;
         private System.Windows.Forms.Button btnAbmOt;
         private System.Windows.Forms.Button btnConsultaOt;
+        private System.Windows.Forms.Button btnRepuestos;
     }
 }

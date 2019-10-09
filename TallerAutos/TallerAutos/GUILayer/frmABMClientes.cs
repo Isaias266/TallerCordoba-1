@@ -88,9 +88,7 @@ namespace TallerAutos.GUILayer
 
                         break;
                     }
-
             }
-
         }
 
         public void SeleccionarCliente(FormMode modo, Cliente clienteSel)
@@ -136,7 +134,6 @@ namespace TallerAutos.GUILayer
                 this.dtpFechaNac.Enabled = false;
               
             }
-
             else
             {
                 this.txtDNI.Enabled = true;
@@ -148,7 +145,6 @@ namespace TallerAutos.GUILayer
                 this.txtCel.Enabled = true;
                 this.cboSexo.Enabled = true;
                 this.dtpFechaNac.Enabled = true;
-                
             }
         }
 
@@ -268,8 +264,6 @@ namespace TallerAutos.GUILayer
                     MostrarDatos(clienteSeleccionado);
                     this.Close();
                     break;
-
-
             }
 
         }

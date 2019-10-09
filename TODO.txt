@@ -1,11 +1,13 @@
 Cambios esteticos.
 
-Buscar forma de cambiar de formulario sin usar hide y show.
-
-No mostrar contraseña de usuario en la grilla.
-
-Hacer consulta de empleados.
-
 Hacer ABM de órdenes. 
 
-Que la grilla en vez de mostrar sexo=1 o rol=2 muestre el texto correspondiente.
+Si intentas cambiar el DNI de un cliente no se cambia.
+
+Cuando se entra al detalle de un cliente y se pone volver se rompe (a veces si, a veces no, ni idea que flashea).
+
+Una vez actualizado algun dato de un cliente (editar) no se actualiza la grilla.
+
+Esta mal el taborder de editar,nuevo,detalle en cliente.
+
+Verificar y validar que en los inputs que solo se deben ingresar numeros realmente se ingresen solo numeros.

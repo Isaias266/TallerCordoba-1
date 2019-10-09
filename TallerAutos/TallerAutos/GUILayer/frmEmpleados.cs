@@ -23,7 +23,6 @@ namespace TallerAutos.GUILayer
             empleado = new EmpleadoService();
             rol = new RolService();
             sexo = new SexoService();
-            
         }
 
         private void Limpiar()

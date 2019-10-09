@@ -47,8 +47,8 @@ namespace TallerAutos.GUILayer
                 }
 
 
-                if (nomOk || apOk || dniOk) {
-
+                if (nomOk || apOk || dniOk)
+                {
                     IList<Cliente> listaC = clienteService.ConsultarClientes(strCondiciones);
                     if (listaC.Count > 0)
                         this.dataGridClientes.DataSource = listaC;
@@ -61,12 +61,10 @@ namespace TallerAutos.GUILayer
                     MessageBox.Show("No se ingresó ningún criterio de búsqueda", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-
             else
             {
                 this.CargarGrilla();
             }
-            
         }
 
         private void InitializeDataGridView()
@@ -120,7 +118,6 @@ namespace TallerAutos.GUILayer
             this.btnEditar.Enabled = true;
             this.btnEliminar.Enabled = true;
             this.btnDetalle.Enabled = true;
-
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -153,7 +150,6 @@ namespace TallerAutos.GUILayer
                     this.CargarGrilla();
                 }
                 MessageBox.Show("Cliente eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
             }                        
         }
 

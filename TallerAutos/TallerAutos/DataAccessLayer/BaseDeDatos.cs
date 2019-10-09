@@ -79,6 +79,7 @@ namespace TallerAutos.DataAccessLayer
             {
                 this.Conectar();
                 comando.CommandText = insercionSQL;
+                Console.WriteLine("\n\n\n" + insercionSQL + "\n\n\n");
                 comando.ExecuteNonQuery();
             }
             catch (SqlException ex)

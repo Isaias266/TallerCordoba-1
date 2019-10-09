@@ -52,6 +52,7 @@
     <Compile Include="BusinessLayer\MarcaService.cs" />
     <Compile Include="BusinessLayer\ModeloService.cs" />
     <Compile Include="BusinessLayer\OrdenTrabajoService.cs" />
+    <Compile Include="BusinessLayer\RepuestoService.cs" />
     <Compile Include="BusinessLayer\RolService.cs" />
     <Compile Include="BusinessLayer\SexoService.cs" />
     <Compile Include="BusinessLayer\VehiculoService.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="DataAccessLayer\MarcaDao.cs" />
     <Compile Include="DataAccessLayer\ModeloDao.cs" />
     <Compile Include="DataAccessLayer\OrdenTrabajoDao.cs" />
+    <Compile Include="DataAccessLayer\RepuestoDao.cs" />
     <Compile Include="DataAccessLayer\RolDao.cs" />
     <Compile Include="DataAccessLayer\SexoDao.cs" />
     <Compile Include="DataAccessLayer\VehiculoDao.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Entities\Marca.cs" />
     <Compile Include="Entities\Modelo.cs" />
     <Compile Include="Entities\OrdenTrabajo.cs" />
+    <Compile Include="Entities\Repuesto.cs" />
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Entities\Sexo.cs" />
     <Compile Include="Entities\Vehiculo.cs" />
@@ -79,6 +82,18 @@
     </Compile>
     <Compile Include="GUILayer\frmABMClientes.Designer.cs">
       <DependentUpon>frmABMClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmABMRepuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmABMRepuestos.Designer.cs">
+      <DependentUpon>frmABMRepuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmConsultaRepuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmConsultaRepuestos.Designer.cs">
+      <DependentUpon>frmConsultaRepuestos.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmClientes.cs">
       <SubType>Form</SubType>
@@ -146,6 +161,12 @@
     <EmbeddedResource Include="GUILayer\frmABMClientes.resx">
       <DependentUpon>frmABMClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmABMRepuestos.resx">
+      <DependentUpon>frmABMRepuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmConsultaRepuestos.resx">
+      <DependentUpon>frmConsultaRepuestos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +193,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -241,6 +263,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
