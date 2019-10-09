@@ -51,6 +51,7 @@
             this.lblDNI = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.tabVehiculos = new System.Windows.Forms.TabPage();
+            this.btnCancelarVeh = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
@@ -72,7 +73,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnVehiculos = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
-            this.btnCancelarVeh = new System.Windows.Forms.Button();
             this.tabFrmCliente.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.tabVehiculos.SuspendLayout();
@@ -129,7 +129,7 @@
             // 
             this.btnAceptarInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
             this.btnAceptarInfo.FlatAppearance.BorderSize = 0;
-            this.btnAceptarInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.btnAceptarInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.btnAceptarInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptarInfo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAceptarInfo.ForeColor = System.Drawing.Color.White;
@@ -326,6 +326,22 @@
             this.tabVehiculos.TabIndex = 1;
             this.tabVehiculos.Text = "tabPage2";
             this.tabVehiculos.Click += new System.EventHandler(this.TabVehiculos_Click);
+            // 
+            // btnCancelarVeh
+            // 
+            this.btnCancelarVeh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnCancelarVeh.FlatAppearance.BorderSize = 0;
+            this.btnCancelarVeh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.btnCancelarVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarVeh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarVeh.ForeColor = System.Drawing.Color.White;
+            this.btnCancelarVeh.Location = new System.Drawing.Point(163, 306);
+            this.btnCancelarVeh.Name = "btnCancelarVeh";
+            this.btnCancelarVeh.Size = new System.Drawing.Size(93, 34);
+            this.btnCancelarVeh.TabIndex = 85;
+            this.btnCancelarVeh.Text = "Cancelar";
+            this.btnCancelarVeh.UseVisualStyleBackColor = false;
+            this.btnCancelarVeh.Click += new System.EventHandler(this.BtnCancelarVeh_Click);
             // 
             // btnEliminar
             // 
@@ -580,22 +596,6 @@
             this.btnInfo.Text = "Informacion";
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.BtnInfo_Click);
-            // 
-            // btnCancelarVeh
-            // 
-            this.btnCancelarVeh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
-            this.btnCancelarVeh.FlatAppearance.BorderSize = 0;
-            this.btnCancelarVeh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.btnCancelarVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarVeh.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarVeh.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarVeh.Location = new System.Drawing.Point(163, 306);
-            this.btnCancelarVeh.Name = "btnCancelarVeh";
-            this.btnCancelarVeh.Size = new System.Drawing.Size(93, 34);
-            this.btnCancelarVeh.TabIndex = 85;
-            this.btnCancelarVeh.Text = "Cancelar";
-            this.btnCancelarVeh.UseVisualStyleBackColor = false;
-            this.btnCancelarVeh.Click += new System.EventHandler(this.BtnCancelarVeh_Click);
             // 
             // frmABMClientes
             // 

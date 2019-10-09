@@ -7,10 +7,11 @@ namespace TallerAutos.GUILayer
 {
     public partial class frmMenuPrincipal : Form
     {
+        private Empleado empleadoSesion;
         public frmMenuPrincipal(object empleado)
         {
             InitializeComponent();
-            Empleado empleadoSesion = (Empleado)empleado;
+            empleadoSesion = (Empleado)empleado;
             if (empleadoSesion.Sexo.Nombre == "Femenino")
             {
                 picBoy.Visible = false;
@@ -29,7 +30,7 @@ namespace TallerAutos.GUILayer
             panelSubMenu.Visible = false;
             btnReporte2.Visible = false;
             btnReporte1.Visible = false;
-            btnAbmOt.Visible = false;
+            btnCrearOt.Visible = false;
             btnConsultaOt.Visible = false;
 
         }
@@ -41,7 +42,7 @@ namespace TallerAutos.GUILayer
             
             AbrirSubMenu();
             btnConsultaOt.Visible = true;
-            btnAbmOt.Visible = true;
+            btnCrearOt.Visible = true;
             
         }
 
@@ -60,6 +61,9 @@ namespace TallerAutos.GUILayer
             
         }
 
+        
+
+        
         private void BtnMenuOrdenes_MouseHover(object sender, EventArgs e)
         {
             //Va con delay y se llega a ver el color anterior
@@ -87,7 +91,7 @@ namespace TallerAutos.GUILayer
         {
             panelSubMenu.Visible = true;
             btnConsultaOt.Visible = false;
-            btnAbmOt.Visible = false;
+            btnCrearOt.Visible = false;
             btnReporte1.Visible = false;
             btnReporte2.Visible = false;
             picBoy.Location = new Point(537, 153);
@@ -106,7 +110,7 @@ namespace TallerAutos.GUILayer
         {
             panelSubMenu.Visible = false;
             btnConsultaOt.Visible = false;
-            btnAbmOt.Visible = false;
+            btnCrearOt.Visible = false;
             btnReporte1.Visible = false;
             btnReporte2.Visible = false;
             picBoy.Location = new Point(537, 53);
@@ -161,6 +165,17 @@ namespace TallerAutos.GUILayer
             frR.FormClosing += frmRepuestos_FormClosing;
             frR.Show();
             this.Hide();
+        }
+
+        private void BtnCrearOt_Click(object sender, EventArgs e)
+        {
+            frmCrearOrden cO = new frmCrearOrden(empleadoSesion);
+            cO.ShowDialog();
+        }
+
+        private void PanelTop_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

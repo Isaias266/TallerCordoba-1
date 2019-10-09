@@ -57,6 +57,8 @@ namespace TallerAutos.GUILayer
                     {
                         this.Text = "Cargar cliente";
                         HabilitarTxtCliente(true);
+                        //Invisible el label, ya que aun no se tiene el nombre del usuario.
+                        this.lblProfile.Visible = false;
                         this.btnVehiculos.Enabled = false;
                         HabilitarTxtVeh(false);
                         break;
@@ -80,6 +82,7 @@ namespace TallerAutos.GUILayer
                         this.MostrarDatos(clienteSeleccionado);
                         HabilitarTxtCliente(false);
                         HabilitarTxtVeh(false);
+                        this.btnAceptarInfo.Enabled = false;
                         this.btnAceptarVeh.Enabled = false;
                         this.btnCancelarVeh.Enabled = false;
                         this.btnEliminar.Enabled = false;
@@ -225,7 +228,8 @@ namespace TallerAutos.GUILayer
                                 this.clienteSeleccionado = oCliente;
                                 tabFrmCliente.SelectedTab = tabVehiculos;
                                 this.HabilitarTxtVeh(true);
-                                this.btnInfo.Enabled = false;                             
+                                this.btnInfo.Enabled = false;
+                                this.btnVehiculos.Enabled = true;
                                 this.btnEliminar.Visible = false;
                                 this.btnEditar.Visible = false;
                                 this.btnNuevo.Visible = false;
@@ -250,7 +254,7 @@ namespace TallerAutos.GUILayer
                             clienteService.ActualizarCliente(clienteSeleccionado);
 
                             MessageBox.Show("Usuario actualizado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Dispose();
+                            //this.Dispose();
 
                         }
                         else
@@ -337,9 +341,8 @@ namespace TallerAutos.GUILayer
                                 vehiculoService.CargarVehiculo(oVehiculo);
                                 this.CargarDGVehiculos();
 
-                                MessageBox.Show("Vehiculo cargado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                               
-                                //this.Close();
+                                MessageBox.Show("Vehiculo cargado correctamente, el usuario ha sido creado con exito.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);                              
+                                this.Close();
                             }
                             else
                                 MessageBox.Show("Ya existe un vehiculo con el número de Patente ingresado. Por favor, ingrese uno diferente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
