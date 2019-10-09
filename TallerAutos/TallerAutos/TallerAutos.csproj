@@ -48,7 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\ClienteService.cs" />
+    <Compile Include="BusinessLayer\DetalleOTService.cs" />
     <Compile Include="BusinessLayer\EmpleadoService.cs" />
+    <Compile Include="BusinessLayer\EstadoService.cs" />
+    <Compile Include="BusinessLayer\FormasPagoService.cs" />
     <Compile Include="BusinessLayer\MarcaService.cs" />
     <Compile Include="BusinessLayer\ModeloService.cs" />
     <Compile Include="BusinessLayer\OrdenTrabajoService.cs" />
@@ -57,7 +60,10 @@
     <Compile Include="BusinessLayer\VehiculoService.cs" />
     <Compile Include="DataAccessLayer\BaseDeDatos.cs" />
     <Compile Include="DataAccessLayer\ClienteDao.cs" />
+    <Compile Include="DataAccessLayer\DetalleOTDao.cs" />
     <Compile Include="DataAccessLayer\EmpleadoDao.cs" />
+    <Compile Include="DataAccessLayer\EstadoDao.cs" />
+    <Compile Include="DataAccessLayer\FormaPagoDao.cs" />
     <Compile Include="DataAccessLayer\MarcaDao.cs" />
     <Compile Include="DataAccessLayer\ModeloDao.cs" />
     <Compile Include="DataAccessLayer\OrdenTrabajoDao.cs" />
@@ -65,6 +71,7 @@
     <Compile Include="DataAccessLayer\SexoDao.cs" />
     <Compile Include="DataAccessLayer\VehiculoDao.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\DetalleOT.cs" />
     <Compile Include="Entities\Empleado.cs" />
     <Compile Include="Entities\Estado.cs" />
     <Compile Include="Entities\FormaPago.cs" />
@@ -86,6 +93,12 @@
     <Compile Include="GUILayer\frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\frmCrearOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmCrearOrden.Designer.cs">
+      <DependentUpon>frmCrearOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\frmDetalleCOrdenes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +110,12 @@
     </Compile>
     <Compile Include="GUILayer\frmConsultaOrden.Designer.cs">
       <DependentUpon>frmConsultaOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmDetallesOT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmDetallesOT.Designer.cs">
+      <DependentUpon>frmDetallesOT.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmEmpleados.cs">
       <SubType>Form</SubType>
@@ -149,11 +168,17 @@
     <EmbeddedResource Include="GUILayer\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmCrearOrden.resx">
+      <DependentUpon>frmCrearOrden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmDetalleCOrdenes.resx">
       <DependentUpon>frmDetalleCOrdenes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmConsultaOrden.resx">
       <DependentUpon>frmConsultaOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmDetallesOT.resx">
+      <DependentUpon>frmDetallesOT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.cs</DependentUpon>
