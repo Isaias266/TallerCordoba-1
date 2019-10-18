@@ -161,7 +161,7 @@ namespace TallerAutos.GUILayer
 
         private void BtnRepuestos_Click(object sender, EventArgs e)
         {
-            frmConsultaRepuestos frR = new frmConsultaRepuestos();
+            frmConsultaRepuestos frR = new frmConsultaRepuestos(true);
             frR.FormClosing += frmRepuestos_FormClosing;
             frR.Show();
             this.Hide();

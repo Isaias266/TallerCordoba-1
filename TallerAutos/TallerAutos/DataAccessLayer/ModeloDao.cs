@@ -26,6 +26,29 @@ namespace TallerAutos.DataAccessLayer
 
         }
 
+        public IList<Modelo> ConsultarModelos(string condicionesSql)
+        {
+            List<Modelo> listaModelos = new List<Modelo>();
+
+            string strSql = "SELECT M.codModelo,M.nombre, MA.nombre "+
+                            "FROM Modelos M JOIN Marcas MA ON (M.codMarca = MA.codMarca) " +
+                            "WHERE 1=1 ";
+
+            strSql += condicionesSql;
+
+            var resultadoConsulta = (DataRowCollection)mDB.Consultar(strSql).Rows;
+
+            foreach (DataRow row in resultadoConsulta)
+            {
+                if (!string.IsNullOrEmpty(row["codModelo"].ToString()))
+                    listaModelos.Add(MappingModelos(row));
+            }
+
+            return listaModelos;
+        }
+
+
+
         private Modelo MappingModelos(DataRow row)
         {
             Modelo oModelo = new Modelo()

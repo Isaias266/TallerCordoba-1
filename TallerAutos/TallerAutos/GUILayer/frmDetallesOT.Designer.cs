@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetallesOT));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,24 +40,16 @@
             this.lblMonto = new System.Windows.Forms.Label();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblEmpleado = new System.Windows.Forms.Label();
-            this.lblMarca = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cboEmpleado = new System.Windows.Forms.ComboBox();
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblModelo = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
-            this.lblPrecioU = new System.Windows.Forms.Label();
-            this.lblPrecioT = new System.Windows.Forms.Label();
-            this.cboMarca = new System.Windows.Forms.ComboBox();
-            this.cboModelo = new System.Windows.Forms.ComboBox();
-            this.cboNombreRep = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvTrabajos = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
+            this.timerError = new System.Windows.Forms.Timer(this.components);
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -143,17 +136,6 @@
             this.lblEmpleado.TabIndex = 32;
             this.lblEmpleado.Text = "Empleado";
             // 
-            // lblMarca
-            // 
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.ForeColor = System.Drawing.Color.White;
-            this.lblMarca.Location = new System.Drawing.Point(37, 235);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(47, 17);
-            this.lblMarca.TabIndex = 33;
-            this.lblMarca.Text = "Marca";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -179,6 +161,7 @@
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(107, 20);
             this.txtMonto.TabIndex = 36;
+            this.txtMonto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMonto_KeyPress);
             // 
             // txtDescripcion
             // 
@@ -187,106 +170,20 @@
             this.txtDescripcion.Size = new System.Drawing.Size(481, 20);
             this.txtDescripcion.TabIndex = 37;
             // 
-            // lblModelo
-            // 
-            this.lblModelo.AutoSize = true;
-            this.lblModelo.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModelo.ForeColor = System.Drawing.Color.White;
-            this.lblModelo.Location = new System.Drawing.Point(218, 235);
-            this.lblModelo.Name = "lblModelo";
-            this.lblModelo.Size = new System.Drawing.Size(54, 17);
-            this.lblModelo.TabIndex = 38;
-            this.lblModelo.Text = "Modelo";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(406, 239);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(115, 17);
-            this.lblNombre.TabIndex = 39;
-            this.lblNombre.Text = "Nombre Repuesto";
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad.Location = new System.Drawing.Point(208, 293);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(64, 17);
-            this.lblCantidad.TabIndex = 40;
-            this.lblCantidad.Text = "Cantidad";
-            // 
-            // lblPrecioU
-            // 
-            this.lblPrecioU.AutoSize = true;
-            this.lblPrecioU.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioU.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioU.Location = new System.Drawing.Point(38, 292);
-            this.lblPrecioU.Name = "lblPrecioU";
-            this.lblPrecioU.Size = new System.Drawing.Size(90, 17);
-            this.lblPrecioU.TabIndex = 41;
-            this.lblPrecioU.Text = "Precio:         $0";
-            // 
-            // lblPrecioT
-            // 
-            this.lblPrecioT.AutoSize = true;
-            this.lblPrecioT.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioT.ForeColor = System.Drawing.Color.White;
-            this.lblPrecioT.Location = new System.Drawing.Point(416, 293);
-            this.lblPrecioT.Name = "lblPrecioT";
-            this.lblPrecioT.Size = new System.Drawing.Size(128, 17);
-            this.lblPrecioT.TabIndex = 42;
-            this.lblPrecioT.Text = "Precio Total:           $0";
-            // 
-            // cboMarca
-            // 
-            this.cboMarca.FormattingEnabled = true;
-            this.cboMarca.Location = new System.Drawing.Point(91, 235);
-            this.cboMarca.Name = "cboMarca";
-            this.cboMarca.Size = new System.Drawing.Size(121, 21);
-            this.cboMarca.TabIndex = 43;
-            // 
-            // cboModelo
-            // 
-            this.cboModelo.FormattingEnabled = true;
-            this.cboModelo.Location = new System.Drawing.Point(274, 235);
-            this.cboModelo.Name = "cboModelo";
-            this.cboModelo.Size = new System.Drawing.Size(121, 21);
-            this.cboModelo.TabIndex = 44;
-            // 
-            // cboNombreRep
-            // 
-            this.cboNombreRep.FormattingEnabled = true;
-            this.cboNombreRep.Location = new System.Drawing.Point(528, 235);
-            this.cboNombreRep.Name = "cboNombreRep";
-            this.cboNombreRep.Size = new System.Drawing.Size(147, 21);
-            this.cboNombreRep.TabIndex = 45;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(278, 291);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(101, 20);
-            this.textBox2.TabIndex = 47;
-            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(219)))), ((int)(((byte)(81)))));
             this.btnAgregar.FlatAppearance.BorderSize = 0;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(572, 283);
+            this.btnAgregar.Location = new System.Drawing.Point(259, 230);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(89, 34);
+            this.btnAgregar.Size = new System.Drawing.Size(174, 52);
             this.btnAgregar.TabIndex = 48;
-            this.btnAgregar.Text = "Añadir";
+            this.btnAgregar.Text = "Buscar repuesto";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
@@ -317,7 +214,7 @@
             this.dgvTrabajos.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTrabajos.EnableHeadersVisualStyles = false;
             this.dgvTrabajos.GridColor = System.Drawing.Color.White;
-            this.dgvTrabajos.Location = new System.Drawing.Point(113, 341);
+            this.dgvTrabajos.Location = new System.Drawing.Point(113, 305);
             this.dgvTrabajos.MultiSelect = false;
             this.dgvTrabajos.Name = "dgvTrabajos";
             this.dgvTrabajos.ReadOnly = true;
@@ -335,6 +232,7 @@
             this.dgvTrabajos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTrabajos.Size = new System.Drawing.Size(451, 120);
             this.dgvTrabajos.TabIndex = 49;
+            this.dgvTrabajos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTrabajos_CellContentClick);
             // 
             // btnCancelar
             // 
@@ -363,6 +261,23 @@
             this.btnAceptar.TabIndex = 50;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
+            this.btnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblError.Location = new System.Drawing.Point(194, 448);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(81, 20);
+            this.lblError.TabIndex = 52;
+            this.lblError.Text = "lblErrorNV";
+            // 
+            // timerError
+            // 
+            this.timerError.Interval = 4000;
+            this.timerError.Tick += new System.EventHandler(this.TimerError_Tick);
             // 
             // frmDetallesOT
             // 
@@ -370,24 +285,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             this.ClientSize = new System.Drawing.Size(687, 532);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dgvTrabajos);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.cboNombreRep);
-            this.Controls.Add(this.cboModelo);
-            this.Controls.Add(this.cboMarca);
-            this.Controls.Add(this.lblPrecioT);
-            this.Controls.Add(this.lblPrecioU);
-            this.Controls.Add(this.lblCantidad);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.lblModelo);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtMonto);
             this.Controls.Add(this.cboEmpleado);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.lblEmpleado);
             this.Controls.Add(this.lblDescripcion);
             this.Controls.Add(this.lblMonto);
@@ -415,23 +321,15 @@
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblEmpleado;
-        private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboEmpleado;
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label lblModelo;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblCantidad;
-        private System.Windows.Forms.Label lblPrecioU;
-        private System.Windows.Forms.Label lblPrecioT;
-        private System.Windows.Forms.ComboBox cboMarca;
-        private System.Windows.Forms.ComboBox cboModelo;
-        private System.Windows.Forms.ComboBox cboNombreRep;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridView dgvTrabajos;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Timer timerError;
     }
 }

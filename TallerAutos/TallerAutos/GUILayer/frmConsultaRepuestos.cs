@@ -10,13 +10,15 @@ namespace TallerAutos.GUILayer
     {
         private MarcaService marca;
         private RepuestoService oRepuestoService;
+        private bool consultaNormal;
 
-        public frmConsultaRepuestos()
+        public frmConsultaRepuestos(bool x)
         {
             InitializeComponent();
             InitializeDataGridView();
             marca = new MarcaService();
             oRepuestoService = new RepuestoService();
+            consultaNormal = x;
         }
 
         private void InitializeDataGridView()
@@ -122,6 +124,8 @@ namespace TallerAutos.GUILayer
                 txtNombre.Enabled = false;
                 cboMarca.Enabled = false;
                 this.CargarGrilla();
+                this.btnAgregar.Enabled = true;
+                this.txtCantidad.Enabled = true;
             }
         }
 
@@ -135,6 +139,22 @@ namespace TallerAutos.GUILayer
 
         private void FrmABMCRepuestos_Load(object sender, EventArgs e)
         {
+            if (!consultaNormal)
+            {
+                this.btnAgregar.Visible = true;
+                this.btnAgregar.Enabled = false;
+                this.txtCantidad.Visible = true;
+                this.txtCantidad.Enabled = false;
+                this.txtCantidad.Value = 1;
+                this.lblCantidad.Visible = true;
+                
+            }
+            else
+            {
+                this.btnAgregar.Visible = false;
+                this.txtCantidad.Visible = false;
+                this.lblCantidad.Visible = false;
+            }
             // Cargar ComboBox de Marcas
             cboMarca.DataSource = marca.RecuperarMarcas();
             cboMarca.DisplayMember = "nombre";
@@ -171,6 +191,46 @@ namespace TallerAutos.GUILayer
                 }
                 MessageBox.Show("Cliente eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+
+
+        private void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            Repuesto repAgregar = (Repuesto)dataGridRepuestos.CurrentRow.DataBoundItem;
+            if (txtCantidad.Value <= repAgregar.Stock && txtCantidad.Value > 0)
+            {
+                frmDetallesOT frmPadre = this.Owner as frmDetallesOT;
+                frmPadre.CargarRepuesto(repAgregar, Convert.ToInt32(txtCantidad.Value));
+                MessageBox.Show("El repuesto se ha añadido con exito\nCantidad: " + txtCantidad.Value, "Repuesto añadido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.txtCantidad.Value = 1;
+            }
+            else
+            {
+                MessageBox.Show("Cantidad incorrecta, no hay suficiente stock\nStock actual: " + repAgregar.Stock, "Stock insuficiente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.txtCantidad.Value = 1;
+            }
+        }
+
+        /*private void TxtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar)) //Al pulsar un número
+                {
+                    e.Handled = false; //Se acepta
+                }
+                else if (Char.IsControl(e.KeyChar)) //Teclas especial como borrar
+                {
+                    e.Handled = false; //Se acepta
+                }
+                else //Para todas las demas teclas
+                {
+                    e.Handled = true; //No se acepta
+                }
+        } No es necesario aparentemente */
+
+        private void DataGridRepuestos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -12,5 +12,12 @@ namespace TallerAutos.BusinessLayer
         {
             return oModeloDao.RecuperarModelos();
         }
+
+        public IList<Modelo> ConsultarModelos(String sqlString)
+        {
+            return oModeloDao.ConsultarModelos(sqlString);
+        }
+
+
     }
 }
