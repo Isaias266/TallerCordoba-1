@@ -115,7 +115,7 @@
             this.cboMarca.Location = new System.Drawing.Point(190, 137);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(159, 25);
-            this.cboMarca.TabIndex = 51;
+            this.cboMarca.TabIndex = 3;
             // 
             // lblCodRepuesto
             // 
@@ -137,7 +137,7 @@
             this.txtCodRepuesto.Location = new System.Drawing.Point(190, 66);
             this.txtCodRepuesto.Name = "txtCodRepuesto";
             this.txtCodRepuesto.Size = new System.Drawing.Size(159, 22);
-            this.txtCodRepuesto.TabIndex = 49;
+            this.txtCodRepuesto.TabIndex = 1;
             // 
             // lblMarca
             // 
@@ -170,7 +170,7 @@
             this.txtNombre.Location = new System.Drawing.Point(190, 102);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(159, 22);
-            this.txtNombre.TabIndex = 50;
+            this.txtNombre.TabIndex = 2;
             // 
             // cboModelo
             // 
@@ -183,7 +183,7 @@
             this.cboModelo.Location = new System.Drawing.Point(190, 175);
             this.cboModelo.Name = "cboModelo";
             this.cboModelo.Size = new System.Drawing.Size(159, 25);
-            this.cboModelo.TabIndex = 52;
+            this.cboModelo.TabIndex = 4;
             // 
             // lblModelo
             // 
@@ -216,7 +216,7 @@
             this.txtFabricante.Location = new System.Drawing.Point(190, 213);
             this.txtFabricante.Name = "txtFabricante";
             this.txtFabricante.Size = new System.Drawing.Size(159, 22);
-            this.txtFabricante.TabIndex = 53;
+            this.txtFabricante.TabIndex = 5;
             // 
             // lblDescripcion
             // 
@@ -238,7 +238,7 @@
             this.txtDescripcion.Location = new System.Drawing.Point(427, 104);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(345, 207);
-            this.txtDescripcion.TabIndex = 56;
+            this.txtDescripcion.TabIndex = 8;
             this.txtDescripcion.Text = "";
             // 
             // lblStock
@@ -261,7 +261,7 @@
             this.nudStock.Location = new System.Drawing.Point(190, 251);
             this.nudStock.Name = "nudStock";
             this.nudStock.Size = new System.Drawing.Size(159, 22);
-            this.nudStock.TabIndex = 54;
+            this.nudStock.TabIndex = 6;
             // 
             // btnAceptarInfo
             // 
@@ -274,7 +274,7 @@
             this.btnAceptarInfo.Location = new System.Drawing.Point(85, 354);
             this.btnAceptarInfo.Name = "btnAceptarInfo";
             this.btnAceptarInfo.Size = new System.Drawing.Size(93, 34);
-            this.btnAceptarInfo.TabIndex = 57;
+            this.btnAceptarInfo.TabIndex = 9;
             this.btnAceptarInfo.Text = "Aceptar";
             this.btnAceptarInfo.UseVisualStyleBackColor = false;
             this.btnAceptarInfo.Click += new System.EventHandler(this.BtnAceptarInfo_Click);
@@ -292,7 +292,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(664, 354);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(108, 34);
-            this.btnCancelar.TabIndex = 58;
+            this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Volver";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -306,7 +306,7 @@
             this.txtPrecio.Location = new System.Drawing.Point(190, 289);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(159, 22);
-            this.txtPrecio.TabIndex = 55;
+            this.txtPrecio.TabIndex = 7;
             this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
             // 
             // lblPrecio

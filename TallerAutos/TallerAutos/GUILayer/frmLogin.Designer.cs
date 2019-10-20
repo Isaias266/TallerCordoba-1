@@ -89,6 +89,7 @@
             this.txtUser.Text = "Usuario";
             this.txtUser.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtUser.Enter += new System.EventHandler(this.TxtUser_Enter);
+            this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtUser_KeyDown);
             this.txtUser.Leave += new System.EventHandler(this.TxtUser_Leave);
             // 
             // txtPass
@@ -105,6 +106,7 @@
             this.txtPass.Text = "Password";
             this.txtPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPass.Enter += new System.EventHandler(this.TxtPass_Enter);
+            this.txtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPass_KeyDown);
             this.txtPass.Leave += new System.EventHandler(this.TxtPass_Leave);
             // 
             // btnLogin

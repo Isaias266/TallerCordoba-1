@@ -98,7 +98,7 @@
             this.btnMenuOrdenes.Location = new System.Drawing.Point(12, 242);
             this.btnMenuOrdenes.Name = "btnMenuOrdenes";
             this.btnMenuOrdenes.Size = new System.Drawing.Size(274, 54);
-            this.btnMenuOrdenes.TabIndex = 2;
+            this.btnMenuOrdenes.TabIndex = 3;
             this.btnMenuOrdenes.Text = "Ordenes de Trabajo";
             this.btnMenuOrdenes.UseVisualStyleBackColor = false;
             this.btnMenuOrdenes.Click += new System.EventHandler(this.BtnMenuOrdenes_Click);
@@ -117,7 +117,7 @@
             this.btnEmpleados.Location = new System.Drawing.Point(12, 160);
             this.btnEmpleados.Name = "btnEmpleados";
             this.btnEmpleados.Size = new System.Drawing.Size(274, 54);
-            this.btnEmpleados.TabIndex = 23;
+            this.btnEmpleados.TabIndex = 2;
             this.btnEmpleados.Text = "Empleados";
             this.btnEmpleados.UseVisualStyleBackColor = false;
             this.btnEmpleados.Click += new System.EventHandler(this.BtnEmpleados_Click);
@@ -135,7 +135,7 @@
             this.btnReportes.Location = new System.Drawing.Point(12, 403);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(274, 54);
-            this.btnReportes.TabIndex = 24;
+            this.btnReportes.TabIndex = 5;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.UseVisualStyleBackColor = false;
             this.btnReportes.Click += new System.EventHandler(this.BtnReportes_Click);
@@ -190,7 +190,7 @@
             this.btnRepuestos.Location = new System.Drawing.Point(12, 324);
             this.btnRepuestos.Name = "btnRepuestos";
             this.btnRepuestos.Size = new System.Drawing.Size(274, 54);
-            this.btnRepuestos.TabIndex = 26;
+            this.btnRepuestos.TabIndex = 4;
             this.btnRepuestos.Text = "Repuestos";
             this.btnRepuestos.UseVisualStyleBackColor = false;
             this.btnRepuestos.Click += new System.EventHandler(this.BtnRepuestos_Click);
@@ -311,7 +311,7 @@
             this.btnCerrarSesion.Location = new System.Drawing.Point(766, 547);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(132, 37);
-            this.btnCerrarSesion.TabIndex = 26;
+            this.btnCerrarSesion.TabIndex = 6;
             this.btnCerrarSesion.Text = "Salir";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.BtnCerrarSesion_Click);

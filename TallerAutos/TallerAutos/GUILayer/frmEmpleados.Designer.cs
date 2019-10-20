@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmpleados));
             this.lblLegajo = new System.Windows.Forms.Label();
             this.lblRol = new System.Windows.Forms.Label();
@@ -187,7 +187,7 @@
             this.txtDomicilio.Location = new System.Drawing.Point(181, 151);
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(145, 22);
-            this.txtDomicilio.TabIndex = 4;
+            this.txtDomicilio.TabIndex = 5;
             this.txtDomicilio.TextChanged += new System.EventHandler(this.TxtDomicilio_TextChanged);
             // 
             // txtNombre
@@ -211,7 +211,7 @@
             this.txtLegajo.Location = new System.Drawing.Point(181, 112);
             this.txtLegajo.Name = "txtLegajo";
             this.txtLegajo.Size = new System.Drawing.Size(145, 22);
-            this.txtLegajo.TabIndex = 11;
+            this.txtLegajo.TabIndex = 3;
             this.txtLegajo.TextChanged += new System.EventHandler(this.TxtLegajo_TextChanged);
             // 
             // txtApellido
@@ -238,7 +238,7 @@
             this.cboSexo.Location = new System.Drawing.Point(504, 233);
             this.cboSexo.Name = "cboSexo";
             this.cboSexo.Size = new System.Drawing.Size(146, 25);
-            this.cboSexo.TabIndex = 9;
+            this.cboSexo.TabIndex = 10;
             this.cboSexo.ValueMember = "codSexo";
             // 
             // cboRol
@@ -253,7 +253,7 @@
             this.cboRol.Location = new System.Drawing.Point(505, 112);
             this.cboRol.Name = "cboRol";
             this.cboRol.Size = new System.Drawing.Size(146, 25);
-            this.cboRol.TabIndex = 3;
+            this.cboRol.TabIndex = 4;
             this.cboRol.ValueMember = "codRol";
             this.cboRol.EnabledChanged += new System.EventHandler(this.CboRol_EnabledChanged);
             // 
@@ -266,7 +266,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(505, 151);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(146, 22);
-            this.txtTelefono.TabIndex = 5;
+            this.txtTelefono.TabIndex = 6;
             this.txtTelefono.TextChanged += new System.EventHandler(this.TxtTelefono_TextChanged);
             // 
             // txtCelular
@@ -278,7 +278,7 @@
             this.txtCelular.Location = new System.Drawing.Point(181, 194);
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(145, 22);
-            this.txtCelular.TabIndex = 6;
+            this.txtCelular.TabIndex = 7;
             this.txtCelular.TextChanged += new System.EventHandler(this.TxtCelular_TextChanged);
             // 
             // lblSexo
@@ -308,24 +308,24 @@
             this.dataGridEmpleados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             this.dataGridEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridEmpleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridEmpleados.ColumnHeadersHeight = 40;
             this.dataGridEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridEmpleados.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridEmpleados.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridEmpleados.EnableHeadersVisualStyles = false;
             this.dataGridEmpleados.GridColor = System.Drawing.Color.White;
             this.dataGridEmpleados.Location = new System.Drawing.Point(52, 316);
@@ -333,14 +333,14 @@
             this.dataGridEmpleados.Name = "dataGridEmpleados";
             this.dataGridEmpleados.ReadOnly = true;
             this.dataGridEmpleados.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridEmpleados.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridEmpleados.RowHeadersVisible = false;
             this.dataGridEmpleados.Size = new System.Drawing.Size(625, 164);
             this.dataGridEmpleados.TabIndex = 0;
@@ -362,7 +362,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(52, 511);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(86, 30);
-            this.btnNuevo.TabIndex = 12;
+            this.btnNuevo.TabIndex = 13;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
@@ -378,7 +378,7 @@
             this.btnEditar.Location = new System.Drawing.Point(154, 511);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(86, 30);
-            this.btnEditar.TabIndex = 13;
+            this.btnEditar.TabIndex = 14;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
@@ -394,7 +394,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(381, 511);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(86, 30);
-            this.btnGuardar.TabIndex = 15;
+            this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -410,7 +410,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(484, 511);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(86, 30);
-            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -426,7 +426,7 @@
             this.btnVolver.Location = new System.Drawing.Point(617, 511);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(86, 30);
-            this.btnVolver.TabIndex = 17;
+            this.btnVolver.TabIndex = 18;
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.BtnSalir_Click);
@@ -442,7 +442,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(257, 511);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(86, 30);
-            this.btnEliminar.TabIndex = 14;
+            this.btnEliminar.TabIndex = 15;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
@@ -469,7 +469,7 @@
             this.dateNac.Location = new System.Drawing.Point(505, 194);
             this.dateNac.Name = "dateNac";
             this.dateNac.Size = new System.Drawing.Size(146, 22);
-            this.dateNac.TabIndex = 7;
+            this.dateNac.TabIndex = 8;
             // 
             // dateAlta
             // 
@@ -477,7 +477,7 @@
             this.dateAlta.Location = new System.Drawing.Point(181, 233);
             this.dateAlta.Name = "dateAlta";
             this.dateAlta.Size = new System.Drawing.Size(145, 22);
-            this.dateAlta.TabIndex = 8;
+            this.dateAlta.TabIndex = 9;
             // 
             // lblUsuario
             // 
@@ -499,7 +499,7 @@
             this.txtUsuario.Location = new System.Drawing.Point(181, 277);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(145, 22);
-            this.txtUsuario.TabIndex = 10;
+            this.txtUsuario.TabIndex = 11;
             this.txtUsuario.TextChanged += new System.EventHandler(this.TxtUsuario_TextChanged);
             // 
             // txtPassword
@@ -512,7 +512,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(145, 22);
-            this.txtPassword.TabIndex = 11;
+            this.txtPassword.TabIndex = 12;
             this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // lblPassword

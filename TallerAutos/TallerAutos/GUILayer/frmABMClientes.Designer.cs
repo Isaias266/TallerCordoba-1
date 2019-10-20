@@ -136,7 +136,7 @@
             this.btnAceptarInfo.Location = new System.Drawing.Point(55, 252);
             this.btnAceptarInfo.Name = "btnAceptarInfo";
             this.btnAceptarInfo.Size = new System.Drawing.Size(93, 34);
-            this.btnAceptarInfo.TabIndex = 73;
+            this.btnAceptarInfo.TabIndex = 10;
             this.btnAceptarInfo.Text = "Aceptar";
             this.btnAceptarInfo.UseVisualStyleBackColor = false;
             this.btnAceptarInfo.Click += new System.EventHandler(this.BtnAceptar_Click);
@@ -146,7 +146,7 @@
             this.dtpFechaNac.Location = new System.Drawing.Point(439, 141);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(192, 22);
-            this.dtpFechaNac.TabIndex = 67;
+            this.dtpFechaNac.TabIndex = 8;
             // 
             // label1
             // 
@@ -164,21 +164,21 @@
             this.txtCel.Location = new System.Drawing.Point(439, 110);
             this.txtCel.Name = "txtCel";
             this.txtCel.Size = new System.Drawing.Size(192, 22);
-            this.txtCel.TabIndex = 65;
+            this.txtCel.TabIndex = 7;
             // 
             // txtTel
             // 
             this.txtTel.Location = new System.Drawing.Point(439, 79);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(192, 22);
-            this.txtTel.TabIndex = 64;
+            this.txtTel.TabIndex = 6;
             // 
             // txtDomicilio
             // 
             this.txtDomicilio.Location = new System.Drawing.Point(124, 203);
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(192, 22);
-            this.txtDomicilio.TabIndex = 63;
+            this.txtDomicilio.TabIndex = 5;
             // 
             // lblTel
             // 
@@ -218,7 +218,7 @@
             this.txtNom.Location = new System.Drawing.Point(124, 110);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(192, 22);
-            this.txtNom.TabIndex = 59;
+            this.txtNom.TabIndex = 2;
             // 
             // lblNombre
             // 
@@ -237,7 +237,7 @@
             this.cboSexo.Location = new System.Drawing.Point(439, 172);
             this.cboSexo.Name = "cboSexo";
             this.cboSexo.Size = new System.Drawing.Size(192, 25);
-            this.cboSexo.TabIndex = 57;
+            this.cboSexo.TabIndex = 9;
             // 
             // lblSexo
             // 
@@ -266,14 +266,14 @@
             this.txtEmail.Location = new System.Drawing.Point(124, 172);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(192, 22);
-            this.txtEmail.TabIndex = 53;
+            this.txtEmail.TabIndex = 4;
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(124, 141);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(192, 22);
-            this.txtApellido.TabIndex = 51;
+            this.txtApellido.TabIndex = 3;
             // 
             // lblEmail
             // 
@@ -302,7 +302,7 @@
             this.txtDNI.Location = new System.Drawing.Point(124, 79);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(192, 22);
-            this.txtDNI.TabIndex = 50;
+            this.txtDNI.TabIndex = 1;
             // 
             // tabVehiculos
             // 
@@ -556,7 +556,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(59, 300);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(108, 34);
-            this.btnCancelar.TabIndex = 72;
+            this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Volver";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
