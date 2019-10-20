@@ -50,8 +50,9 @@ namespace TallerAutos.DataAccessLayer
             DetalleOT oDetalle = new DetalleOT();
 
             oDetalle.OrdenTrabajo = new OrdenTrabajo();
+            oDetalle.OrdenTrabajo.Cliente = new Cliente();
             oDetalle.OrdenTrabajo.CodOrden = Convert.ToInt32(row["codOrden"].ToString());
-            oDetalle.OrdenTrabajo.DniCliente = Convert.ToInt32(row["dniCliente"].ToString());
+            oDetalle.OrdenTrabajo.Cliente.Dni = Convert.ToInt32(row["dniCliente"].ToString());
             oDetalle.Empleado = new Empleado();
             oDetalle.Empleado.Legajo = Convert.ToInt32(row["legajoEmpleado"].ToString());
             oDetalle.Empleado.Nombre = row["nombreEmpleado"].ToString();

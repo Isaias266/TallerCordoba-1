@@ -19,16 +19,9 @@ namespace TallerAutos.Entities
         public DateTime FechaNacimiento { get; set; }
         public Sexo Sexo { get; set; }
 
-        /*
-         public string Apellido { get => apellido; set => apellido = value; }
-         public string Nombre { get => nombre; set => nombre = value; }
-         public string Domicilio { get => domicilio; set => domicilio = value; }
-         public string Telefono { get => telefono; set => telefono = value; }
-         public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
-         public string Email { get => email; set => email = value; }
-         public string Celular { get => celular; set => celular = value; }
-         public int Dni { get => dni; set => dni = value; }
-         internal Sexo Sexo { get => sexo; set => sexo = value; }
-         */
+        public override string ToString()
+        {
+            return Dni.ToString();
+        }
     }
 }

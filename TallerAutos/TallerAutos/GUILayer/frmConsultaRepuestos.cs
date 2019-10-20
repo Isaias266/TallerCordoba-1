@@ -120,9 +120,6 @@ namespace TallerAutos.GUILayer
             }
             else
             {
-                txtCodRepuesto.Enabled = false;
-                txtNombre.Enabled = false;
-                cboMarca.Enabled = false;
                 this.CargarGrilla();
                 this.btnAgregar.Enabled = true;
                 this.txtCantidad.Enabled = true;

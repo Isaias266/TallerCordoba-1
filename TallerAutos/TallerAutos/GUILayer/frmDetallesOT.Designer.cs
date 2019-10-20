@@ -45,7 +45,7 @@
             this.txtMonto = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.dgvTrabajos = new System.Windows.Forms.DataGridView();
+            this.dgvRepuestos = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
@@ -53,7 +53,7 @@
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTrabajos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRepuestos)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -110,9 +110,9 @@
             this.lblMonto.ForeColor = System.Drawing.Color.White;
             this.lblMonto.Location = new System.Drawing.Point(319, 148);
             this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(74, 17);
+            this.lblMonto.Size = new System.Drawing.Size(134, 17);
             this.lblMonto.TabIndex = 30;
-            this.lblMonto.Text = "Monto M.O";
+            this.lblMonto.Text = "Monto mano de obra";
             // 
             // lblDescripcion
             // 
@@ -149,6 +149,8 @@
             // 
             // cboEmpleado
             // 
+            this.cboEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.cboEmpleado.ForeColor = System.Drawing.Color.Transparent;
             this.cboEmpleado.FormattingEnabled = true;
             this.cboEmpleado.Location = new System.Drawing.Point(131, 144);
             this.cboEmpleado.Name = "cboEmpleado";
@@ -157,7 +159,9 @@
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(409, 144);
+            this.txtMonto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.txtMonto.ForeColor = System.Drawing.Color.Transparent;
+            this.txtMonto.Location = new System.Drawing.Point(461, 144);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(107, 20);
             this.txtMonto.TabIndex = 36;
@@ -165,6 +169,8 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.txtDescripcion.ForeColor = System.Drawing.Color.Transparent;
             this.txtDescripcion.Location = new System.Drawing.Point(131, 106);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(481, 20);
@@ -188,13 +194,13 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // dgvTrabajos
+            // dgvRepuestos
             // 
-            this.dgvTrabajos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTrabajos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvTrabajos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
-            this.dgvTrabajos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvTrabajos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvRepuestos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRepuestos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvRepuestos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.dgvRepuestos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvRepuestos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,8 +208,8 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTrabajos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvTrabajos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRepuestos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvRepuestos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -211,14 +217,14 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTrabajos.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvTrabajos.EnableHeadersVisualStyles = false;
-            this.dgvTrabajos.GridColor = System.Drawing.Color.White;
-            this.dgvTrabajos.Location = new System.Drawing.Point(113, 305);
-            this.dgvTrabajos.MultiSelect = false;
-            this.dgvTrabajos.Name = "dgvTrabajos";
-            this.dgvTrabajos.ReadOnly = true;
-            this.dgvTrabajos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvRepuestos.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvRepuestos.EnableHeadersVisualStyles = false;
+            this.dgvRepuestos.GridColor = System.Drawing.Color.White;
+            this.dgvRepuestos.Location = new System.Drawing.Point(113, 305);
+            this.dgvRepuestos.MultiSelect = false;
+            this.dgvRepuestos.Name = "dgvRepuestos";
+            this.dgvRepuestos.ReadOnly = true;
+            this.dgvRepuestos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Century", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -226,13 +232,13 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTrabajos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvTrabajos.RowHeadersVisible = false;
-            this.dgvTrabajos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvTrabajos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTrabajos.Size = new System.Drawing.Size(451, 120);
-            this.dgvTrabajos.TabIndex = 49;
-            this.dgvTrabajos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTrabajos_CellContentClick);
+            this.dgvRepuestos.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvRepuestos.RowHeadersVisible = false;
+            this.dgvRepuestos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvRepuestos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRepuestos.Size = new System.Drawing.Size(451, 120);
+            this.dgvRepuestos.TabIndex = 49;
+            this.dgvRepuestos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvTrabajos_CellContentClick);
             // 
             // btnCancelar
             // 
@@ -247,6 +253,7 @@
             this.btnCancelar.TabIndex = 51;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -288,7 +295,7 @@
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.dgvTrabajos);
+            this.Controls.Add(this.dgvRepuestos);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtMonto);
@@ -301,12 +308,13 @@
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDetallesOT";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDetallesOT";
             this.Load += new System.EventHandler(this.FrmDetallesOT_Load);
             this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTrabajos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRepuestos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,7 +334,7 @@
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.DataGridView dgvTrabajos;
+        private System.Windows.Forms.DataGridView dgvRepuestos;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Label lblError;

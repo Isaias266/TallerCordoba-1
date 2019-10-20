@@ -22,6 +22,7 @@ namespace TallerAutos.GUILayer
         private EmpleadoService empleadoS;
         private List<Repuesto> listaRepuestos;
         private List<int> listaCantidades;
+        private decimal montoTrabajo;
         //No se utilizan por el momento.
         //private MarcaService Smarca;
         //private ModeloService Smodelo;
@@ -30,6 +31,7 @@ namespace TallerAutos.GUILayer
             InitializeComponent();
             InitializeDataGridView();
             empleadoS = new EmpleadoService();
+            montoTrabajo = 0;
             //No se utilizan por el momento
             //Smarca = new MarcaService();
             //Smodelo = new ModeloService();
@@ -46,44 +48,47 @@ namespace TallerAutos.GUILayer
             this.Close();
         }
 
-        private void CargarDgvTrabajos()
-        {
+        private void CargarDgvRepuestos()
+        {   
+            dgvRepuestos.RowCount = 0;
             for(int i = 0; i < listaRepuestos.Count(); i++)
             {
-                dgvTrabajos.Rows.Insert(i, listaRepuestos[i].Nombre, listaRepuestos[i].Fabricante, listaCantidades[i], listaRepuestos[i].PrecioUnitario * listaCantidades[i]);
+                dgvRepuestos.Rows.Insert(i, listaRepuestos[i].Nombre, listaRepuestos[i].Fabricante, listaCantidades[i], listaRepuestos[i].PrecioUnitario * listaCantidades[i]);
+                montoTrabajo += listaRepuestos[i].PrecioUnitario * listaCantidades[i];
             }
         }
+
         private void InitializeDataGridView()
         {
 
            
-            dgvTrabajos.ColumnCount = 4;
-            dgvTrabajos.ColumnHeadersVisible = true;
+            dgvRepuestos.ColumnCount = 4;
+            dgvRepuestos.ColumnHeadersVisible = true;
 
-            dgvTrabajos.AutoGenerateColumns = false;
+            dgvRepuestos.AutoGenerateColumns = false;
 
             //Cargado
-            dgvTrabajos.Columns[0].Name = "Nombre";
-            dgvTrabajos.Columns[0].DataPropertyName = "nombre";
+            dgvRepuestos.Columns[0].Name = "Nombre";
+            dgvRepuestos.Columns[0].DataPropertyName = "nombre";
             
 
-            dgvTrabajos.Columns[1].Name = "Fabricante";
-            dgvTrabajos.Columns[1].DataPropertyName = "fabricante";
+            dgvRepuestos.Columns[1].Name = "Fabricante";
+            dgvRepuestos.Columns[1].DataPropertyName = "fabricante";
 
-            dgvTrabajos.Columns[2].Name = "Cantidad";
-            dgvTrabajos.Columns[2].DataPropertyName = "cantidad";
+            dgvRepuestos.Columns[2].Name = "Cantidad";
+            dgvRepuestos.Columns[2].DataPropertyName = "cantidad";
 
-            dgvTrabajos.Columns[3].Name = "Precio";
-            dgvTrabajos.Columns[3].DataPropertyName = "precio";
+            dgvRepuestos.Columns[3].Name = "Precio";
+            dgvRepuestos.Columns[3].DataPropertyName = "precio";
 
             DataGridViewImageColumn columnaimg = new DataGridViewImageColumn();
             columnaimg.Name = "Eliminar";
             columnaimg.HeaderText = "Eliminar";
             columnaimg.Image = Image.FromFile(Path.Combine(Application.StartupPath, "borrar.png"));
 
-            dgvTrabajos.Columns.Add(columnaimg);
+            dgvRepuestos.Columns.Add(columnaimg);
 
-            dgvTrabajos.AllowUserToAddRows = false;
+            dgvRepuestos.AllowUserToAddRows = false;
 
         }
 
@@ -134,13 +139,12 @@ namespace TallerAutos.GUILayer
             fCR.FormClosing += frmRepuestos_FormClosing;
             fCR.Show();
             this.Hide();
-            
         }
 
         private void frmRepuestos_FormClosing(object sender, EventArgs e)
         {
             this.Show();
-            CargarDgvTrabajos();
+            CargarDgvRepuestos();
         }
 
         private void TxtMonto_KeyPress(object sender, KeyPressEventArgs e)
@@ -163,8 +167,18 @@ namespace TallerAutos.GUILayer
         {
             if(txtDescripcion.Text.Length <= 90 && txtMonto.Text.Length > 0 && Convert.ToInt32(txtMonto.Text) > 0)
             {
-                MessageBox.Show("El trabajo se ha añadido con exito", "Trabajo añadido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DetalleOT oDOT = new DetalleOT();
+                oDOT.Empleado = new Empleado();
+                oDOT.Descripcion = txtDescripcion.Text;
+                oDOT.Empleado = (Empleado) cboEmpleado.SelectedItem;
+                oDOT.Monto = montoTrabajo + Convert.ToDecimal(txtMonto.Text);
+                oDOT.Repuesto = listaRepuestos;
+                oDOT.Cantidades = listaCantidades;
+                
                 //Mandar info para transacción.
+                frmCrearOrden frmPadre = this.Owner as frmCrearOrden;
+                frmPadre.CargarTrabajo(oDOT);
+                //MessageBox.Show("El trabajo se ha añadido con exito", "Trabajo añadido", MessageBoxButtons.OK, MessageBoxIcon.Information);                
                 this.Close();
             }
             else
@@ -172,7 +186,6 @@ namespace TallerAutos.GUILayer
                 lblError.Text = "Error: Descripción muy larga o monto incorrecto.";
                 lblError.Visible = true;
                 timerError.Start();
-
             }
         }
 
@@ -185,14 +198,29 @@ namespace TallerAutos.GUILayer
         {
             if (e.ColumnIndex == 4) // Si es la columna que tiene el boton eliminar.
             {
-                if (dgvTrabajos.Rows.Count > 0) //Si existe al menos una fila.
+                if (dgvRepuestos.Rows.Count > 0) //Si existe al menos una fila.
                 {
-                    int index = dgvTrabajos.CurrentRow.Index;
-                    dgvTrabajos.Rows.RemoveAt(index); //Elimino de la grilla.
+                    int index = dgvRepuestos.CurrentRow.Index;
+                    dgvRepuestos.Rows.RemoveAt(index); //Elimino de la grilla.
                     listaRepuestos.RemoveAt(index); //Elimino de la lista de repuestos.
                     listaCantidades.RemoveAt(index); //Eliminmo de la lista de cantidades.
                 }
             }
+        }
+
+        public List<Repuesto> getListaRepuestos()
+        {
+            return listaRepuestos;
+        }
+
+        public List<int> getCantidadRepuestos()
+        {
+            return listaCantidades;
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     

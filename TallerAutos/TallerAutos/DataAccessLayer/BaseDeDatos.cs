@@ -11,17 +11,17 @@ namespace TallerAutos.DataAccessLayer
     class BaseDeDatos
     {
         // mauri:
-        string cadenaConexion = @"Data Source=localhost;Initial Catalog=Taller;Integrated Security=True";
+        //string cadenaConexion = @"Data Source=localhost;Initial Catalog=Taller;Integrated Security=True";
         //isa:
         //string cadenaConexion = @"Data Source=(local)\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
         //francisco:
-        //string cadenaConexion = @"Data Source=LAPTOP-WINDOWS1\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
+        string cadenaConexion = @"Data Source=LAPTOP-WINDOWS1\SQLEXPRESS;Initial Catalog=Taller;Integrated Security=True";
 
         private SqlConnection conexion = new SqlConnection();
         private SqlCommand comando = new SqlCommand();
         private SqlTransaction transacionDb;
 
-        private void Conectar()
+        public void Conectar()
         {
             conexion.ConnectionString = cadenaConexion;
             conexion.Open();
@@ -29,7 +29,7 @@ namespace TallerAutos.DataAccessLayer
             comando.CommandType = CommandType.Text;
         }
 
-        private void Desconectar()
+        public void Desconectar()
         {
             conexion.Close();
         }
@@ -52,7 +52,25 @@ namespace TallerAutos.DataAccessLayer
                 transacionDb.Rollback();
         }
 
-        public DataTable Consultar(string consultaSQL)
+        public object ConsultaSQLScalar(string strSql)
+        {
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                cmd.Connection = conexion;
+                cmd.Transaction = transacionDb;
+                cmd.CommandType = CommandType.Text;
+                // Establece la instrucción a ejecutar
+                cmd.CommandText = strSql;
+                return cmd.ExecuteScalar();
+            }
+            catch (SqlException ex)
+            {
+                throw (ex);
+            }
+        }
+
+    public DataTable Consultar(string consultaSQL)
         {
             try
             {
@@ -89,6 +107,21 @@ namespace TallerAutos.DataAccessLayer
             finally
             {
                 this.Desconectar();
+            }
+        }
+
+        public void Insertar_Transaccion(string insercionSQL)
+        {
+            try
+            {
+                comando.CommandText = insercionSQL;
+                comando.Transaction = transacionDb;
+                Console.WriteLine("\n\n\n" + insercionSQL + "\n\n\n");
+                comando.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw (ex);
             }
         }
 

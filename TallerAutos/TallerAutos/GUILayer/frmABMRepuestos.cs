@@ -129,9 +129,6 @@ namespace TallerAutos.GUILayer
                     {
                         if (ValidarCamposObl())
                         {
-                            if (ValidarDatosIngresados() != "")
-                                return;
-
                             Repuesto oRepuesto = new Repuesto();
                             LlenarDatosRepuesto(oRepuesto);
 
@@ -151,8 +148,6 @@ namespace TallerAutos.GUILayer
                     {
                         if (ValidarCamposObl())
                         {
-                            if (ValidarDatosIngresados() != "")
-                                return;
                             LlenarDatosRepuesto(repuestoSeleccionado);
 
                             oRepuestoService.ActualizarRepuesto(repuestoSeleccionado);
@@ -192,14 +187,20 @@ namespace TallerAutos.GUILayer
             return true;
         }
 
-        private string ValidarDatosIngresados()
+        private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!int.TryParse(this.txtPrecio.Text.Replace(",",""), out int codigo))
+            if (Char.IsNumber(e.KeyChar)) //Al pulsar un número
             {
-                MessageBox.Show("El precio debe contener solo números.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return "-";
+                e.Handled = false; //Se acepta
             }
-            return "";
+            else if (Char.IsControl(e.KeyChar)) //Teclas especial como borrar
+            {
+                e.Handled = false; //Se acepta
+            }
+            else //Para todas las demas teclas
+            {
+                e.Handled = true; //No se acepta
+            }
         }
     }
 }

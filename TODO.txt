@@ -11,3 +11,9 @@ Una vez actualizado algun dato de un cliente (editar) no se actualiza la grilla.
 Esta mal el taborder de editar,nuevo,detalle en cliente.
 
 Verificar y validar que en los inputs que solo se deben ingresar numeros realmente se ingresen solo numeros.
+
+IMPORTANTES:
+
+En crearOT, no deberia ser un combo para seleccionar cliente. Deberia abrir el formulario de consultar cliente.
+
+Agregar campo borrado a tabla y consultas en el codigo Ordenes.

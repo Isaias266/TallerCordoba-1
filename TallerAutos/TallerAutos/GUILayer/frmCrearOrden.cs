@@ -1,38 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TallerAutos.DataAccessLayer;
 using TallerAutos.Entities;
 using TallerAutos.BusinessLayer;
+using System.ComponentModel;
 
 namespace TallerAutos.GUILayer
 {
     public partial class frmCrearOrden : Form
     {
         private OrdenTrabajo otSeleccionada = new OrdenTrabajo();
+        private OrdenTrabajoService oOTService;
         private DetalleOTService sDetalle;
         private FormasPagoService sFormasPago;
         private EstadoService sEstado;
         private ClienteService sCliente;
         private VehiculoService sVehiculo;
         private Empleado empleadoSesion;
+        private BindingList<DetalleOT> listadoDetalleOT;
         private FormMode formMode = FormMode.insert;
+
         public frmCrearOrden(Empleado empleadoSesion)
         {
             InitializeComponent();
             InitializeDataGridView();
+            oOTService = new OrdenTrabajoService();
             this.empleadoSesion = empleadoSesion;
             sDetalle = new DetalleOTService();
             sFormasPago = new FormasPagoService();
             sEstado = new EstadoService();
             sCliente = new ClienteService();
             sVehiculo = new VehiculoService();
+            listadoDetalleOT = new BindingList<DetalleOT>();
         }
 
         public enum FormMode
@@ -69,6 +68,7 @@ namespace TallerAutos.GUILayer
                         this.txtFechaAlta.Enabled = false;
                         this.txtFechaCierre.Enabled = false;
                         this.cboEstado.Enabled = false;
+                        this.cboEstado.SelectedIndex = 1;
                         
                         //Si es necesario más adelante se agrupara en un método la habilitacion de los botones.
                         this.btnEditar.Enabled = false;
@@ -103,16 +103,17 @@ namespace TallerAutos.GUILayer
             dgvDetalles.AutoGenerateColumns = false;
 
             //Cargado
-            dgvDetalles.Columns[0].Name = "Codigo";
-            dgvDetalles.Columns[0].DataPropertyName = "numTrabajo";
+            dgvDetalles.Columns[0].Name = "Descripcion";
+            dgvDetalles.Columns[0].DataPropertyName = "descripcion";
 
-            dgvDetalles.Columns[1].Name = "Descripcion";
-            dgvDetalles.Columns[1].DataPropertyName = "descripcion";
+            dgvDetalles.Columns[1].Name = "Monto";
+            dgvDetalles.Columns[1].DataPropertyName = "monto";
 
-            dgvDetalles.Columns[2].Name = "Monto";
-            dgvDetalles.Columns[2].DataPropertyName = "monto";
+            dgvDetalles.Columns[2].Name = "Cantidad Respuestos";
+            dgvDetalles.Columns[2].DataPropertyName = "cantRepuestos";
 
-            dgvDetalles.Columns[3].Name = "Cantidad Respuestos";
+            dgvDetalles.Columns[3].Name = "Empleado";
+            dgvDetalles.Columns[3].DataPropertyName = "empleado";
 
             // Propiedades data grid view
             dgvDetalles.ReadOnly = true;
@@ -123,7 +124,18 @@ namespace TallerAutos.GUILayer
 
         private void CargarDgvDetalles()
         {
-            this.dgvDetalles.DataSource = sDetalle.ConsultarDetalles("AND D.codOrden = " + otSeleccionada.CodOrden);
+            int cantRepuestos = 0;
+            dgvDetalles.RowCount = 0;
+            for (int i = 0; i < listadoDetalleOT.Count; i++)
+            {
+                cantRepuestos = 0;
+                for(int j=0; j<listadoDetalleOT[i].Cantidades.Count; j++)
+                {
+                    cantRepuestos += listadoDetalleOT[i].Cantidades[j];
+                }
+                dgvDetalles.Rows.Insert(i, listadoDetalleOT[i].Descripcion, listadoDetalleOT[i].Monto, cantRepuestos, 
+                    listadoDetalleOT[i].Empleado.Nombre + " (" + listadoDetalleOT[i].Empleado.Legajo + ")");
+            }
         }
 
         private void LlenarCombo(ComboBox combo, Object fuente, string display, String value)
@@ -133,14 +145,66 @@ namespace TallerAutos.GUILayer
             combo.ValueMember = value;
             combo.SelectedIndex = -1;
         }
+
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
+            if (validarCamposObl())
+            {
+                OrdenTrabajo oOT = new OrdenTrabajo();
+                this.LlenarDatosOT(oOT);
+                this.oOTService.Crear(oOT);
 
+                MessageBox.Show("Orden cargada correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No se han completado uno o más campos obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void LlenarDatosOT(OrdenTrabajo oOT)
+        {
+            oOT.Estado = new Estado();
+            oOT.FormaPago = new FormaPago();
+            oOT.Cliente = new Cliente();
+            oOT.Vehiculo = new Vehiculo();
+
+            oOT.FechaAlta = txtFechaAlta.Value;
+            oOT.FechaCierre = null;
+            oOT.Cliente = (Cliente)cboCliente.SelectedItem;
+            oOT.Kilometraje = Convert.ToInt32(txtKilometraje.Text);
+            oOT.Estado = (Estado)cboEstado.SelectedItem;
+            oOT.FormaPago = (FormaPago)cboFormaPago.SelectedItem;
+            oOT.Vehiculo = (Vehiculo)cboVehiculo.SelectedItem;
+            oOT.CantidadCombustible = Convert.ToInt32(txtCombustible.Text);
+            oOT.DescripcionFalla = txtDescripcion.Text;
+            oOT.DetalleOT = this.listadoDetalleOT;
+            oOT.MontoTotal = 0;
+            foreach(var trabajo in oOT.DetalleOT)
+            {
+                oOT.MontoTotal += trabajo.Monto;
+            }
+        }
+
+        public void CargarTrabajo(DetalleOT oDOT)
+        {
+            listadoDetalleOT.Add(oDOT);
+        }
+
+        private bool validarCamposObl()
+        {
+            if (cboCliente.SelectedIndex == -1 || String.IsNullOrEmpty(txtCombustible.Text) || cboVehiculo.SelectedIndex == -1 ||
+                String.IsNullOrEmpty(txtKilometraje.Text) || String.IsNullOrEmpty(txtDescripcion.Text) || cboFormaPago.SelectedIndex == -1)
+            {
+                return false;
+            }
+            return true;
         }
 
         private void CboCliente_SelectionChangeCommitted(object sender, EventArgs e)
@@ -157,14 +221,117 @@ namespace TallerAutos.GUILayer
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
+            //frmDetallesOT frmDetallesOT = new frmDetallesOT();
+            //frmDetallesOT.SeleccionarDOT(frmDetallesOT.FormMode.insert, empleadoSesion);
+            //frmDetallesOT.Show();
+
             frmDetallesOT frmDetallesOT = new frmDetallesOT();
             frmDetallesOT.SeleccionarDOT(frmDetallesOT.FormMode.insert, empleadoSesion);
+            AddOwnedForm(frmDetallesOT);
+            frmDetallesOT.FormClosing += frmDetalleOT_FormClosing;
             frmDetallesOT.Show();
+        }
+
+        private void frmDetalleOT_FormClosing(object sender, EventArgs e)
+        {
+            CargarDgvDetalles();
         }
 
         private void PanelTop_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void TxtCodOrden_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtFechaAlta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtFechaCierre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CboCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtKilometraje_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtCombustible_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CboVehiculo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CboFormaPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CboEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtKilometraje_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar)) //Al pulsar un número
+            {
+                e.Handled = false; //Se acepta
+            }
+            else if (Char.IsControl(e.KeyChar)) //Teclas especial como borrar
+            {
+                e.Handled = false; //Se acepta
+            }
+            else //Para todas las demas teclas
+            {
+                e.Handled = true; //No se acepta
+            }
+        }
+
+        private void TxtCombustible_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar)) //Al pulsar un número
+            {
+                e.Handled = false; //Se acepta
+            }
+            else if (Char.IsControl(e.KeyChar)) //Teclas especial como borrar
+            {
+                e.Handled = false; //Se acepta
+            }
+            else //Para todas las demas teclas
+            {
+                e.Handled = true; //No se acepta
+            }
         }
     }
 }

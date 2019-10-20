@@ -64,7 +64,6 @@ namespace TallerAutos.GUILayer
             }
 
             IList<OrdenTrabajo> listaOT = ot.ConsultarOT(sqlCondiciones);
-
             dgvOrdenes.DataSource = listaOT;
 
             if (dgvOrdenes.Rows.Count == 0)
@@ -98,10 +97,10 @@ namespace TallerAutos.GUILayer
             dgvOrdenes.Columns[1].DataPropertyName = "Estado";
 
             dgvOrdenes.Columns[2].Name = "Patente";
-            dgvOrdenes.Columns[2].DataPropertyName = "patente";
+            dgvOrdenes.Columns[2].DataPropertyName = "Vehiculo";
 
             dgvOrdenes.Columns[3].Name = "DNI";
-            dgvOrdenes.Columns[3].DataPropertyName = "dniCliente";
+            dgvOrdenes.Columns[3].DataPropertyName = "Cliente";
             
             dgvOrdenes.Columns[4].Name = "Forma Pago";
             dgvOrdenes.Columns[4].DataPropertyName = "FormaPago";
