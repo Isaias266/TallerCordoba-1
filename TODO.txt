@@ -1,4 +1,4 @@
-Cambios esteticos.
+﻿Cambios esteticos.
 
 Hacer ABM de órdenes. 
 
@@ -17,3 +17,5 @@ IMPORTANTES:
 En crearOT, no deberia ser un combo para seleccionar cliente. Deberia abrir el formulario de consultar cliente.
 
 Agregar campo borrado a tabla y consultas en el codigo Ordenes.
+
+Tira una alta excepción al intentar agregar un trabajo en crearOT.
