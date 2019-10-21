@@ -47,12 +47,12 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.btnDetalle = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.pictureCerrar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).BeginInit();
             this.panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDNI
@@ -64,7 +64,7 @@
             this.txtDNI.Location = new System.Drawing.Point(211, 111);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(159, 22);
-            this.txtDNI.TabIndex = 25;
+            this.txtDNI.TabIndex = 3;
             // 
             // txtNombre
             // 
@@ -75,7 +75,7 @@
             this.txtNombre.Location = new System.Drawing.Point(211, 78);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(159, 22);
-            this.txtNombre.TabIndex = 23;
+            this.txtNombre.TabIndex = 2;
             // 
             // lblNombre
             // 
@@ -156,7 +156,7 @@
             this.btnConsultar.Location = new System.Drawing.Point(331, 152);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(78, 29);
-            this.btnConsultar.TabIndex = 27;
+            this.btnConsultar.TabIndex = 5;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.Button1_Click);
@@ -172,7 +172,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(51, 379);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(78, 29);
-            this.btnNuevo.TabIndex = 28;
+            this.btnNuevo.TabIndex = 6;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
@@ -188,7 +188,7 @@
             this.btnEditar.Location = new System.Drawing.Point(244, 379);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(78, 29);
-            this.btnEditar.TabIndex = 29;
+            this.btnEditar.TabIndex = 8;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
@@ -204,7 +204,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(328, 379);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(78, 29);
-            this.btnEliminar.TabIndex = 30;
+            this.btnEliminar.TabIndex = 9;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
@@ -220,7 +220,7 @@
             this.btnSalir.Location = new System.Drawing.Point(434, 379);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(78, 29);
-            this.btnSalir.TabIndex = 31;
+            this.btnSalir.TabIndex = 10;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
@@ -235,7 +235,7 @@
             this.chkTodos.Location = new System.Drawing.Point(152, 155);
             this.chkTodos.Name = "chkTodos";
             this.chkTodos.Size = new System.Drawing.Size(106, 21);
-            this.chkTodos.TabIndex = 32;
+            this.chkTodos.TabIndex = 4;
             this.chkTodos.Text = "Mostrar todos";
             this.chkTodos.UseVisualStyleBackColor = true;
             // 
@@ -248,7 +248,7 @@
             this.txtApellido.Location = new System.Drawing.Point(211, 45);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(159, 22);
-            this.txtApellido.TabIndex = 33;
+            this.txtApellido.TabIndex = 1;
             // 
             // lblApellido
             // 
@@ -272,7 +272,7 @@
             this.btnDetalle.Location = new System.Drawing.Point(160, 379);
             this.btnDetalle.Name = "btnDetalle";
             this.btnDetalle.Size = new System.Drawing.Size(78, 29);
-            this.btnDetalle.TabIndex = 35;
+            this.btnDetalle.TabIndex = 7;
             this.btnDetalle.Text = "Detalle";
             this.btnDetalle.UseVisualStyleBackColor = false;
             this.btnDetalle.Click += new System.EventHandler(this.BtnDetalle_Click);
@@ -288,17 +288,6 @@
             this.panelTop.Size = new System.Drawing.Size(535, 26);
             this.panelTop.TabIndex = 36;
             // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(891, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(16, 23);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 19;
-            this.btnCerrar.TabStop = false;
-            // 
             // pictureCerrar
             // 
             this.pictureCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -310,6 +299,17 @@
             this.pictureCerrar.TabIndex = 20;
             this.pictureCerrar.TabStop = false;
             this.pictureCerrar.Click += new System.EventHandler(this.PictureBox1_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(891, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(16, 23);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 19;
+            this.btnCerrar.TabStop = false;
             // 
             // frmClientes
             // 
@@ -341,8 +341,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

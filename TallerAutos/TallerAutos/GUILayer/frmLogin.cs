@@ -95,5 +95,21 @@ namespace TallerAutos.GUILayer
         {
 
         }
+
+        private void TxtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnLogin_Click(this, new EventArgs());
+            }
+        }
+
+        private void TxtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnLogin_Click(this, new EventArgs());
+            }
+        }
     }
 }

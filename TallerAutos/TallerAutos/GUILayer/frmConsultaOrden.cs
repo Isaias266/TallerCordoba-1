@@ -80,15 +80,7 @@ namespace TallerAutos.GUILayer
 
             // Configurp la AutoGenerateColumns en false para que no se autogeneren las columnas
             dgvOrdenes.AutoGenerateColumns = false;
-
-            // Cambia el estilo de la cabecera de la grilla.
-            DataGridViewCellStyle columnHeaderStyle = new DataGridViewCellStyle();
-
-            columnHeaderStyle.BackColor = Color.Beige;
-            columnHeaderStyle.Font = new Font("Verdana", 8, FontStyle.Bold);
-            dgvOrdenes.ColumnHeadersDefaultCellStyle = columnHeaderStyle;
-
-
+                        
             // Definimos el nombre de la columnas y el DataPropertyName que se asocia a DataSource
             dgvOrdenes.Columns[0].Name = "Codigo";
             dgvOrdenes.Columns[0].DataPropertyName = "codOrden";
@@ -131,9 +123,6 @@ namespace TallerAutos.GUILayer
             this.dgvOrdenes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrdenes.AllowUserToAddRows = false;
         }   
-        
-            
- 
 
         private void CargarComboEstados()
         {
@@ -172,6 +161,11 @@ namespace TallerAutos.GUILayer
         {
             //Activo el boton de ver detalle
             btnDetalle.Enabled = true;
+        }
+
+        private void PictureCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
     
