@@ -324,7 +324,7 @@
             this.panelSubMenu.Controls.Add(this.btnConsultaOt);
             this.panelSubMenu.Controls.Add(this.btnReporte2);
             this.panelSubMenu.Controls.Add(this.btnReporte1);
-            this.panelSubMenu.Location = new System.Drawing.Point(369, 46);
+            this.panelSubMenu.Location = new System.Drawing.Point(354, 441);
             this.panelSubMenu.Name = "panelSubMenu";
             this.panelSubMenu.Size = new System.Drawing.Size(489, 100);
             this.panelSubMenu.TabIndex = 37;

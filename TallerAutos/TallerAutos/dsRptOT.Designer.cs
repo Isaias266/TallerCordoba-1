@@ -293,6 +293,8 @@ namespace TallerAutos {
             
             private global::System.Data.DataColumn columnfechaAlta;
             
+            private global::System.Data.DataColumn columnnomCliente;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dataTableOTsDataTable() {
@@ -384,6 +386,14 @@ namespace TallerAutos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn nomClienteColumn {
+                get {
+                    return this.columnnomCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +429,7 @@ namespace TallerAutos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dataTableOTsRow AdddataTableOTsRow(string nombre, decimal montoTotal, string apellido, string patente, string estado, System.DateTime fechaAlta) {
+            public dataTableOTsRow AdddataTableOTsRow(string nombre, decimal montoTotal, string apellido, string patente, string estado, System.DateTime fechaAlta, string nomCliente) {
                 dataTableOTsRow rowdataTableOTsRow = ((dataTableOTsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre,
@@ -428,7 +438,8 @@ namespace TallerAutos {
                         apellido,
                         patente,
                         estado,
-                        fechaAlta};
+                        fechaAlta,
+                        nomCliente};
                 rowdataTableOTsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdataTableOTsRow);
                 return rowdataTableOTsRow;
@@ -458,6 +469,7 @@ namespace TallerAutos {
                 this.columnpatente = base.Columns["patente"];
                 this.columnestado = base.Columns["estado"];
                 this.columnfechaAlta = base.Columns["fechaAlta"];
+                this.columnnomCliente = base.Columns["nomCliente"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,6 +489,8 @@ namespace TallerAutos {
                 base.Columns.Add(this.columnestado);
                 this.columnfechaAlta = new global::System.Data.DataColumn("fechaAlta", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaAlta);
+                this.columnnomCliente = new global::System.Data.DataColumn("nomCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnomCliente);
                 this.columnnombre.MaxLength = 50;
                 this.columncodOrden.AutoIncrement = true;
                 this.columncodOrden.AutoIncrementSeed = -1;
@@ -487,6 +501,7 @@ namespace TallerAutos {
                 this.columnpatente.AllowDBNull = false;
                 this.columnpatente.MaxLength = 50;
                 this.columnestado.MaxLength = 50;
+                this.columnnomCliente.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -731,6 +746,22 @@ namespace TallerAutos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string nomCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tabledataTableOTs.nomClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'nomCliente\' de la tabla \'dataTableOTs\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledataTableOTs.nomClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsnombreNull() {
                 return this.IsNull(this.tabledataTableOTs.nombreColumn);
             }
@@ -787,6 +818,18 @@ namespace TallerAutos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetfechaAltaNull() {
                 this[this.tabledataTableOTs.fechaAltaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsnomClienteNull() {
+                return this.IsNull(this.tabledataTableOTs.nomClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetnomClienteNull() {
+                this[this.tabledataTableOTs.nomClienteColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -956,6 +999,7 @@ namespace TallerAutos.dsRptOTTableAdapters {
             tableMapping.ColumnMappings.Add("patente", "patente");
             tableMapping.ColumnMappings.Add("estado", "estado");
             tableMapping.ColumnMappings.Add("fechaAlta", "fechaAlta");
+            tableMapping.ColumnMappings.Add("nomCliente", "nomCliente");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -972,14 +1016,15 @@ namespace TallerAutos.dsRptOTTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        FormasPago.nombre, Ordenes.codOrden, Ordenes.montoTotal, Clientes.apellido, Vehiculos.patente, Estados.nombre AS estado, Ordenes.fechaAlta
+            this._commandCollection[0].CommandText = @"SELECT        FormasPago.nombre, Ordenes.codOrden, Ordenes.montoTotal, Clientes.nombre AS nomCliente ,Clientes.apellido, Vehiculos.patente, Estados.nombre AS estado, Ordenes.fechaAlta
 FROM            FormasPago INNER JOIN
                          Ordenes ON FormasPago.codFormaPago = Ordenes.formaPago INNER JOIN
                          Clientes ON Ordenes.dniCliente = Clientes.dni INNER JOIN
                          Estados ON Ordenes.codEstado = Estados.codEstado INNER JOIN
                          Vehiculos ON Ordenes.patente = Vehiculos.patente AND Clientes.dni = Vehiculos.dni
-WHERE        (YEAR(Ordenes.fechaAlta) = YEAR(GETDATE())) AND (MONTH(Ordenes.fechaAlta) = @x)";
+WHERE        (YEAR(Ordenes.fechaAlta) = @y) AND (MONTH(Ordenes.fechaAlta) = @x) ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@y", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@x", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -987,9 +1032,10 @@ WHERE        (YEAR(Ordenes.fechaAlta) = YEAR(GETDATE())) AND (MONTH(Ordenes.fech
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsRptOT.dataTableOTsDataTable dataTable, decimal x) {
+        public virtual int Fill(dsRptOT.dataTableOTsDataTable dataTable, decimal y, decimal x) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(x));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(y));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(x));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1001,9 +1047,10 @@ WHERE        (YEAR(Ordenes.fechaAlta) = YEAR(GETDATE())) AND (MONTH(Ordenes.fech
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsRptOT.dataTableOTsDataTable GetData(decimal x) {
+        public virtual dsRptOT.dataTableOTsDataTable GetData(decimal y, decimal x) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(x));
+            this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(y));
+            this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(x));
             dsRptOT.dataTableOTsDataTable dataTable = new dsRptOT.dataTableOTsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
