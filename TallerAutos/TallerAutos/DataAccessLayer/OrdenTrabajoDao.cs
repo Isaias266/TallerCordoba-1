@@ -26,9 +26,12 @@ namespace TallerAutos.DataAccessLayer
                                    "O.fechaPago, " +
                                    "O.montoTotal, " +
                                    "E.nombre as nombreEstado, " +
-                                   "FP.nombre as nombreFormaPago " +
+                                   "FP.nombre as nombreFormaPago, " +
+                                   "C.Nombre as nombreCliente, " +
+                                   "C.Apellido as apellidoCliente " + 
                                    "FROM Ordenes O FULL JOIN Estados E ON (O.codEstado = E.codEstado) " +
                                    "FULL JOIN FormasPago FP ON (O.formaPago = FP.codFormaPago) " +
+                                   "JOIN Clientes C ON (O.dniCliente = C.dni) " +
                                    "WHERE 1=1 ";
 
             strSql += condicionesSql;
@@ -42,6 +45,91 @@ namespace TallerAutos.DataAccessLayer
             }
 
             return listaOT;
+        }
+
+        //Hace un update de la ot e inserta los nuevos trabajos, sin tener en cuenta los anteriores que ya estaban insertados.
+        public bool Update(OrdenTrabajo ot, int indice)
+        {
+            try
+            {
+                otDB.Conectar();
+                otDB.ComenzarTransaccion();
+
+                //Primero hago un update de la Orden
+                string Usql = "UPDATE Ordenes SET codEstado = " + ot.Estado.CodEstado + "," +
+                              "patente = '" + ot.Vehiculo.Patente + "'" + ", " +
+                              "dniCliente = " + ot.Cliente.Dni + ", " +
+                              "formaPago = " + ot.FormaPago.CodFormaPago + ", " +
+                              "cantidadCombustible = " + ot.CantidadCombustible + ", " +
+                              "kilometraje = " + ot.Kilometraje + ", " +
+                              "fechaCierre = '" + ot.FechaCierre.ToString() + "'" + ", " +
+                              "descripcionFalla = '" + ot.DescripcionFalla + "'" + ", " +
+                              "fechaPago = '" + ot.FechaPago.ToString() + "'" + ", " +
+                              "montoTotal = " + ot.MontoTotal.ToString().Replace(",", ".") + " " +
+                              "WHERE codOrden = " + ot.CodOrden;
+
+                Console.WriteLine(Usql);
+                otDB.Insertar_Transaccion(Usql);
+
+                //Tengo en cuenta que el indice que me pasan es desde el que debo arrancar a recorrer.
+                for (int i = indice; i < ot.DetalleOT.Count; i++)
+                {
+                    string sqlDetalle = "INSERT INTO DetallesOrdenTrabajo (" +
+                        "codOrden, " +
+                        "legajoEmpleado, " +
+                        "descripcion, " +
+                        "monto) " +
+                        "VALUES (" +
+                        ot.CodOrden + ", " +
+                        ot.DetalleOT[i].Empleado.Legajo + ", '" +
+                        ot.DetalleOT[i].Descripcion + "', " +
+                        ot.DetalleOT[i].Monto.ToString().Replace(",", ".") + ")";
+
+                    Console.WriteLine(sqlDetalle);
+                    otDB.Insertar_Transaccion(sqlDetalle);
+                    var newId = otDB.ConsultaSQLScalar(" SELECT @@IDENTITY");
+                    ot.DetalleOT[i].NumTrabajo = Convert.ToInt32(newId);
+
+                    int j = 0;
+                    foreach (var repuesto in ot.DetalleOT[i].Repuesto)
+                    {
+                        string sqlRepuesto = "INSERT INTO RepuestosxTrabajos (" +
+                            "codOrden, " +
+                            "codRepuesto, " +
+                            "numTrabajo, " +
+                            "cantidad) " +
+                            "VALUES (" +
+                            ot.CodOrden + ", " +
+                            repuesto.CodRepuesto + ", " +
+                            ot.DetalleOT[i].NumTrabajo + ", " +
+                            ot.DetalleOT[i].Cantidades[j] + ")";
+
+                        otDB.Insertar_Transaccion(sqlRepuesto);
+                        Console.WriteLine(sqlRepuesto);
+                        string sqlUpdateRepuesto = "UPDATE Repuestos SET " +
+                            "stock=" + (repuesto.Stock - ot.DetalleOT[i].Cantidades[j]) + " " +
+                            "WHERE codRepuesto=" + repuesto.CodRepuesto;
+
+                        otDB.Insertar_Transaccion(sqlUpdateRepuesto);
+                        Console.WriteLine(sqlUpdateRepuesto);
+                        j++;
+                    }
+                }
+
+                otDB.Commit();
+            }
+
+            catch(Exception ex)
+            {
+                otDB.Rollback();
+                throw ex;
+            }
+
+            finally
+            {
+                otDB.Desconectar();         
+            }
+            return true;
         }
 
         public bool Crear(OrdenTrabajo oOT)
@@ -152,6 +240,8 @@ namespace TallerAutos.DataAccessLayer
 
             oOT.Cliente = new Cliente();
             oOT.Cliente.Dni = Convert.ToInt32(row["dniCliente"]);
+            oOT.Cliente.Nombre = row["nombreCliente"].ToString();
+            oOT.Cliente.Apellido = row["apellidoCliente"].ToString();
 
             if (row["nombreFormaPago"].ToString() != "")
             {

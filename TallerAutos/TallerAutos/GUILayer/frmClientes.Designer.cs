@@ -49,6 +49,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.pictureCerrar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridClientes)).BeginInit();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCerrar)).BeginInit();
@@ -143,7 +144,8 @@
             this.dataGridClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridClientes.Size = new System.Drawing.Size(364, 156);
             this.dataGridClientes.TabIndex = 26;
-            this.dataGridClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridClientes_CellContentClick);
+            this.dataGridClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridClientes_CellClick);
+           
             // 
             // btnConsultar
             // 
@@ -311,12 +313,29 @@
             this.btnCerrar.TabIndex = 19;
             this.btnCerrar.TabStop = false;
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnSeleccionar.FlatAppearance.BorderSize = 0;
+            this.btnSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionar.ForeColor = System.Drawing.Color.White;
+            this.btnSeleccionar.Location = new System.Drawing.Point(244, 379);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(87, 29);
+            this.btnSeleccionar.TabIndex = 37;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = false;
+            this.btnSeleccionar.Click += new System.EventHandler(this.BtnSeleccionar_Click);
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(535, 431);
+            this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.lblApellido);
@@ -366,5 +385,6 @@
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.PictureBox pictureCerrar;
         private System.Windows.Forms.PictureBox btnCerrar;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }

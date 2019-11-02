@@ -14,6 +14,11 @@ namespace TallerAutos.BusinessLayer
             return oOTDao.ConsultarOT(condiciones);
         }
 
+
+        public bool Update(OrdenTrabajo oOT, int indice)
+        {
+            return oOTDao.Update(oOT, indice);
+        }
         public bool Crear(OrdenTrabajo oOT)
         {
             return oOTDao.Crear(oOT);

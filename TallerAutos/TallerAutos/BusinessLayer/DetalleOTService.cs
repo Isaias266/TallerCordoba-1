@@ -16,5 +16,10 @@ namespace TallerAutos.BusinessLayer
         {
             return oDetalleOTDao.ConsultarDetalles(condicionesSql);
         }
+
+        public (IList<Repuesto>, IList<int>) ObtenerRepuestos (int codOrden, int numTrabajo)
+        {
+            return oDetalleOTDao.obtenerRepuestos(codOrden, numTrabajo);
+        }
     }
 }

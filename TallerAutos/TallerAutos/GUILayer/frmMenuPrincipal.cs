@@ -131,8 +131,10 @@ namespace TallerAutos.GUILayer
 
         private void BtnConsultaOt_Click(object sender, EventArgs e)
         {           
-            frmConsultaOrden nuevaConsulta = new frmConsultaOrden();
-            nuevaConsulta.Visible = true; 
+            frmConsultaOrden nuevaConsulta = new frmConsultaOrden(empleadoSesion);
+            nuevaConsulta.Visible = true;
+            this.Hide();
+            nuevaConsulta.FormClosing += frmConsultarOT_FormClosing;
         }
 
         //Evento de cierre del formulario de empleados, vuelve a mostrar el menú principal
@@ -141,15 +143,25 @@ namespace TallerAutos.GUILayer
             this.Show();
         }
 
+        private void frmConsultarOT_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
+        }
+
         private void BtnMenuClientes_Click(object sender, EventArgs e)
         {
-            frmClientes frC = new frmClientes();
-            frC.FormClosing += frmClientes_FormClosing;
-            frC.Show();
+            frmClientes frmC = new frmClientes(false);
+            frmC.FormClosing += frmClientes_FormClosing;
+            frmC.Show();
             this.Hide();
         }
 
         private void frmClientes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
+        }
+
+        private void frmCrearOT_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Show();
         }
@@ -170,7 +182,10 @@ namespace TallerAutos.GUILayer
         private void BtnCrearOt_Click(object sender, EventArgs e)
         {
             frmCrearOrden cO = new frmCrearOrden(empleadoSesion);
-            cO.ShowDialog();
+            cO.FormClosing += this.frmCrearOT_FormClosing;
+            cO.Show();
+            this.Hide();
+            
         }
 
         private void PanelTop_Paint(object sender, PaintEventArgs e)

@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmABMClientes));
             this.tabFrmCliente = new System.Windows.Forms.TabControl();
             this.tabCliente = new System.Windows.Forms.TabPage();
@@ -51,6 +54,7 @@
             this.lblDNI = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.tabVehiculos = new System.Windows.Forms.TabPage();
+            this.dgvVehiculos = new System.Windows.Forms.DataGridView();
             this.btnCancelarVeh = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -61,7 +65,6 @@
             this.lblModelo = new System.Windows.Forms.Label();
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblPatente = new System.Windows.Forms.Label();
-            this.dgvVehiculos = new System.Windows.Forms.DataGridView();
             this.btnAceptarVeh = new System.Windows.Forms.Button();
             this.ordenesTableAdapter1 = new TallerAutos.Taller_PAVDataSet1TableAdapters.OrdenesTableAdapter();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
@@ -136,7 +139,7 @@
             this.btnAceptarInfo.Location = new System.Drawing.Point(55, 252);
             this.btnAceptarInfo.Name = "btnAceptarInfo";
             this.btnAceptarInfo.Size = new System.Drawing.Size(93, 34);
-            this.btnAceptarInfo.TabIndex = 10;
+            this.btnAceptarInfo.TabIndex = 9;
             this.btnAceptarInfo.Text = "Aceptar";
             this.btnAceptarInfo.UseVisualStyleBackColor = false;
             this.btnAceptarInfo.Click += new System.EventHandler(this.BtnAceptar_Click);
@@ -146,7 +149,7 @@
             this.dtpFechaNac.Location = new System.Drawing.Point(439, 141);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(192, 22);
-            this.dtpFechaNac.TabIndex = 8;
+            this.dtpFechaNac.TabIndex = 7;
             // 
             // label1
             // 
@@ -164,21 +167,21 @@
             this.txtCel.Location = new System.Drawing.Point(439, 110);
             this.txtCel.Name = "txtCel";
             this.txtCel.Size = new System.Drawing.Size(192, 22);
-            this.txtCel.TabIndex = 7;
+            this.txtCel.TabIndex = 6;
             // 
             // txtTel
             // 
             this.txtTel.Location = new System.Drawing.Point(439, 79);
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(192, 22);
-            this.txtTel.TabIndex = 6;
+            this.txtTel.TabIndex = 5;
             // 
             // txtDomicilio
             // 
             this.txtDomicilio.Location = new System.Drawing.Point(124, 203);
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(192, 22);
-            this.txtDomicilio.TabIndex = 5;
+            this.txtDomicilio.TabIndex = 4;
             // 
             // lblTel
             // 
@@ -218,7 +221,7 @@
             this.txtNom.Location = new System.Drawing.Point(124, 110);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(192, 22);
-            this.txtNom.TabIndex = 2;
+            this.txtNom.TabIndex = 1;
             // 
             // lblNombre
             // 
@@ -237,7 +240,7 @@
             this.cboSexo.Location = new System.Drawing.Point(439, 172);
             this.cboSexo.Name = "cboSexo";
             this.cboSexo.Size = new System.Drawing.Size(192, 25);
-            this.cboSexo.TabIndex = 9;
+            this.cboSexo.TabIndex = 8;
             // 
             // lblSexo
             // 
@@ -266,14 +269,14 @@
             this.txtEmail.Location = new System.Drawing.Point(124, 172);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(192, 22);
-            this.txtEmail.TabIndex = 4;
+            this.txtEmail.TabIndex = 3;
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(124, 141);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(192, 22);
-            this.txtApellido.TabIndex = 3;
+            this.txtApellido.TabIndex = 2;
             // 
             // lblEmail
             // 
@@ -302,11 +305,12 @@
             this.txtDNI.Location = new System.Drawing.Point(124, 79);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(192, 22);
-            this.txtDNI.TabIndex = 1;
+            this.txtDNI.TabIndex = 0;
             // 
             // tabVehiculos
             // 
             this.tabVehiculos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.tabVehiculos.Controls.Add(this.dgvVehiculos);
             this.tabVehiculos.Controls.Add(this.btnCancelarVeh);
             this.tabVehiculos.Controls.Add(this.btnEliminar);
             this.tabVehiculos.Controls.Add(this.btnEditar);
@@ -317,7 +321,6 @@
             this.tabVehiculos.Controls.Add(this.lblModelo);
             this.tabVehiculos.Controls.Add(this.lblMarca);
             this.tabVehiculos.Controls.Add(this.lblPatente);
-            this.tabVehiculos.Controls.Add(this.dgvVehiculos);
             this.tabVehiculos.Controls.Add(this.btnAceptarVeh);
             this.tabVehiculos.Location = new System.Drawing.Point(4, 22);
             this.tabVehiculos.Name = "tabVehiculos";
@@ -326,6 +329,52 @@
             this.tabVehiculos.TabIndex = 1;
             this.tabVehiculos.Text = "tabPage2";
             this.tabVehiculos.Click += new System.EventHandler(this.TabVehiculos_Click);
+            // 
+            // dgvVehiculos
+            // 
+            this.dgvVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvVehiculos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvVehiculos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.dgvVehiculos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVehiculos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVehiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVehiculos.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvVehiculos.EnableHeadersVisualStyles = false;
+            this.dgvVehiculos.GridColor = System.Drawing.Color.White;
+            this.dgvVehiculos.Location = new System.Drawing.Point(174, 47);
+            this.dgvVehiculos.MultiSelect = false;
+            this.dgvVehiculos.Name = "dgvVehiculos";
+            this.dgvVehiculos.ReadOnly = true;
+            this.dgvVehiculos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVehiculos.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvVehiculos.RowHeadersVisible = false;
+            this.dgvVehiculos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVehiculos.Size = new System.Drawing.Size(347, 128);
+            this.dgvVehiculos.TabIndex = 86;
+            this.dgvVehiculos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVehiculos_CellClick);
             // 
             // btnCancelarVeh
             // 
@@ -338,7 +387,7 @@
             this.btnCancelarVeh.Location = new System.Drawing.Point(163, 306);
             this.btnCancelarVeh.Name = "btnCancelarVeh";
             this.btnCancelarVeh.Size = new System.Drawing.Size(93, 34);
-            this.btnCancelarVeh.TabIndex = 85;
+            this.btnCancelarVeh.TabIndex = 4;
             this.btnCancelarVeh.Text = "Cancelar";
             this.btnCancelarVeh.UseVisualStyleBackColor = false;
             this.btnCancelarVeh.Click += new System.EventHandler(this.BtnCancelarVeh_Click);
@@ -354,7 +403,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(540, 306);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(93, 34);
-            this.btnEliminar.TabIndex = 84;
+            this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
@@ -370,7 +419,7 @@
             this.btnEditar.Location = new System.Drawing.Point(428, 306);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(93, 34);
-            this.btnEditar.TabIndex = 83;
+            this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
@@ -386,7 +435,7 @@
             this.btnNuevo.Location = new System.Drawing.Point(315, 306);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(93, 34);
-            this.btnNuevo.TabIndex = 82;
+            this.btnNuevo.TabIndex = 5;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
@@ -397,7 +446,7 @@
             this.cboModelo.Location = new System.Drawing.Point(498, 226);
             this.cboModelo.Name = "cboModelo";
             this.cboModelo.Size = new System.Drawing.Size(135, 21);
-            this.cboModelo.TabIndex = 81;
+            this.cboModelo.TabIndex = 2;
             // 
             // cboMarca
             // 
@@ -405,14 +454,15 @@
             this.cboMarca.Location = new System.Drawing.Point(298, 227);
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(121, 21);
-            this.cboMarca.TabIndex = 80;
+            this.cboMarca.TabIndex = 1;
+            this.cboMarca.SelectionChangeCommitted += new System.EventHandler(this.CboMarca_SelectionChangeCommitted);
             // 
             // txtPatente
             // 
             this.txtPatente.Location = new System.Drawing.Point(117, 228);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(111, 20);
-            this.txtPatente.TabIndex = 79;
+            this.txtPatente.TabIndex = 0;
             // 
             // lblModelo
             // 
@@ -447,15 +497,6 @@
             this.lblPatente.TabIndex = 76;
             this.lblPatente.Text = "Patente";
             // 
-            // dgvVehiculos
-            // 
-            this.dgvVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVehiculos.Location = new System.Drawing.Point(174, 47);
-            this.dgvVehiculos.Name = "dgvVehiculos";
-            this.dgvVehiculos.Size = new System.Drawing.Size(347, 128);
-            this.dgvVehiculos.TabIndex = 75;
-            this.dgvVehiculos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvVehiculos_CellContentClick);
-            // 
             // btnAceptarVeh
             // 
             this.btnAceptarVeh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
@@ -467,7 +508,7 @@
             this.btnAceptarVeh.Location = new System.Drawing.Point(55, 306);
             this.btnAceptarVeh.Name = "btnAceptarVeh";
             this.btnAceptarVeh.Size = new System.Drawing.Size(93, 34);
-            this.btnAceptarVeh.TabIndex = 74;
+            this.btnAceptarVeh.TabIndex = 3;
             this.btnAceptarVeh.Text = "Guardar";
             this.btnAceptarVeh.UseVisualStyleBackColor = false;
             this.btnAceptarVeh.Click += new System.EventHandler(this.BtnAceptarVeh_Click);
@@ -489,6 +530,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(853, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -556,7 +598,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(59, 300);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(108, 34);
-            this.btnCancelar.TabIndex = 11;
+            this.btnCancelar.TabIndex = 3;
             this.btnCancelar.Text = "Volver";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
@@ -574,7 +616,7 @@
             this.btnVehiculos.Location = new System.Drawing.Point(12, 214);
             this.btnVehiculos.Name = "btnVehiculos";
             this.btnVehiculos.Size = new System.Drawing.Size(213, 54);
-            this.btnVehiculos.TabIndex = 71;
+            this.btnVehiculos.TabIndex = 2;
             this.btnVehiculos.Text = "Vehiculos";
             this.btnVehiculos.UseVisualStyleBackColor = false;
             this.btnVehiculos.Click += new System.EventHandler(this.BtnVehiculos_Click);
@@ -592,7 +634,7 @@
             this.btnInfo.Location = new System.Drawing.Point(12, 140);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(213, 54);
-            this.btnInfo.TabIndex = 70;
+            this.btnInfo.TabIndex = 1;
             this.btnInfo.Text = "Informacion";
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.BtnInfo_Click);
@@ -667,12 +709,12 @@
         private System.Windows.Forms.Label lblModelo;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.Label lblPatente;
-        private System.Windows.Forms.DataGridView dgvVehiculos;
         private System.Windows.Forms.ComboBox cboModelo;
         private System.Windows.Forms.ComboBox cboMarca;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnCancelarVeh;
+        private System.Windows.Forms.DataGridView dgvVehiculos;
     }
 }

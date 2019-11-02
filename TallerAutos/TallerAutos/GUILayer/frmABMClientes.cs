@@ -70,6 +70,7 @@ namespace TallerAutos.GUILayer
                         this.MostrarDatos(clienteSeleccionado);
                         HabilitarTxtCliente(true);
                         HabilitarTxtVeh(false);
+                        this.txtDNI.Enabled = false;
                         this.btnAceptarVeh.Enabled = false;
                         this.btnCancelarVeh.Enabled = false;
 
@@ -249,6 +250,7 @@ namespace TallerAutos.GUILayer
                     {
                         if (ValidarCamposObl())
                         {
+                            
                             LlenarDatosCliente(clienteSeleccionado);
 
                             clienteService.ActualizarCliente(clienteSeleccionado);
@@ -320,7 +322,7 @@ namespace TallerAutos.GUILayer
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void BtnAceptarVeh_Click(object sender, EventArgs e)
@@ -435,17 +437,12 @@ namespace TallerAutos.GUILayer
             this.dgvVehiculos.AllowUserToAddRows = false;
         }
 
-        private void DgvVehiculos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var vehiculo = (Vehiculo)dgvVehiculos.CurrentRow.DataBoundItem;
-            txtPatente.Text = vehiculo.Patente.ToString();
-            cboMarca.Text = vehiculo.Marca.Nombre.ToString();
-            cboModelo.Text = vehiculo.Modelo.Nombre.ToString();
-            
-        }
 
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
+            this.txtPatente.Clear();
+            this.cboMarca.SelectedIndex = -1;
+            this.cboModelo.SelectedIndex = -1;
             this.nuevoVeh = true;
             dgvVehiculos.Enabled = false;
             this.HabilitarTxtVeh(true);
@@ -507,6 +504,20 @@ namespace TallerAutos.GUILayer
                 MessageBox.Show("Vehículo eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.CargarDGVehiculos();
             }
+        }
+
+        private void DgvVehiculos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var vehiculo = (Vehiculo)dgvVehiculos.CurrentRow.DataBoundItem;
+            txtPatente.Text = vehiculo.Patente.ToString();
+            cboMarca.Text = vehiculo.Marca.Nombre.ToString();
+            cboModelo.Text = vehiculo.Modelo.Nombre.ToString();
+        }
+
+        private void CboMarca_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            LlenarCombo(cboModelo, oModeloService.ConsultarModelos(" AND MA.codMarca = " + cboMarca.SelectedValue), "nombre", "codModelo");
+            cboModelo.SelectedIndex = 1;
         }
     }
 

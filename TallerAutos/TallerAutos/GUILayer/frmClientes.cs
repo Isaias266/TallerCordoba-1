@@ -10,10 +10,13 @@ namespace TallerAutos.GUILayer
     public partial class frmClientes : Form
     {
         ClienteService clienteService = new ClienteService();
+        bool seleccion;
 
-        public frmClientes()
+
+        public frmClientes(bool selec)
         {
-           // ClienteService oClienteService = new ClienteService();
+            // ClienteService oClienteService = new ClienteService();
+            this.seleccion = selec;
             InitializeComponent();
             InitializeDataGridView();
         }
@@ -110,15 +113,11 @@ namespace TallerAutos.GUILayer
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             frmABMClientes ABMCl = new frmABMClientes();
-            ABMCl.ShowDialog();
+            ABMCl.FormClosing += frmABMClientes_FormClosing;
+            ABMCl.Show();
+            this.Hide();
         }
 
-        private void DataGridClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {            
-            this.btnEditar.Enabled = true;
-            this.btnEliminar.Enabled = true;
-            this.btnDetalle.Enabled = true;
-        }
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
@@ -126,15 +125,29 @@ namespace TallerAutos.GUILayer
            
             frmABMClientes frABMCl = new frmABMClientes();
             frABMCl.SeleccionarCliente(frmABMClientes.FormMode.update, selected);
-            frABMCl.ShowDialog();            
+            frABMCl.FormClosing += frmABMClientes_FormClosing;
+            frABMCl.Show();
+            this.Hide();
 
         }
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
-            this.btnEditar.Enabled = false;
-            this.btnEliminar.Enabled = false;
-            this.btnDetalle.Enabled = false;
+            if (seleccion)
+            {
+                this.btnEditar.Visible = false;
+                this.btnEliminar.Visible = false;
+                this.btnDetalle.Visible = false;
+                this.btnSeleccionar.Visible = true;
+                this.btnSeleccionar.Enabled = false;
+            }
+            else
+            {
+                this.btnSeleccionar.Visible = false;
+                this.btnEditar.Enabled = false;
+                this.btnEliminar.Enabled = false;
+                this.btnDetalle.Enabled = false;
+            }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -158,7 +171,9 @@ namespace TallerAutos.GUILayer
             Cliente selected = (Cliente) this.dataGridClientes.CurrentRow.DataBoundItem;
             frmABMClientes frABMCl = new frmABMClientes();
             frABMCl.SeleccionarCliente(frmABMClientes.FormMode.details, selected);
-            frABMCl.ShowDialog();
+            frABMCl.FormClosing += frmABMClientes_FormClosing;
+            frABMCl.Show();
+            this.Hide();
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)
@@ -172,6 +187,28 @@ namespace TallerAutos.GUILayer
             if (listaClientes.Count() >= 1)
                 this.dataGridClientes.DataSource = listaClientes;
             else MessageBox.Show("No se encontraron clientes.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void BtnSeleccionar_Click(object sender, EventArgs e)
+        {
+            Cliente clienteSeleccionado = (Cliente) this.dataGridClientes.CurrentRow.DataBoundItem;
+            frmCrearOrden fCO = this.Owner as frmCrearOrden;
+            fCO.SeleccionarCliente(clienteSeleccionado);
+            this.Close();
+        }
+
+        private void DataGridClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.btnSeleccionar.Enabled = true;
+            this.btnEditar.Enabled = true;
+            this.btnEliminar.Enabled = true;
+            this.btnDetalle.Enabled = true;
+        }
+
+
+        private void frmABMClientes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
         }
     }
 }

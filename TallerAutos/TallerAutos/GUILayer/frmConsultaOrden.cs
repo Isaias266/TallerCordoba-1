@@ -12,15 +12,19 @@ namespace TallerAutos.GUILayer
     public partial class frmConsultaOrden : Form
     {
         BaseDeDatos oBD = new BaseDeDatos();
-        public frmConsultaOrden()
+        private Empleado empleadoSesion;
+        OrdenTrabajoService ot;
+        public frmConsultaOrden(Empleado emp)
         {
             InitializeComponent();
             InitializeDataGridView();
+            this.empleadoSesion = emp;
+            ot = new OrdenTrabajoService();
         }
 
         private void BtnQuery_Click(object sender, EventArgs e)
         {
-            OrdenTrabajoService ot = new OrdenTrabajoService();
+            
             String sqlCondiciones = "";
             Dictionary<string, object> parametros = new Dictionary<string, object>();
 
@@ -75,7 +79,7 @@ namespace TallerAutos.GUILayer
         private void InitializeDataGridView()
         {
             //Cantidad columnas y las hago visibles.
-            dgvOrdenes.ColumnCount = 10;
+            dgvOrdenes.ColumnCount = 6;
             dgvOrdenes.ColumnHeadersVisible = true;
 
             // Configurp la AutoGenerateColumns en false para que no se autogeneren las columnas
@@ -93,24 +97,12 @@ namespace TallerAutos.GUILayer
 
             dgvOrdenes.Columns[3].Name = "DNI";
             dgvOrdenes.Columns[3].DataPropertyName = "Cliente";
-            
-            dgvOrdenes.Columns[4].Name = "Forma Pago";
-            dgvOrdenes.Columns[4].DataPropertyName = "FormaPago";
 
-            dgvOrdenes.Columns[5].Name = "Fecha Alta";
-            dgvOrdenes.Columns[5].DataPropertyName = "fechaAlta";
+            dgvOrdenes.Columns[4].Name = "Descripcion";
+            dgvOrdenes.Columns[4].DataPropertyName = "descripcionFalla";
 
-            dgvOrdenes.Columns[6].Name = "Fecha Cierre";
-            dgvOrdenes.Columns[6].DataPropertyName = "fechaCierre";
-
-            dgvOrdenes.Columns[7].Name = "Descripcion";
-            dgvOrdenes.Columns[7].DataPropertyName = "descripcionFalla";
-
-            dgvOrdenes.Columns[8].Name = "Fecha Pago";
-            dgvOrdenes.Columns[8].DataPropertyName = "fechaPago";
-
-            dgvOrdenes.Columns[9].Name = "Monto Total";
-            dgvOrdenes.Columns[9].DataPropertyName = "montoTotal";
+            dgvOrdenes.Columns[5].Name = "Monto Total";
+            dgvOrdenes.Columns[5].DataPropertyName = "montoTotal";
 
             // Cambia el tamaño de la altura de los encabezados de columna.
             dgvOrdenes.AutoResizeColumnHeadersHeight();
@@ -138,6 +130,7 @@ namespace TallerAutos.GUILayer
         {           
             CargarComboEstados();
             btnDetalle.Enabled = false;
+            btnEditar.Enabled = false;
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
@@ -150,23 +143,46 @@ namespace TallerAutos.GUILayer
         {
             if (dgvOrdenes.SelectedRows != null)
             {
-                string idOrden = dgvOrdenes.Rows[dgvOrdenes.CurrentRow.Index].Cells["Codigo"].Value.ToString();
-
-                frmDetalleCOrdenes fDCO = new frmDetalleCOrdenes(idOrden);
-                fDCO.ShowDialog();
+                OrdenTrabajo otEdicion = (OrdenTrabajo)dgvOrdenes.CurrentRow.DataBoundItem;
+                frmCrearOrden frmCrearOrden = new frmCrearOrden(empleadoSesion);
+                AddOwnedForm(frmCrearOrden);
+                frmCrearOrden.FormClosing += frmCrearOrden_FormClosing;
+                frmCrearOrden.SeleccionarOT(frmCrearOrden.FormMode.details, otEdicion);
+                frmCrearOrden.Show();
+                this.Hide();
             }
         }
 
         private void DgvOrdenes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Activo el boton de ver detalle
+            //Activo el boton de ver detalle y el de editar.
             btnDetalle.Enabled = true;
+            btnEditar.Enabled = true;
         }
 
         private void PictureCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            OrdenTrabajo otEdicion = (OrdenTrabajo) dgvOrdenes.CurrentRow.DataBoundItem;
+            frmCrearOrden frmCrearOrden = new frmCrearOrden(empleadoSesion);
+            AddOwnedForm(frmCrearOrden);
+            frmCrearOrden.FormClosing += frmCrearOrden_FormClosing;
+            frmCrearOrden.SeleccionarOT(frmCrearOrden.FormMode.update, otEdicion);
+            frmCrearOrden.Show();
+            this.Hide();
+        }
+
+        private void frmCrearOrden_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            IList<OrdenTrabajo> listaOT = ot.ConsultarOT("");
+            dgvOrdenes.DataSource = listaOT;
+            this.Show();
+        }
+
     }
     
 }

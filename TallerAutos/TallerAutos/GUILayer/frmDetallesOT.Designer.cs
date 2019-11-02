@@ -110,9 +110,9 @@
             this.lblMonto.ForeColor = System.Drawing.Color.White;
             this.lblMonto.Location = new System.Drawing.Point(319, 148);
             this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(134, 17);
+            this.lblMonto.Size = new System.Drawing.Size(152, 17);
             this.lblMonto.TabIndex = 30;
-            this.lblMonto.Text = "Monto mano de obra";
+            this.lblMonto.Text = "Monto mano de obra (*)";
             // 
             // lblDescripcion
             // 
@@ -121,9 +121,9 @@
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
             this.lblDescripcion.Location = new System.Drawing.Point(37, 107);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(79, 17);
+            this.lblDescripcion.Size = new System.Drawing.Size(97, 17);
             this.lblDescripcion.TabIndex = 31;
-            this.lblDescripcion.Text = "Descripcion";
+            this.lblDescripcion.Text = "Descripcion (*)";
             // 
             // lblEmpleado
             // 
@@ -132,9 +132,9 @@
             this.lblEmpleado.ForeColor = System.Drawing.Color.White;
             this.lblEmpleado.Location = new System.Drawing.Point(37, 145);
             this.lblEmpleado.Name = "lblEmpleado";
-            this.lblEmpleado.Size = new System.Drawing.Size(68, 17);
+            this.lblEmpleado.Size = new System.Drawing.Size(86, 17);
             this.lblEmpleado.TabIndex = 32;
-            this.lblEmpleado.Text = "Empleado";
+            this.lblEmpleado.Text = "Empleado (*)";
             // 
             // label5
             // 
@@ -152,7 +152,7 @@
             this.cboEmpleado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             this.cboEmpleado.ForeColor = System.Drawing.Color.Transparent;
             this.cboEmpleado.FormattingEnabled = true;
-            this.cboEmpleado.Location = new System.Drawing.Point(131, 144);
+            this.cboEmpleado.Location = new System.Drawing.Point(135, 144);
             this.cboEmpleado.Name = "cboEmpleado";
             this.cboEmpleado.Size = new System.Drawing.Size(121, 21);
             this.cboEmpleado.TabIndex = 2;
@@ -161,7 +161,7 @@
             // 
             this.txtMonto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             this.txtMonto.ForeColor = System.Drawing.Color.Transparent;
-            this.txtMonto.Location = new System.Drawing.Point(461, 144);
+            this.txtMonto.Location = new System.Drawing.Point(479, 145);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(107, 20);
             this.txtMonto.TabIndex = 3;
@@ -171,7 +171,7 @@
             // 
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             this.txtDescripcion.ForeColor = System.Drawing.Color.Transparent;
-            this.txtDescripcion.Location = new System.Drawing.Point(131, 106);
+            this.txtDescripcion.Location = new System.Drawing.Point(136, 106);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(481, 20);
             this.txtDescripcion.TabIndex = 1;

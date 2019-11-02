@@ -52,6 +52,7 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.pictureCerrar = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -83,6 +84,7 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
+
             // 
             // dgvOrdenes
             // 
@@ -333,12 +335,29 @@
             this.btnCerrar.TabIndex = 19;
             this.btnCerrar.TabStop = false;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnEditar.FlatAppearance.BorderSize = 0;
+            this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(380, 427);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(78, 29);
+            this.btnEditar.TabIndex = 39;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
+            // 
             // frmConsultaOrden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.ClientSize = new System.Drawing.Size(820, 468);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.btnDetalle);
             this.Controls.Add(this.btnSalir);
@@ -380,5 +399,6 @@
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.PictureBox pictureCerrar;
         private System.Windows.Forms.PictureBox btnCerrar;
+        private System.Windows.Forms.Button btnEditar;
     }
 }

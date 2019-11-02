@@ -50,7 +50,6 @@
             this.lblRol = new System.Windows.Forms.Label();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelSubMenu = new System.Windows.Forms.Panel();
-            this.btnModificarOt = new System.Windows.Forms.Button();
             this.btnCrearOt = new System.Windows.Forms.Button();
             this.btnConsultaOt = new System.Windows.Forms.Button();
             this.btnReporte2 = new System.Windows.Forms.Button();
@@ -319,7 +318,6 @@
             // panelSubMenu
             // 
             this.panelSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.panelSubMenu.Controls.Add(this.btnModificarOt);
             this.panelSubMenu.Controls.Add(this.btnCrearOt);
             this.panelSubMenu.Controls.Add(this.btnConsultaOt);
             this.panelSubMenu.Controls.Add(this.btnReporte2);
@@ -328,24 +326,6 @@
             this.panelSubMenu.Name = "panelSubMenu";
             this.panelSubMenu.Size = new System.Drawing.Size(489, 100);
             this.panelSubMenu.TabIndex = 37;
-            // 
-            // btnModificarOt
-            // 
-            this.btnModificarOt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
-            this.btnModificarOt.FlatAppearance.BorderSize = 0;
-            this.btnModificarOt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
-            this.btnModificarOt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificarOt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarOt.ForeColor = System.Drawing.Color.White;
-            this.btnModificarOt.Image = ((System.Drawing.Image)(resources.GetObject("btnModificarOt.Image")));
-            this.btnModificarOt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnModificarOt.Location = new System.Drawing.Point(344, 11);
-            this.btnModificarOt.Name = "btnModificarOt";
-            this.btnModificarOt.Size = new System.Drawing.Size(125, 74);
-            this.btnModificarOt.TabIndex = 30;
-            this.btnModificarOt.Text = "Modificar OT";
-            this.btnModificarOt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnModificarOt.UseVisualStyleBackColor = false;
             // 
             // btnCrearOt
             // 
@@ -357,9 +337,9 @@
             this.btnCrearOt.ForeColor = System.Drawing.Color.White;
             this.btnCrearOt.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearOt.Image")));
             this.btnCrearOt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCrearOt.Location = new System.Drawing.Point(180, 11);
+            this.btnCrearOt.Location = new System.Drawing.Point(269, 11);
             this.btnCrearOt.Name = "btnCrearOt";
-            this.btnCrearOt.Size = new System.Drawing.Size(125, 74);
+            this.btnCrearOt.Size = new System.Drawing.Size(137, 79);
             this.btnCrearOt.TabIndex = 29;
             this.btnCrearOt.Text = "Crear OT";
             this.btnCrearOt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -372,15 +352,15 @@
             this.btnConsultaOt.FlatAppearance.BorderSize = 0;
             this.btnConsultaOt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             this.btnConsultaOt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultaOt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultaOt.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultaOt.ForeColor = System.Drawing.Color.White;
             this.btnConsultaOt.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultaOt.Image")));
             this.btnConsultaOt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnConsultaOt.Location = new System.Drawing.Point(24, 11);
+            this.btnConsultaOt.Location = new System.Drawing.Point(94, 11);
             this.btnConsultaOt.Name = "btnConsultaOt";
-            this.btnConsultaOt.Size = new System.Drawing.Size(125, 74);
+            this.btnConsultaOt.Size = new System.Drawing.Size(137, 79);
             this.btnConsultaOt.TabIndex = 28;
-            this.btnConsultaOt.Text = "Consultar OTs";
+            this.btnConsultaOt.Text = "Consultar/Editar OTs";
             this.btnConsultaOt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnConsultaOt.UseVisualStyleBackColor = false;
             this.btnConsultaOt.Click += new System.EventHandler(this.BtnConsultaOt_Click);
@@ -492,6 +472,5 @@
         private System.Windows.Forms.Button btnCrearOt;
         private System.Windows.Forms.Button btnConsultaOt;
         private System.Windows.Forms.Button btnRepuestos;
-        private System.Windows.Forms.Button btnModificarOt;
     }
 }

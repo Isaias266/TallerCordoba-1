@@ -30,6 +30,7 @@ namespace TallerAutos.DataAccessLayer
 
             strSql += condicionesSql;
 
+
             var resultadoConsulta = (DataRowCollection)dDB.Consultar(strSql).Rows;
 
             foreach (DataRow row in resultadoConsulta)
@@ -42,9 +43,46 @@ namespace TallerAutos.DataAccessLayer
 
             return listaDetalles;
         }
-    
 
-        //No esta mapeado todo, porque por el momento parece innecesario.
+        //Para facilitarlo, consulto y hago un mapeo personalizado en el mismo método.
+        public (IList<Repuesto>,IList<int>) obtenerRepuestos(int codOrden, int numTrabajo)
+        {
+
+            List<Repuesto> listaRepuestos = new List<Repuesto>();
+            List<int> listaCantidades = new List<int>();
+
+            string strSql = "SELECT RT.cantidad as cantidad, R.codRepuesto, MA.codMarca as codigoMarca, MA.nombre as nombreMarca, MO.codModelo, MO.nombre as nombreModelo, " +
+                            "R.nombre as nombreRepuesto, R.descripcion as descripcionRepuesto, R.precioUnitario as precioRepuesto, R.fabricante " +
+                            "FROM RepuestosxTrabajos RT JOIN Repuestos R ON(RT.codRepuesto = R.codRepuesto) " +
+                            "JOIN Marcas MA ON(R.codMarca = MA.codMarca) " +
+                            "JOIN Modelos MO ON(R.codModelo = MO.codModelo) AND(R.codMarca = MO.codMarca) " +
+                            "WHERE RT.codOrden = " + codOrden + " AND RT.numTrabajo = " + numTrabajo;
+
+            //Borrar
+            Console.Write(strSql);
+
+            var resultadoConsulta = (DataRowCollection)dDB.Consultar(strSql).Rows;
+
+            foreach (DataRow row in resultadoConsulta)
+            {
+
+                
+                    Repuesto repuesto = new Repuesto();
+                    listaCantidades.Add(Convert.ToInt32(row["cantidad"].ToString()));
+                    repuesto.CodRepuesto = Convert.ToInt32(row["codRepuesto"].ToString());
+                    repuesto.Nombre = row["nombreRepuesto"].ToString();
+                    repuesto.Descripcion = row["descripcionRepuesto"].ToString();
+                    repuesto.PrecioUnitario = Convert.ToDecimal(row["precioRepuesto"].ToString());
+                    repuesto.Fabricante = row["fabricante"].ToString();
+                    listaRepuestos.Add(repuesto);
+
+                
+            }
+
+            return (listaRepuestos, listaCantidades);
+        }
+
+        //Mapeo simple
         private DetalleOT MappingDetalleOT(DataRow row)
         {
             DetalleOT oDetalle = new DetalleOT();

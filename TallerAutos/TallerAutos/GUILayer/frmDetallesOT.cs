@@ -23,6 +23,7 @@ namespace TallerAutos.GUILayer
         private List<Repuesto> listaRepuestos;
         private List<int> listaCantidades;
         private decimal montoTrabajo;
+        private DetalleOT trabajoEdicion;
         //No se utilizan por el momento.
         //private MarcaService Smarca;
         //private ModeloService Smodelo;
@@ -40,7 +41,8 @@ namespace TallerAutos.GUILayer
         public enum FormMode
         {
             insert,
-            update
+            update,
+            detail
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)
@@ -48,10 +50,16 @@ namespace TallerAutos.GUILayer
             this.Close();
         }
 
+        public void SeleccionarTrabajo(DetalleOT trabajo)
+        {
+            this.trabajoEdicion = trabajo;
+        }
+
         private void CargarDgvRepuestos()
         {   
             dgvRepuestos.RowCount = 0;
-            for(int i = 0; i < listaRepuestos.Count(); i++)
+            montoTrabajo = 0;
+            for (int i = 0; i < listaRepuestos.Count(); i++)
             {
                 dgvRepuestos.Rows.Insert(i, listaRepuestos[i].Nombre, listaRepuestos[i].Fabricante, listaCantidades[i], listaRepuestos[i].PrecioUnitario * listaCantidades[i]);
                 montoTrabajo += listaRepuestos[i].PrecioUnitario * listaCantidades[i];
@@ -84,17 +92,26 @@ namespace TallerAutos.GUILayer
             DataGridViewImageColumn columnaimg = new DataGridViewImageColumn();
             columnaimg.Name = "Eliminar";
             columnaimg.HeaderText = "Eliminar";
-            columnaimg.Image = Image.FromFile(Path.Combine(Application.StartupPath, "borrar.png"));
+
+            var ruta = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location).Replace(@"\bin\Debug", @"\Resources\borrar.png");
+            Console.WriteLine(ruta);
+            columnaimg.Image = Image.FromFile(ruta);
 
             dgvRepuestos.Columns.Add(columnaimg);
 
             dgvRepuestos.AllowUserToAddRows = false;
+            dgvRepuestos.ReadOnly = true;
+            dgvRepuestos.MultiSelect = false;
+            this.dgvRepuestos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //No permito cambiar el tamaño de las celdas para que la seleccion quede mas limpia.
+            this.dgvRepuestos.AllowUserToResizeRows = false;
+   
 
         }
 
         private void FrmDetallesOT_Load(object sender, EventArgs e)
         {
-            LlenarCombo(this.cboEmpleado, empleadoS.ConsultarEmpleados("AND 1=1"), "nombre", "legajo");
+            LlenarCombo(this.cboEmpleado, empleadoS.ConsultarEmpleados("AND 1=1"), "Nombre", "Legajo");
             this.lblError.Visible = false;
             
             switch (formMode)
@@ -108,13 +125,63 @@ namespace TallerAutos.GUILayer
                         cboEmpleado.SelectedValue = empleadoSesion.Legajo;
                         break;
                     }
+
+                case FormMode.update:
+                    {
+                        
+                        this.listaRepuestos = (List <Repuesto>) trabajoEdicion.Repuesto;
+                        this.listaCantidades = (List <int>) trabajoEdicion.Cantidades;
+                        this.txtDescripcion.Text = trabajoEdicion.Descripcion;
+                        this.cboEmpleado.SelectedValue = trabajoEdicion.Empleado.Legajo;
+                        //Calculando el monto de la mano de obra
+                        decimal montoTotal = Convert.ToInt32(trabajoEdicion.Monto);
+                        for (int i = 0; i< trabajoEdicion.Repuesto.Count; i++ )
+                        {
+                            decimal montoRepuesto = trabajoEdicion.Repuesto[i].PrecioUnitario * trabajoEdicion.Cantidades[i];
+                            montoTotal -= montoRepuesto;
+                        }
+
+                        this.txtMonto.Text = Convert.ToString(montoTotal);
+                        this.CargarDgvRepuestos();
+                        this.cboEmpleado.Enabled = false;
+                        break;
+                    }
+
+                case FormMode.detail:
+                    {
+                        //Prueba, luego agrupar en un método
+                        this.listaRepuestos = (List<Repuesto>)trabajoEdicion.Repuesto;
+                        this.listaCantidades = (List<int>)trabajoEdicion.Cantidades;
+                        this.txtDescripcion.Text = trabajoEdicion.Descripcion;
+                        this.cboEmpleado.SelectedValue = trabajoEdicion.Empleado.Legajo;
+                        //Calculando el monto de la mano de obra
+                        decimal montoTotal = Convert.ToInt32(trabajoEdicion.Monto);
+                        for (int i = 0; i < trabajoEdicion.Repuesto.Count; i++)
+                        {
+                            decimal montoRepuesto = trabajoEdicion.Repuesto[i].PrecioUnitario * trabajoEdicion.Cantidades[i];
+                            montoTotal -= montoRepuesto;
+                        }
+
+                        this.txtMonto.Text = Convert.ToString(montoTotal);
+                        this.CargarDgvRepuestos();
+                        this.cboEmpleado.Enabled = false;
+                        this.txtMonto.Enabled = false;
+                        this.btnAgregar.Visible = false;
+                        this.txtDescripcion.Enabled = false;
+                        this.txtMonto.Enabled = false;
+                        dgvRepuestos.AllowUserToDeleteRows = false;
+                        dgvRepuestos.ReadOnly = true;
+                        break;
+                    }
+
+                 
             }
         }
 
         public void SeleccionarDOT(FormMode modo,  Empleado empleadoSesion)
         {
             formMode = modo;
-            this.empleadoSesion = empleadoSesion;
+            if(formMode == FormMode.insert) this.empleadoSesion = empleadoSesion;
         }
 
         private void LlenarCombo(ComboBox combo, Object fuente, string display, String value)
@@ -165,7 +232,10 @@ namespace TallerAutos.GUILayer
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-            if(txtDescripcion.Text.Length <= 90 && txtMonto.Text.Length > 0 && Convert.ToInt32(txtMonto.Text) > 0)
+            //Si el formMode esta en detail, unicamente cerramos el form.
+            if (formMode == FormMode.detail) this.Close();
+
+            if(cboEmpleado.SelectedIndex > -1 && txtDescripcion.Text.Length > 0 && txtDescripcion.Text.Length <= 90 && txtMonto.Text.Length > 0 && Convert.ToDecimal(txtMonto.Text) > 0)
             {
                 DetalleOT oDOT = new DetalleOT();
                 oDOT.Empleado = new Empleado();
@@ -177,13 +247,18 @@ namespace TallerAutos.GUILayer
                 
                 //Mandar info para transacción.
                 frmCrearOrden frmPadre = this.Owner as frmCrearOrden;
+                
+                if (formMode == FormMode.update) frmPadre.EliminarTrabajo(trabajoEdicion);
+                
                 frmPadre.CargarTrabajo(oDOT);
-                //MessageBox.Show("El trabajo se ha añadido con exito", "Trabajo añadido", MessageBoxButtons.OK, MessageBoxIcon.Information);                
+                
+                
+
                 this.Close();
             }
             else
             {
-                lblError.Text = "Error: Descripción muy larga o monto incorrecto.";
+                lblError.Text = "Error: Descripción incorrecta o monto incorrecto.";
                 lblError.Visible = true;
                 timerError.Start();
             }
@@ -196,14 +271,21 @@ namespace TallerAutos.GUILayer
 
         private void DgvTrabajos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4) // Si es la columna que tiene el boton eliminar.
+            if (formMode == FormMode.detail) ; //No hago nada
+            else
             {
-                if (dgvRepuestos.Rows.Count > 0) //Si existe al menos una fila.
+                if (e.ColumnIndex == 4) // Si es la columna que tiene el boton eliminar.
                 {
-                    int index = dgvRepuestos.CurrentRow.Index;
-                    dgvRepuestos.Rows.RemoveAt(index); //Elimino de la grilla.
-                    listaRepuestos.RemoveAt(index); //Elimino de la lista de repuestos.
-                    listaCantidades.RemoveAt(index); //Eliminmo de la lista de cantidades.
+                    if (dgvRepuestos.Rows.Count > 0) //Si existe al menos una fila.
+                    {
+                        int index = dgvRepuestos.CurrentRow.Index;
+
+                        decimal montoRepuestoEliminado = Convert.ToDecimal(dgvRepuestos.CurrentRow.Cells[3].Value) * listaCantidades[index];
+                        montoTrabajo -= montoRepuestoEliminado;
+                        dgvRepuestos.Rows.RemoveAt(index); //Elimino de la grilla.
+                        listaRepuestos.RemoveAt(index); //Elimino de la lista de repuestos.
+                        listaCantidades.RemoveAt(index); //Eliminmo de la lista de cantidades.
+                    }
                 }
             }
         }
@@ -222,6 +304,7 @@ namespace TallerAutos.GUILayer
         {
             this.Close();
         }
+
     }
     
 }
