@@ -66,7 +66,6 @@
             this.lblMarca = new System.Windows.Forms.Label();
             this.lblPatente = new System.Windows.Forms.Label();
             this.btnAceptarVeh = new System.Windows.Forms.Button();
-            this.ordenesTableAdapter1 = new TallerAutos.Taller_PAVDataSet1TableAdapters.OrdenesTableAdapter();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelTop = new System.Windows.Forms.Panel();
@@ -513,10 +512,6 @@
             this.btnAceptarVeh.UseVisualStyleBackColor = false;
             this.btnAceptarVeh.Click += new System.EventHandler(this.BtnAceptarVeh_Click);
             // 
-            // ordenesTableAdapter1
-            // 
-            this.ordenesTableAdapter1.ClearBeforeFill = true;
-            // 
             // btnCerrar
             // 
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -693,7 +688,6 @@
         internal System.Windows.Forms.Label lblDNI;
         internal System.Windows.Forms.TextBox txtDNI;
         private System.Windows.Forms.TabPage tabVehiculos;
-        private Taller_PAVDataSet1TableAdapters.OrdenesTableAdapter ordenesTableAdapter1;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelTop;

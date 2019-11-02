@@ -34,8 +34,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -152,31 +171,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Taller_PAVDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Taller_PAVDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Taller_PAVDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Taller_PAVDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Taller_PAVDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Taller_PAVDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Taller_PAVDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Taller_PAVDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Taller_PAVDataSet4.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Taller_PAVDataSet4.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="GUILayer\frmABMClientes.resx">
       <DependentUpon>frmABMClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +214,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -229,61 +224,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Taller_PAVDataSet.xsc">
-      <DependentUpon>Taller_PAVDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Taller_PAVDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Taller_PAVDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Taller_PAVDataSet.xss">
-      <DependentUpon>Taller_PAVDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Taller_PAVDataSet1.xsc">
-      <DependentUpon>Taller_PAVDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Taller_PAVDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Taller_PAVDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Taller_PAVDataSet1.xss">
-      <DependentUpon>Taller_PAVDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Taller_PAVDataSet2.xsc">
-      <DependentUpon>Taller_PAVDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="Taller_PAVDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Taller_PAVDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Taller_PAVDataSet2.xss">
-      <DependentUpon>Taller_PAVDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="Taller_PAVDataSet3.xsc">
-      <DependentUpon>Taller_PAVDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="Taller_PAVDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Taller_PAVDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Taller_PAVDataSet3.xss">
-      <DependentUpon>Taller_PAVDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="Taller_PAVDataSet4.xsc">
-      <DependentUpon>Taller_PAVDataSet4.xsd</DependentUpon>
-    </None>
-    <None Include="Taller_PAVDataSet4.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Taller_PAVDataSet4.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Taller_PAVDataSet4.xss">
-      <DependentUpon>Taller_PAVDataSet4.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

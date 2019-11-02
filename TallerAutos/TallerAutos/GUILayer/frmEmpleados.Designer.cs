@@ -53,7 +53,6 @@
             this.lblSexo = new System.Windows.Forms.Label();
             this.lblEmpleados = new System.Windows.Forms.Label();
             this.dataGridEmpleados = new System.Windows.Forms.DataGridView();
-            this.taller_PAVDataSet4 = new TallerAutos.Taller_PAVDataSet4();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -68,12 +67,10 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.rolesTableAdapter = new TallerAutos.Taller_PAVDataSet3TableAdapters.RolesTableAdapter();
             this.panelTop = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmpleados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet4)).BeginInit();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -346,10 +343,6 @@
             this.dataGridEmpleados.TabIndex = 0;
             this.dataGridEmpleados.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridEmpleados_CellClick);
             // 
-            // taller_PAVDataSet4
-            // 
-            this.taller_PAVDataSet4.DataSetName = "Taller_PAVDataSet4";
-            this.taller_PAVDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnNuevo
             // 
@@ -527,9 +520,7 @@
             this.lblPassword.Text = "Contraseña (*)";
             // 
             // rolesTableAdapter
-            // 
-            this.rolesTableAdapter.ClearBeforeFill = true;
-            // 
+            //             // 
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
@@ -609,7 +600,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmEmpleados_FormClosed);
             this.Load += new System.EventHandler(this.FrmEmpleados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmpleados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.taller_PAVDataSet4)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -655,8 +645,6 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPassword;
-        private Taller_PAVDataSet3TableAdapters.RolesTableAdapter rolesTableAdapter;
-        private Taller_PAVDataSet4 taller_PAVDataSet4;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox btnCerrar;

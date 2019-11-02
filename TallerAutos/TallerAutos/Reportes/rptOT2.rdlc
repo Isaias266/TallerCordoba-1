@@ -45,6 +45,10 @@
           <DataField>fechaAlta</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="nomCliente">
+          <DataField>nomCliente</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsRptOT</rd:DataSetName>
@@ -366,21 +370,21 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="nombre">
+                        <Textbox Name="nomCliente">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!nombre.Value</Value>
+                                  <Value>=Fields!nomCliente.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>nombre</rd:DefaultName>
+                          <rd:DefaultName>nomCliente</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -392,6 +396,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -989,7 +994,7 @@
             <Top>1.37266cm</Top>
             <Left>0.76412cm</Left>
             <Height>2.4cm</Height>
-            <Width>16.33583cm</Width>
+            <Width>16.33584cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

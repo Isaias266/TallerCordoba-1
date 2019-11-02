@@ -1,21 +1,21 @@
 ﻿Cambios esteticos.
 
-Hacer ABM de órdenes. 
+Hacer ABM de órdenes. //Hecho
 
-Si intentas cambiar el DNI de un cliente no se cambia.
+Si intentas cambiar el DNI de un cliente no se cambia.//Solucionado
 
-Cuando se entra al detalle de un cliente y se pone volver se rompe (a veces si, a veces no, ni idea que flashea).
+Cuando se entra al detalle de un cliente y se pone volver se rompe (a veces si, a veces no, ni idea que flashea). //No pasa más, hecho.
 
-Una vez actualizado algun dato de un cliente (editar) no se actualiza la grilla.
+Una vez actualizado algun dato de un cliente (editar) no se actualiza la grilla. //Resuelto.
 
-Esta mal el taborder de editar,nuevo,detalle en cliente.
+Esta mal el taborder de editar,nuevo,detalle en cliente. //El amarillo es un pelotudo que no lo pudo solucionar, ya esta hecho.
 
-Verificar y validar que en los inputs que solo se deben ingresar numeros realmente se ingresen solo numeros.
+Verificar y validar que en los inputs que solo se deben ingresar numeros realmente se ingresen solo numeros. //In process.
 
 IMPORTANTES:
 
-En crearOT, no deberia ser un combo para seleccionar cliente. Deberia abrir el formulario de consultar cliente.
+En crearOT, no deberia ser un combo para seleccionar cliente. Deberia abrir el formulario de consultar cliente. //Hecho
 
 Agregar campo borrado a tabla y consultas en el codigo Ordenes.
 
-Tira una alta excepción al intentar agregar un trabajo en crearOT.
+Tira una alta excepción al intentar agregar un trabajo en crearOT.//Hecho
