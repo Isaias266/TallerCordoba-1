@@ -84,7 +84,6 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
-
             // 
             // dgvOrdenes
             // 
@@ -169,6 +168,7 @@
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(121, 20);
             this.txtDNI.TabIndex = 6;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdOrden_KeyPress);
             // 
             // txtIdOrden
             // 
@@ -179,6 +179,7 @@
             this.txtIdOrden.Name = "txtIdOrden";
             this.txtIdOrden.Size = new System.Drawing.Size(121, 20);
             this.txtIdOrden.TabIndex = 4;
+            this.txtIdOrden.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIdOrden_KeyPress);
             // 
             // txtPatente
             // 
@@ -363,6 +364,7 @@
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsultaOrden";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Órdenes";

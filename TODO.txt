@@ -11,6 +11,13 @@ Una vez actualizado algun dato de un cliente (editar) no se actualiza la grilla.
 Esta mal el taborder de editar,nuevo,detalle en cliente. //El amarillo es un pelotudo que no lo pudo solucionar, ya esta hecho.
 
 Verificar y validar que en los inputs que solo se deben ingresar numeros realmente se ingresen solo numeros. //In process.
+frm Resueltos: frmClientes, frmABMCliente, frmEmpleados, frmCrearOrden, frmConsultaOrden, frmDetallesOT
+, frmConsultaRepuestos, frmABMRepuestos.
+
+
+Se podrían limitar los caracteres de los txts para evitar errores en la BD.
+
+
 
 IMPORTANTES:
 

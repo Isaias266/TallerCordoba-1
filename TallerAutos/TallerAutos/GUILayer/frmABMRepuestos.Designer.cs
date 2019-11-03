@@ -168,6 +168,7 @@
             this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.ForeColor = System.Drawing.Color.White;
             this.txtNombre.Location = new System.Drawing.Point(190, 102);
+            this.txtNombre.MaxLength = 40;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(159, 22);
             this.txtNombre.TabIndex = 2;
@@ -214,6 +215,7 @@
             this.txtFabricante.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFabricante.ForeColor = System.Drawing.Color.Transparent;
             this.txtFabricante.Location = new System.Drawing.Point(190, 213);
+            this.txtFabricante.MaxLength = 50;
             this.txtFabricante.Name = "txtFabricante";
             this.txtFabricante.Size = new System.Drawing.Size(159, 22);
             this.txtFabricante.TabIndex = 5;
@@ -236,6 +238,7 @@
             this.txtDescripcion.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.txtDescripcion.ForeColor = System.Drawing.Color.White;
             this.txtDescripcion.Location = new System.Drawing.Point(427, 104);
+            this.txtDescripcion.MaxLength = 50;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(345, 207);
             this.txtDescripcion.TabIndex = 8;

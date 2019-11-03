@@ -229,5 +229,21 @@ namespace TallerAutos.GUILayer
         {
 
         }
+
+        private void TxtCodRepuesto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar)) //Al pulsar un número
+            {
+                e.Handled = false; //Se acepta
+            }
+            else if (Char.IsControl(e.KeyChar)) //Teclas especial como borrar
+            {
+                e.Handled = false; //Se acepta
+            }
+            else //Para todas las demas teclas
+            {
+                e.Handled = true; //No se acepta
+            }
+        }
     }
 }

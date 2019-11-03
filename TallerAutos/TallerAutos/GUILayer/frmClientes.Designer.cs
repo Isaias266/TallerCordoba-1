@@ -66,6 +66,7 @@
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(159, 22);
             this.txtDNI.TabIndex = 3;
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtDNI_KeyPress);
             // 
             // txtNombre
             // 
@@ -145,7 +146,6 @@
             this.dataGridClientes.Size = new System.Drawing.Size(364, 156);
             this.dataGridClientes.TabIndex = 26;
             this.dataGridClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridClientes_CellClick);
-           
             // 
             // btnConsultar
             // 

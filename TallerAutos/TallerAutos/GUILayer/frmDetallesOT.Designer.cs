@@ -172,6 +172,7 @@
             this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
             this.txtDescripcion.ForeColor = System.Drawing.Color.Transparent;
             this.txtDescripcion.Location = new System.Drawing.Point(136, 106);
+            this.txtDescripcion.MaxLength = 90;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(481, 20);
             this.txtDescripcion.TabIndex = 1;
@@ -307,6 +308,7 @@
             this.Controls.Add(this.lblTrabajos);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDetallesOT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmDetallesOT";

@@ -102,30 +102,6 @@ namespace TallerAutos.GUILayer
             dataGridEmpleados.Enabled = false;
         }
 
-        private void DataGridEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var empleado = (Empleado) dataGridEmpleados.CurrentRow.DataBoundItem;
-            txtLegajo.Text = empleado.Legajo.ToString();
-            txtNombre.Text = empleado.Nombre.ToString();
-            txtApellido.Text = empleado.Apellido.ToString();
-            if (!string.IsNullOrEmpty(empleado.Domicilio))
-                txtDomicilio.Text = empleado.Domicilio.ToString();
-            if (!string.IsNullOrEmpty(empleado.Telefono))
-                txtTelefono.Text = empleado.Telefono.ToString();
-            if (!string.IsNullOrEmpty(empleado.Celular))
-                txtCelular.Text = empleado.Celular.ToString();
-            if (!(empleado.FechaNacim == default(DateTime)))
-                dateNac.Text = empleado.FechaNacim.ToString();
-            dateAlta.Text = empleado.FechaAlta.ToString();
-            cboRol.Text = empleado.Rol.Nombre.ToString();
-            cboSexo.Text = empleado.Sexo.Nombre.ToString();
-            txtUsuario.Text = empleado.Usuario.ToString();
-            if (!nuevo_editar)
-                txtPassword.Text = empleado.Password.ToString();
-                        
-        }
-        
-
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             dataGridEmpleados.Enabled = true;
@@ -283,7 +259,7 @@ namespace TallerAutos.GUILayer
         private void InitializeDataGridView()
         {
             // Cantidad columnas y las hago visibles.
-            dataGridEmpleados.ColumnCount = 11;
+            dataGridEmpleados.ColumnCount = 6;
             dataGridEmpleados.ColumnHeadersVisible = true;
 
             // Configurp la AutoGenerateColumns en false para que no se autogeneren las columnas
@@ -304,26 +280,12 @@ namespace TallerAutos.GUILayer
             dataGridEmpleados.Columns[3].Name = "Rol";
             dataGridEmpleados.Columns[3].DataPropertyName = "Rol";
 
-            dataGridEmpleados.Columns[4].Name = "Fecha Nacimiento";
-            dataGridEmpleados.Columns[4].DataPropertyName = "fechaNacim";
+            dataGridEmpleados.Columns[4].Name = "Sexo";
+            dataGridEmpleados.Columns[4].DataPropertyName = "Sexo";
 
-            dataGridEmpleados.Columns[5].Name = "Domicilio";
-            dataGridEmpleados.Columns[5].DataPropertyName = "domicilio";
+            dataGridEmpleados.Columns[5].Name = "Usuario";
+            dataGridEmpleados.Columns[5].DataPropertyName = "usuario";
 
-            dataGridEmpleados.Columns[6].Name = "Teléfono";
-            dataGridEmpleados.Columns[6].DataPropertyName = "telefono";
-
-            dataGridEmpleados.Columns[7].Name = "Celular";
-            dataGridEmpleados.Columns[7].DataPropertyName = "celular";
-
-            dataGridEmpleados.Columns[8].Name = "Sexo";
-            dataGridEmpleados.Columns[8].DataPropertyName = "Sexo";
-
-            dataGridEmpleados.Columns[9].Name = "Usuario";
-            dataGridEmpleados.Columns[9].DataPropertyName = "usuario";
-
-            dataGridEmpleados.Columns[10].Name = "Fecha Alta";
-            dataGridEmpleados.Columns[10].DataPropertyName = "fechaAlta";
 
             // Cambia el tamaño de la altura de los encabezados de columna.
            /* dataGridEmpleados.AutoResizeColumnHeadersHeight();
@@ -342,49 +304,42 @@ namespace TallerAutos.GUILayer
             
         }
 
-        private void TxtDomicilio_TextChanged(object sender, EventArgs e)
+        private void TxtCelular_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (Char.IsNumber(e.KeyChar)) //Al pulsar un número
+            {
+                e.Handled = false; //Se acepta
+            }
+            else if (Char.IsControl(e.KeyChar)) //Teclas especial como borrar
+            {
+                e.Handled = false; //Se acepta
+            }
+            else //Para todas las demas teclas
+            {
+                e.Handled = true; //No se acepta
+            }
         }
 
-        private void TxtLegajo_TextChanged(object sender, EventArgs e)
+        private void DataGridEmpleados_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void TxtCelular_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtTelefono_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TxtApellido_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CboRol_EnabledChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void FrmEmpleados_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
+            var empleado = (Empleado)dataGridEmpleados.CurrentRow.DataBoundItem;
+            txtLegajo.Text = empleado.Legajo.ToString();
+            txtNombre.Text = empleado.Nombre.ToString();
+            txtApellido.Text = empleado.Apellido.ToString();
+            if (!string.IsNullOrEmpty(empleado.Domicilio))
+                txtDomicilio.Text = empleado.Domicilio.ToString();
+            if (!string.IsNullOrEmpty(empleado.Telefono))
+                txtTelefono.Text = empleado.Telefono.ToString();
+            if (!string.IsNullOrEmpty(empleado.Celular))
+                txtCelular.Text = empleado.Celular.ToString();
+            if (!(empleado.FechaNacim == default(DateTime)))
+                dateNac.Text = empleado.FechaNacim.ToString();
+            dateAlta.Text = empleado.FechaAlta.ToString();
+            cboRol.Text = empleado.Rol.Nombre.ToString();
+            cboSexo.Text = empleado.Sexo.Nombre.ToString();
+            txtUsuario.Text = empleado.Usuario.ToString();
+            if (!nuevo_editar)
+                txtPassword.Text = empleado.Password.ToString();
         }
     }
 }

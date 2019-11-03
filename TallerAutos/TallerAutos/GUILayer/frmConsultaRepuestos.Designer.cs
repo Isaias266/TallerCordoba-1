@@ -113,6 +113,7 @@
             this.txtCodRepuesto.Name = "txtCodRepuesto";
             this.txtCodRepuesto.Size = new System.Drawing.Size(159, 22);
             this.txtCodRepuesto.TabIndex = 1;
+            this.txtCodRepuesto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodRepuesto_KeyPress);
             // 
             // chkTodos
             // 
