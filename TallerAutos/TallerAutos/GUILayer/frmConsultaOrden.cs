@@ -198,6 +198,24 @@ namespace TallerAutos.GUILayer
                 e.Handled = true; //No se acepta
             }
         }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            if(dgvOrdenes.CurrentRow != null)
+            {
+                OrdenTrabajo otE = (OrdenTrabajo)dgvOrdenes.CurrentRow.DataBoundItem;
+                ot.EliminarOT(otE);
+                IList<OrdenTrabajo> listaOT = ot.ConsultarOT("");
+                dgvOrdenes.DataSource = listaOT;
+                MessageBox.Show("La orden de trabajo número " + otE.CodOrden + "se ha eliminado con exito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Primero debe seleccionar una orden a eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
     }
     
 }

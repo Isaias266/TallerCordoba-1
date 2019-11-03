@@ -9,6 +9,11 @@ namespace TallerAutos.BusinessLayer
     {
         private OrdenTrabajoDao oOTDao = new OrdenTrabajoDao();
 
+
+        public void EliminarOT(OrdenTrabajo ot)
+        {
+            oOTDao.EliminarOT(ot);
+        }
         public IList<OrdenTrabajo> ConsultarOT(string condiciones)
         {
             return oOTDao.ConsultarOT(condiciones);

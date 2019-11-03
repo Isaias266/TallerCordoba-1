@@ -370,7 +370,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmConsultaRepuestos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmABMCRepuestos";
+            this.Text = "DKT - Repuestos";
             this.Load += new System.EventHandler(this.FrmABMCRepuestos_Load);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();

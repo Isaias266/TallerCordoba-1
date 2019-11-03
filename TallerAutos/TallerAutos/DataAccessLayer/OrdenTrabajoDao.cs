@@ -32,7 +32,7 @@ namespace TallerAutos.DataAccessLayer
                                    "FROM Ordenes O FULL JOIN Estados E ON (O.codEstado = E.codEstado) " +
                                    "FULL JOIN FormasPago FP ON (O.formaPago = FP.codFormaPago) " +
                                    "JOIN Clientes C ON (O.dniCliente = C.dni) " +
-                                   "WHERE 1=1 ";
+                                   "WHERE O.borrado = 0 ";
 
             strSql += condicionesSql;
             strSql += " ORDER BY O.fechaAlta DESC";
@@ -46,6 +46,17 @@ namespace TallerAutos.DataAccessLayer
 
             return listaOT;
         }
+
+        //Unicamente se pone en borrado el campo e la tabla ordenes, los detalles y los rXT permancerán aunque no podrán ser accedidos desde
+        //el programa.
+        public void EliminarOT(OrdenTrabajo ot)
+        {
+            string Esql = "UPDATE Ordenes set borrado = 1 " +
+                          "WHERE codOrden = " + ot.CodOrden;
+
+            otDB.Insertar(Esql);
+        }
+
 
         //Hace un update de la ot e inserta los nuevos trabajos, sin tener en cuenta los anteriores que ya estaban insertados.
         public bool Update(OrdenTrabajo ot, int indice)

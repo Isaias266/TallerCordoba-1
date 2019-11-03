@@ -48,12 +48,12 @@ namespace TallerAutos.GUILayer
 
         private void BtnEmpleados_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Hide();
             frmEmpleados frE = new frmEmpleados();
             //Adjunto el evento del frE al evento que creo en este FORM
             frE.FormClosing += frmEmpleados_FormClosing;
 
-            frE.Visible = true;
+            frE.Show();
         }
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
@@ -190,9 +190,5 @@ namespace TallerAutos.GUILayer
             
         }
 
-        private void PanelTop_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

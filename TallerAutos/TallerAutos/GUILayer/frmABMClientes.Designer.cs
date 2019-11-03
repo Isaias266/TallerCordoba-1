@@ -49,7 +49,6 @@
             this.lblSexo = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.MaskedTextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblDNI = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
@@ -75,6 +74,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnVehiculos = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.tabFrmCliente.SuspendLayout();
             this.tabCliente.SuspendLayout();
             this.tabVehiculos.SuspendLayout();
@@ -99,6 +99,7 @@
             // tabCliente
             // 
             this.tabCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.tabCliente.Controls.Add(this.txtApellido);
             this.tabCliente.Controls.Add(this.btnAceptarInfo);
             this.tabCliente.Controls.Add(this.dtpFechaNac);
             this.tabCliente.Controls.Add(this.label1);
@@ -114,7 +115,6 @@
             this.tabCliente.Controls.Add(this.lblSexo);
             this.tabCliente.Controls.Add(this.lblApellido);
             this.tabCliente.Controls.Add(this.txtEmail);
-            this.tabCliente.Controls.Add(this.txtApellido);
             this.tabCliente.Controls.Add(this.lblEmail);
             this.tabCliente.Controls.Add(this.lblDNI);
             this.tabCliente.Controls.Add(this.txtDNI);
@@ -145,7 +145,9 @@
             // 
             // dtpFechaNac
             // 
-            this.dtpFechaNac.Location = new System.Drawing.Point(439, 141);
+            this.dtpFechaNac.CalendarFont = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNac.Location = new System.Drawing.Point(439, 139);
             this.dtpFechaNac.Name = "dtpFechaNac";
             this.dtpFechaNac.Size = new System.Drawing.Size(192, 22);
             this.dtpFechaNac.TabIndex = 7;
@@ -164,6 +166,7 @@
             // txtCel
             // 
             this.txtCel.Location = new System.Drawing.Point(439, 110);
+            this.txtCel.MaxLength = 50;
             this.txtCel.Name = "txtCel";
             this.txtCel.Size = new System.Drawing.Size(192, 22);
             this.txtCel.TabIndex = 6;
@@ -172,6 +175,7 @@
             // txtTel
             // 
             this.txtTel.Location = new System.Drawing.Point(439, 79);
+            this.txtTel.MaxLength = 50;
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(192, 22);
             this.txtTel.TabIndex = 5;
@@ -180,6 +184,7 @@
             // txtDomicilio
             // 
             this.txtDomicilio.Location = new System.Drawing.Point(124, 203);
+            this.txtDomicilio.MaxLength = 50;
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(192, 22);
             this.txtDomicilio.TabIndex = 4;
@@ -220,6 +225,7 @@
             // txtNom
             // 
             this.txtNom.Location = new System.Drawing.Point(124, 110);
+            this.txtNom.MaxLength = 50;
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(192, 22);
             this.txtNom.TabIndex = 1;
@@ -268,16 +274,10 @@
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(124, 172);
+            this.txtEmail.MaxLength = 50;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(192, 22);
             this.txtEmail.TabIndex = 3;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(124, 141);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(192, 22);
-            this.txtApellido.TabIndex = 2;
             // 
             // lblEmail
             // 
@@ -637,6 +637,14 @@
             this.btnInfo.UseVisualStyleBackColor = false;
             this.btnInfo.Click += new System.EventHandler(this.BtnInfo_Click);
             // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(124, 141);
+            this.txtApellido.MaxLength = 50;
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(192, 22);
+            this.txtApellido.TabIndex = 67;
+            // 
             // frmABMClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -650,7 +658,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmABMClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmABMClientes";
+            this.Text = "DKT - Clientes";
             this.Load += new System.EventHandler(this.FrmABMClientes_Load);
             this.tabFrmCliente.ResumeLayout(false);
             this.tabCliente.ResumeLayout(false);
@@ -687,7 +695,6 @@
         internal System.Windows.Forms.Label lblSexo;
         internal System.Windows.Forms.Label lblApellido;
         internal System.Windows.Forms.TextBox txtEmail;
-        internal System.Windows.Forms.MaskedTextBox txtApellido;
         internal System.Windows.Forms.Label lblEmail;
         internal System.Windows.Forms.Label lblDNI;
         internal System.Windows.Forms.TextBox txtDNI;
@@ -714,5 +721,6 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnCancelarVeh;
         private System.Windows.Forms.DataGridView dgvVehiculos;
+        internal System.Windows.Forms.TextBox txtApellido;
     }
 }
