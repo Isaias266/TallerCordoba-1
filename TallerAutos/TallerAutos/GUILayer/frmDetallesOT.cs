@@ -251,9 +251,6 @@ namespace TallerAutos.GUILayer
                 if (formMode == FormMode.update) frmPadre.EliminarTrabajo(trabajoEdicion);
                 
                 frmPadre.CargarTrabajo(oDOT);
-                
-                
-
                 this.Close();
             }
             else
@@ -304,8 +301,6 @@ namespace TallerAutos.GUILayer
         {
             this.Close();
         }
-
     }
-    
 }
  

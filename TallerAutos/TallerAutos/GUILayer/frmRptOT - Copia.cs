@@ -20,29 +20,14 @@ namespace TallerAutos.GUILayer
 
         private void frmRptOT_Load(object sender, EventArgs e)
         {
-
-            this.reportViewer1.RefreshReport();
         }
 
         private void btnGenerar_Click_1(object sender, EventArgs e)
         {
-            
               {
                 this.oTxMesTableAdapter1.Fill(dsOTxMes1.OTxMes, this.dtpDesde.Value.ToString(), this.dtpHasta.Value.ToString());
               }
               this.reportViewer1.RefreshReport();
         }
-        
-        private void reportViewer1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
     }
 }

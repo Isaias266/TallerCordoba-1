@@ -28,20 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dsOTxMes1 = new TallerAutos.dsOTxMes();
             this.btnGenerar = new System.Windows.Forms.Button();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.lblCboAño = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dsOTxMes1 = new TallerAutos.dsOTxMes();
             this.oTxMesTableAdapter1 = new TallerAutos.dsOTxMesTableAdapters.OTxMesTableAdapter();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.dsOTxMes1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsOTxMes1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataMember = "OTxMes";
+            this.bindingSource1.DataSource = this.dsOTxMes1;
+            // 
+            // dsOTxMes1
+            // 
+            this.dsOTxMes1.DataSetName = "dsOTxMes";
+            this.dsOTxMes1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnGenerar
             // 
@@ -87,6 +97,9 @@
             // 
             // reportViewer1
             // 
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             reportDataSource1.Name = "dataSetOTxMes";
             reportDataSource1.Value = this.bindingSource1;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
@@ -97,19 +110,9 @@
             this.reportViewer1.Size = new System.Drawing.Size(765, 378);
             this.reportViewer1.TabIndex = 12;
             // 
-            // dsOTxMes1
-            // 
-            this.dsOTxMes1.DataSetName = "dsOTxMes";
-            this.dsOTxMes1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // oTxMesTableAdapter1
             // 
             this.oTxMesTableAdapter1.ClearBeforeFill = true;
-            // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataMember = "OTxMes";
-            this.bindingSource1.DataSource = this.dsOTxMes1;
             // 
             // frmRptOT
             // 
@@ -125,8 +128,8 @@
             this.Name = "frmRptOT";
             this.Text = "DKT - Reporte Mensual OT";
             this.Load += new System.EventHandler(this.frmRptOT_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dsOTxMes1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsOTxMes1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

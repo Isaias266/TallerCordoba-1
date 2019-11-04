@@ -190,5 +190,11 @@ namespace TallerAutos.GUILayer
             
         }
 
+        private void BtnListados_Click(object sender, EventArgs e)
+        {
+            frmRptRepuestosxMes frmRptRepuestosxMes = new frmRptRepuestosxMes();
+            frmRptRepuestosxMes.Show();
+            
+        }
     }
 }

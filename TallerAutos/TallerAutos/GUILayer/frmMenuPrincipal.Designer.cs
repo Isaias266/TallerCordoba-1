@@ -37,6 +37,8 @@
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.pictureLogo = new System.Windows.Forms.PictureBox();
+            this.btnListados = new System.Windows.Forms.Button();
             this.btnRepuestos = new System.Windows.Forms.Button();
             this.picBoy = new System.Windows.Forms.PictureBox();
             this.picGirl = new System.Windows.Forms.PictureBox();
@@ -54,18 +56,16 @@
             this.btnReporte2 = new System.Windows.Forms.Button();
             this.btnReporte1 = new System.Windows.Forms.Button();
             this.timerSubMenu = new System.Windows.Forms.Timer(this.components);
-            this.btnListados = new System.Windows.Forms.Button();
-            this.pictureLogo = new System.Windows.Forms.PictureBox();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panelMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGirl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSeparador1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSeparador2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSeparador3)).BeginInit();
             this.panelSubMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMenuClientes
@@ -177,6 +177,33 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(304, 594);
             this.panelMenu.TabIndex = 27;
+            // 
+            // pictureLogo
+            // 
+            this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
+            this.pictureLogo.Location = new System.Drawing.Point(31, 15);
+            this.pictureLogo.Name = "pictureLogo";
+            this.pictureLogo.Size = new System.Drawing.Size(233, 88);
+            this.pictureLogo.TabIndex = 27;
+            this.pictureLogo.TabStop = false;
+            // 
+            // btnListados
+            // 
+            this.btnListados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
+            this.btnListados.FlatAppearance.BorderSize = 0;
+            this.btnListados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
+            this.btnListados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListados.ForeColor = System.Drawing.Color.White;
+            this.btnListados.Image = ((System.Drawing.Image)(resources.GetObject("btnListados.Image")));
+            this.btnListados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListados.Location = new System.Drawing.Point(12, 517);
+            this.btnListados.Name = "btnListados";
+            this.btnListados.Size = new System.Drawing.Size(274, 54);
+            this.btnListados.TabIndex = 26;
+            this.btnListados.Text = "Listados";
+            this.btnListados.UseVisualStyleBackColor = false;
+            this.btnListados.Click += new System.EventHandler(this.BtnListados_Click);
             // 
             // btnRepuestos
             // 
@@ -397,32 +424,6 @@
             this.timerSubMenu.Interval = 15000;
             this.timerSubMenu.Tick += new System.EventHandler(this.TimerSubMenu_Tick);
             // 
-            // btnListados
-            // 
-            this.btnListados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(154)))), ((int)(((byte)(187)))));
-            this.btnListados.FlatAppearance.BorderSize = 0;
-            this.btnListados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(61)))), ((int)(((byte)(62)))));
-            this.btnListados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListados.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListados.ForeColor = System.Drawing.Color.White;
-            this.btnListados.Image = ((System.Drawing.Image)(resources.GetObject("btnListados.Image")));
-            this.btnListados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListados.Location = new System.Drawing.Point(12, 517);
-            this.btnListados.Name = "btnListados";
-            this.btnListados.Size = new System.Drawing.Size(274, 54);
-            this.btnListados.TabIndex = 26;
-            this.btnListados.Text = "Listados";
-            this.btnListados.UseVisualStyleBackColor = false;
-            // 
-            // pictureLogo
-            // 
-            this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
-            this.pictureLogo.Location = new System.Drawing.Point(31, 15);
-            this.pictureLogo.Name = "pictureLogo";
-            this.pictureLogo.Size = new System.Drawing.Size(233, 88);
-            this.pictureLogo.TabIndex = 27;
-            this.pictureLogo.TabStop = false;
-            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,13 +452,13 @@
             this.panelTop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panelMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGirl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSeparador1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSeparador2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSeparador3)).EndInit();
             this.panelSubMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
