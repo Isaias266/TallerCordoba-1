@@ -18,7 +18,7 @@ namespace TallerAutos
         {
             // VARIABLE DEBUG PARA SALTEAR LOGIN AL EJECUTAR Y FACILITAR PRUEBAS
             //No se utiliza por el momento.
-            bool DEBUG = false;
+            bool DEBUG = true;
 
 
             Application.EnableVisualStyles();

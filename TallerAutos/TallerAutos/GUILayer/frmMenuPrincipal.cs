@@ -83,10 +83,10 @@ namespace TallerAutos.GUILayer
         private void BtnReportes_Click(object sender, EventArgs e)
         {
             //AbrirSubMenu();
-            //frmRptOT frmRep = new frmRptOT();
-            //frmRep.ShowDialog();
-           // btnReporte2.Visible = true;
-           // btnReporte1.Visible = true;
+            frmRptOT frmRep = new frmRptOT();
+            frmRep.ShowDialog();
+            //btnReporte2.Visible = true;
+            //btnReporte1.Visible = true;
         }
 
         private void AbrirSubMenu()

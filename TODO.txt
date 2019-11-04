@@ -25,4 +25,15 @@ En crearOT, no deberia ser un combo para seleccionar cliente. Deberia abrir el f
 
 Agregar campo borrado a tabla y consultas en el codigo Ordenes.
 
+<<<<<<< Updated upstream
 Tira una alta excepción al intentar agregar un trabajo en crearOT.//Hecho
+=======
+Que el combo Modelos (en agregar vehículo) muestre solo los modelos de esa marca.
+
+Tira una alta excepción al intentar agregar un trabajo en crearOT.
+
+---Reportes---
+
+Agregar uno con fecha desde- hasta
+Otro con agrupamiento
+>>>>>>> Stashed changes
