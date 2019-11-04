@@ -1,4 +1,4 @@
-﻿namespace TallerAutos.GUILayer.Formularios_de_Reportes
+﻿namespace TallerAutos.GUILayer
 {
     partial class frmRptOTxM
     {
@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRptOTxM));
             this.dataTableOTsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dsRptOT1 = new TallerAutos.dsRptOT();
             this.btnGenerar = new System.Windows.Forms.Button();
@@ -126,8 +127,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.btnGenerar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRptOTxM";
-            this.Text = "frmRptOTxMc";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "DKT - Reportes OT por Marcas";
             this.Load += new System.EventHandler(this.frmRptOTxM_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataTableOTsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsRptOT1)).EndInit();

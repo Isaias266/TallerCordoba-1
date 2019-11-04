@@ -266,7 +266,22 @@ namespace TallerAutos.GUILayer
             lblError.Visible = false;
         }
 
-        private void DgvTrabajos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public List<Repuesto> getListaRepuestos()
+        {
+            return listaRepuestos;
+        }
+
+        public List<int> getCantidadRepuestos()
+        {
+            return listaCantidades;
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void DgvRepuestos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (formMode == FormMode.detail) ; //No hago nada
             else
@@ -285,21 +300,6 @@ namespace TallerAutos.GUILayer
                     }
                 }
             }
-        }
-
-        public List<Repuesto> getListaRepuestos()
-        {
-            return listaRepuestos;
-        }
-
-        public List<int> getCantidadRepuestos()
-        {
-            return listaCantidades;
-        }
-
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

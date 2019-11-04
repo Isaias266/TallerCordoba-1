@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace TallerAutos.GUILayer
 {
-    public partial class frmLstClientes : Form
+    public partial class frmLstVehiculos : Form
     {
-        public frmLstClientes()
+        public frmLstVehiculos()
         {
             InitializeComponent();
         }
 
-        private void frmLstClientes_Load(object sender, EventArgs e)
+        private void frmLstVehiculos_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'dsRptOT.Clientes' Puede moverla o quitarla según sea necesario.
-            this.clientesTableAdapter.Fill(this.dsRptOT.Clientes);
+            // TODO: esta línea de código carga datos en la tabla 'dsRptOT.Vehiculos' Puede moverla o quitarla según sea necesario.
+            this.vehiculosTableAdapter.Fill(this.dsRptOT.Vehiculos);
 
             this.reportViewer1.RefreshReport();
         }

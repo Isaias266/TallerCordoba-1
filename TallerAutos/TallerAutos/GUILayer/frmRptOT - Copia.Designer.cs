@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRptOT));
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.dsOTxMes1 = new TallerAutos.dsOTxMes();
             this.btnGenerar = new System.Windows.Forms.Button();
@@ -125,7 +126,9 @@
             this.Controls.Add(this.lblCboAño);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnGenerar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRptOT";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DKT - Reporte Mensual OT";
             this.Load += new System.EventHandler(this.frmRptOT_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();

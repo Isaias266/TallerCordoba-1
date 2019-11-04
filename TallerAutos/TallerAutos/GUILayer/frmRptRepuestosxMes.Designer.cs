@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRptRepuestosxMes));
             this.bindingRepxMes = new System.Windows.Forms.BindingSource(this.components);
             this.dsRptOT1 = new TallerAutos.dsRptOT();
             this.btnGenerar = new System.Windows.Forms.Button();
@@ -128,7 +129,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboMes);
             this.Controls.Add(this.btnGenerar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRptRepuestosxMes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de Repuestos";
             this.Load += new System.EventHandler(this.frmRptRepuestosxMes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingRepxMes)).EndInit();

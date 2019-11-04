@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TallerAutos.GUILayer.Formularios_de_Reportes
+namespace TallerAutos.GUILayer
 {
     public partial class frmRptOTxM : Form
     {

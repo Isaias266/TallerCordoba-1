@@ -174,11 +174,29 @@
     <Compile Include="GUILayer\frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\frmLstClientes - Copia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmLstClientes - Copia.Designer.cs">
+      <DependentUpon>frmLstClientes - Copia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmLstEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmLstEmpleados.Designer.cs">
+      <DependentUpon>frmLstEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\frmLstRepuestos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\frmLstRepuestos.Designer.cs">
       <DependentUpon>frmLstRepuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmLstVehiculos - Copia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmLstVehiculos - Copia.Designer.cs">
+      <DependentUpon>frmLstVehiculos - Copia.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILayer\frmMenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -192,11 +210,23 @@
     <Compile Include="GUILayer\frmRptOT - Copia.Designer.cs">
       <DependentUpon>frmRptOT - Copia.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUILayer\frmRptOTxEmp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmRptOTxEmp.Designer.cs">
+      <DependentUpon>frmRptOTxEmp.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILayer\frmRptOTxM - Copia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUILayer\frmRptOTxM - Copia.Designer.cs">
       <DependentUpon>frmRptOTxM - Copia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUILayer\frmRptRepuestosxMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUILayer\frmRptRepuestosxMes.Designer.cs">
+      <DependentUpon>frmRptRepuestosxMes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -231,8 +261,17 @@
     <EmbeddedResource Include="GUILayer\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmLstClientes - Copia.resx">
+      <DependentUpon>frmLstClientes - Copia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmLstEmpleados.resx">
+      <DependentUpon>frmLstEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmLstRepuestos.resx">
       <DependentUpon>frmLstRepuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmLstVehiculos - Copia.resx">
+      <DependentUpon>frmLstVehiculos - Copia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
@@ -241,8 +280,14 @@
     <EmbeddedResource Include="GUILayer\frmRptOT - Copia.resx">
       <DependentUpon>frmRptOT - Copia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmRptOTxEmp.resx">
+      <DependentUpon>frmRptOTxEmp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUILayer\frmRptOTxM - Copia.resx">
       <DependentUpon>frmRptOTxM - Copia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUILayer\frmRptRepuestosxMes.resx">
+      <DependentUpon>frmRptRepuestosxMes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -254,9 +299,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\lstClientes.rdlc" />
+    <EmbeddedResource Include="Reportes\lstEmpleados.rdlc" />
     <EmbeddedResource Include="Reportes\lstRepuestos.rdlc" />
+    <EmbeddedResource Include="Reportes\lstVehiculosReparados.rdlc" />
     <EmbeddedResource Include="Reportes\rptOT2.rdlc" />
     <EmbeddedResource Include="Reportes\rptOTxMc.rdlc" />
+    <EmbeddedResource Include="Reportes\rptRepxMes.rdlc" />
+    <EmbeddedResource Include="Reportes\rptTrabajosxEmpleado.rdlc" />
     <None Include="dsOTxMes.xsc">
       <DependentUpon>dsOTxMes.xsd</DependentUpon>
     </None>

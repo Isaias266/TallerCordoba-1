@@ -31,12 +31,12 @@ namespace TallerAutos.GUILayer
 
         private void PictureCerrar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
 
         internal void SeleccionarRepuesto(FormMode modo, Repuesto repuestoSel)
@@ -70,6 +70,7 @@ namespace TallerAutos.GUILayer
                     {
                         this.Text = "Cargar repuesto";
                         Habilitar(true);
+                        cboModelo.Enabled = false;
                         break;
                     }
 
@@ -137,6 +138,7 @@ namespace TallerAutos.GUILayer
                             MessageBox.Show("Repuesto cargado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                             this.repuestoSeleccionado = oRepuesto;
+                            this.Close();
                         }
                         else
                         {
@@ -153,7 +155,7 @@ namespace TallerAutos.GUILayer
                             oRepuestoService.ActualizarRepuesto(repuestoSeleccionado);
 
                             MessageBox.Show("Repuesto actualizado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Dispose();
+                            this.Close();
 
                         }
                         else
@@ -202,5 +204,13 @@ namespace TallerAutos.GUILayer
                 e.Handled = true; //No se acepta
             }
         }
+
+        private void CboMarca_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            cboModelo.Enabled = true;
+            LlenarCombo(cboModelo, oModeloService.ConsultarModelos(" AND M.codMarca = " + cboMarca.SelectedValue), "nombre", "codModelo");
+            cboModelo.SelectedIndex = 0;
+        }
+
     }
 }

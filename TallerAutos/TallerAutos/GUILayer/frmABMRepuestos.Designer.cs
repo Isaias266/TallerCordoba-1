@@ -116,6 +116,7 @@
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(159, 25);
             this.cboMarca.TabIndex = 3;
+            this.cboMarca.SelectionChangeCommitted += new System.EventHandler(this.CboMarca_SelectionChangeCommitted);
             // 
             // lblCodRepuesto
             // 
@@ -262,6 +263,11 @@
             this.nudStock.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.nudStock.ForeColor = System.Drawing.Color.White;
             this.nudStock.Location = new System.Drawing.Point(190, 251);
+            this.nudStock.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudStock.Name = "nudStock";
             this.nudStock.Size = new System.Drawing.Size(159, 22);
             this.nudStock.TabIndex = 6;

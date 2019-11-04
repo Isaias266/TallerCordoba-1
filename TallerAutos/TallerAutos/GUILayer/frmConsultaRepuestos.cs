@@ -162,31 +162,49 @@ namespace TallerAutos.GUILayer
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             frmABMRepuestos ABMRep = new frmABMRepuestos();
-            ABMRep.ShowDialog();
+            ABMRep.FormClosing += frmRepuestosABM_FormClosing;
+            ABMRep.Show();
+            this.Hide();
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            Repuesto selected = (Repuesto)dataGridRepuestos.CurrentRow.DataBoundItem;
-
-            frmABMRepuestos ABMRep = new frmABMRepuestos();
-            ABMRep.SeleccionarRepuesto(frmABMRepuestos.FormMode.update, selected);
-            ABMRep.ShowDialog();
+            if (dataGridRepuestos.CurrentRow != null)
+            {
+                Repuesto selected = (Repuesto)dataGridRepuestos.CurrentRow.DataBoundItem;
+                frmABMRepuestos ABMRep = new frmABMRepuestos();
+                ABMRep.SeleccionarRepuesto(frmABMRepuestos.FormMode.update, selected);
+                ABMRep.FormClosing += frmRepuestosABM_FormClosing;
+                ABMRep.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Primero debe seleccionar un repuesto a editar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            Repuesto selected = (Repuesto)this.dataGridRepuestos.CurrentRow.DataBoundItem;
-
-            if (MessageBox.Show("Seguro que desea eiminar el repuesto seleccionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (dataGridRepuestos.CurrentRow != null)
             {
-                oRepuestoService.EliminarRepuesto(selected);
 
-                if (chkTodos.Checked)
+                Repuesto selected = (Repuesto)this.dataGridRepuestos.CurrentRow.DataBoundItem;
+
+                if (MessageBox.Show("Seguro que desea eiminar el repuesto seleccionado?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    this.CargarGrilla();
+                    oRepuestoService.EliminarRepuesto(selected);
+
+                    if (chkTodos.Checked)
+                    {
+                        this.CargarGrilla();
+                    }
+                    MessageBox.Show("Cliente eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                MessageBox.Show("Cliente eliminado correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Primero debe seleccionar un repuesto a eliminar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -245,5 +263,10 @@ namespace TallerAutos.GUILayer
                 e.Handled = true; //No se acepta
             }
         }
+        private void frmRepuestosABM_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
+        }
+
     }
 }

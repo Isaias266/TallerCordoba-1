@@ -28,8 +28,7 @@ namespace TallerAutos.GUILayer
             lblUser.Text = "Usuario: " + empleadoSesion.Usuario;
             lblRol.Text = "Rol: " + empleadoSesion.Rol.Nombre;
             panelSubMenu.Visible = false;
-            btnReporte2.Visible = false;
-            btnReporte1.Visible = false;
+            btnReporteOTS.Visible = false;
             btnCrearOt.Visible = false;
             btnConsultaOt.Visible = false;
 
@@ -82,11 +81,11 @@ namespace TallerAutos.GUILayer
 
         private void BtnReportes_Click(object sender, EventArgs e)
         {
-            //AbrirSubMenu();
-            frmRptOT frmRep = new frmRptOT();
-            frmRep.ShowDialog();
-            //btnReporte2.Visible = true;
-            //btnReporte1.Visible = true;
+            AbrirSubMenu();
+            this.btnReporteOTM.Visible = true;
+            this.btnReporteOTS.Visible = true;
+            this.btnReportesRM.Visible = true;
+            this.btnReporteTE.Visible = true;           
         }
 
         private void AbrirSubMenu()
@@ -94,8 +93,14 @@ namespace TallerAutos.GUILayer
             panelSubMenu.Visible = true;
             btnConsultaOt.Visible = false;
             btnCrearOt.Visible = false;
-            btnReporte1.Visible = false;
-            btnReporte2.Visible = false;
+            this.btnReporteOTM.Visible = false;
+            this.btnReporteOTS.Visible = false;
+            this.btnReportesRM.Visible = false;
+            this.btnReporteTE.Visible = false;
+            this.btnListadoClientes.Visible = false;
+            this.btnListadoEmpleados.Visible = false;
+            this.btnListadoRepuestos.Visible = false;
+            this.btnListadoVehiculos.Visible = false;
             picBoy.Location = new Point(537, 153);
             picGirl.Location = new Point(537, 153);
             lblNomApe.Location = new Point(533, 301);
@@ -113,8 +118,15 @@ namespace TallerAutos.GUILayer
             panelSubMenu.Visible = false;
             btnConsultaOt.Visible = false;
             btnCrearOt.Visible = false;
-            btnReporte1.Visible = false;
-            btnReporte2.Visible = false;
+            btnReporteOTS.Visible = false;
+            this.btnReporteOTM.Visible = false;
+            this.btnReporteOTS.Visible = false;
+            this.btnReportesRM.Visible = false;
+            this.btnReporteTE.Visible = false;
+            this.btnListadoClientes.Visible = false;
+            this.btnListadoEmpleados.Visible = false;
+            this.btnListadoRepuestos.Visible = false;
+            this.btnListadoVehiculos.Visible = false;
             picBoy.Location = new Point(537, 53);
             picGirl.Location = new Point(537, 53);
             lblNomApe.Location = new Point(533, 201);
@@ -173,6 +185,11 @@ namespace TallerAutos.GUILayer
             this.Show();
         }
 
+        private void frmReportes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
+        }
+
         private void BtnRepuestos_Click(object sender, EventArgs e)
         {
             frmConsultaRepuestos frR = new frmConsultaRepuestos(true);
@@ -192,9 +209,74 @@ namespace TallerAutos.GUILayer
 
         private void BtnListados_Click(object sender, EventArgs e)
         {
-            frmRptRepuestosxMes frmRptRepuestosxMes = new frmRptRepuestosxMes();
-            frmRptRepuestosxMes.Show();
-            
+            AbrirSubMenu();
+            this.btnListadoClientes.Visible = true;
+            this.btnListadoEmpleados.Visible = true;
+            this.btnListadoRepuestos.Visible = true;
+            this.btnListadoVehiculos.Visible = true;
+        }
+
+        private void BtnReporteOTS_Click(object sender, EventArgs e)
+        {
+            frmRptOT RPTOT = new frmRptOT();
+            RPTOT.FormClosing += frmReportes_FormClosing;
+            RPTOT.Show();
+            this.Hide();
+        }
+
+        private void BtnReporteTE_Click(object sender, EventArgs e)
+        {
+            frmRptOTxEmp RptOTE = new frmRptOTxEmp();
+            RptOTE.FormClosing += frmReportes_FormClosing;
+            RptOTE.Show();
+            this.Hide();
+        }
+
+        private void BtnReportesRM_Click(object sender, EventArgs e)
+        {
+            frmRptRepuestosxMes RptRM = new frmRptRepuestosxMes();
+            RptRM.FormClosing += frmReportes_FormClosing;
+            RptRM.Show();
+            this.Hide();
+        }
+
+        private void BtnReporteOTM_Click(object sender, EventArgs e)
+        {
+            frmRptOTxM RptOTM = new frmRptOTxM();
+            RptOTM.FormClosing += frmReportes_FormClosing;
+            RptOTM.Show();
+            this.Hide();
+        }
+        private void BtnListadoClientes_Click(object sender, EventArgs e)
+        {
+            frmLstClientes LstC = new frmLstClientes();
+            LstC.FormClosing += frmReportes_FormClosing;
+            LstC.Show();
+            this.Hide();
+        }
+
+        private void BtnListadoRepuestos_Click(object sender, EventArgs e)
+        {
+            frmLstRepuestos LstR = new frmLstRepuestos();
+            LstR.FormClosing += frmReportes_FormClosing;
+            LstR.Show();
+            this.Hide();
+        }
+
+        private void BtnListadoEmpleados_Click(object sender, EventArgs e)
+        {
+            frmLstEmpleados LstE = new frmLstEmpleados();
+            LstE.FormClosing += frmReportes_FormClosing;
+            LstE.Show();
+            this.Hide();
+        }
+
+        private void BtnListadoVehiculos_Click(object sender, EventArgs e)
+        {
+            frmLstVehiculos LstV = new frmLstVehiculos();
+            LstV.FormClosing += frmReportes_FormClosing;
+            LstV.Show();
+            this.Hide();
         }
     }
 }

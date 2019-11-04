@@ -58,7 +58,7 @@ namespace TallerAutos.GUILayer
 
             LlenarCombo(this.cboEstado, sEstado.RecuperarEstados(), "nombre", "codEstado");
             LlenarCombo(this.cboFormaPago, sFormasPago.RecuperarFormasPago(), "nombre", "codFormaPago");
-
+            this.cboFormaPago.SelectedIndex = 0;
             
             this.txtCodOrden.Enabled = false;
            
