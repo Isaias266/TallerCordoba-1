@@ -462,7 +462,7 @@
             this.txtFechaAlta.Name = "txtFechaAlta";
             this.txtFechaAlta.Size = new System.Drawing.Size(121, 22);
             this.txtFechaAlta.TabIndex = 3;
-            this.txtFechaAlta.Value = new System.DateTime(2019, 10, 19, 0, 0, 0, 0);
+            this.txtFechaAlta.Value = new System.DateTime(2019, 11, 3, 0, 0, 0, 0);
             // 
             // txtFechaCierre
             // 

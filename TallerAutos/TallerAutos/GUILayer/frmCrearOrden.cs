@@ -71,6 +71,7 @@ namespace TallerAutos.GUILayer
                         CargarDgvDetalles();
                         HabilitarTxt(true);
                         this.txtFechaAlta.Enabled = false;
+                        this.txtFechaAlta.Value = DateTime.Now;
                         this.txtFechaCierre.Enabled = false;
                         this.cboEstado.Enabled = false;
                         this.cboEstado.SelectedIndex = 1;
