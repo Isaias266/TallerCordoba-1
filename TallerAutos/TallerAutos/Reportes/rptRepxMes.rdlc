@@ -116,7 +116,7 @@
                         <Color>Gainsboro</Color>
                         <Style>None</Style>
                       </Border>
-                      <FontSize>8pt</FontSize>
+                      <FontSize>11pt</FontSize>
                       <Color>#5c5c5c</Color>
                     </Style>
                     <ChartAxisTitle>
@@ -161,6 +161,7 @@
                     <CrossAt>NaN</CrossAt>
                     <Minimum>NaN</Minimum>
                     <Maximum>NaN</Maximum>
+                    <LabelsAutoFitDisabled>true</LabelsAutoFitDisabled>
                     <ChartAxisScaleBreak>
                       <Style />
                     </ChartAxisScaleBreak>
@@ -394,8 +395,8 @@
             </ChartNoDataMessage>
             <DataSetName>dataSetRepuestosxMes</DataSetName>
             <Top>0.49953cm</Top>
-            <Height>5.15875cm</Height>
-            <Width>12.33932cm</Width>
+            <Height>8.14853cm</Height>
+            <Width>20.11807cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -406,10 +407,10 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>2.84225in</Height>
+        <Height>3.40475in</Height>
         <Style />
       </Body>
-      <Width>5.12884in</Width>
+      <Width>7.9205in</Width>
       <Page>
         <PageHeader>
           <Height>2.54cm</Height>
@@ -435,7 +436,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>1.83417cm</Top>
-              <Left>0.86995cm</Left>
+              <Left>4.25662cm</Left>
               <Height>0.70583cm</Height>
               <Width>11.46938cm</Width>
               <Style>
